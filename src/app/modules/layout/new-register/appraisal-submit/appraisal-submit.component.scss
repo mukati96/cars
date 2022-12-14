@@ -1,0 +1,58 @@
+.appraisel-thank h5 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: center;
+  color: #333333;
+}
+.appraisel-thank h6 {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 29px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #333333;
+}
+.appraisel-thank p {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 29px;
+  text-align: center;
+  color: #333333;
+  padding: 0px 27%;
+}
+.breadcrumb-item.active {
+  color: #3d75f7 !important;
+}
+.breadcrumb-item a {
+  color: #333 !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1300px) {
+  .section-height {
+    height: 82vh;
+  }
+}
+
+@media screen and (min-width: 1301px) {
+  .section-height {
+    height: 71vh;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .appraisel-thank h5 {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .appraisel-thank h6 {
+    font-size: 20px;
+    text-transform: inherit;
+    font-weight: normal;
+  }
+  .appraisel-thank p {
+    font-size: 13px;
+    line-height: 16px;
+    padding: 0px 15%;
+  }
+}

@@ -1,0 +1,289 @@
+h1 {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #242833;
+  margin: 10px 0px;
+}
+.row .col-12 .checkinputimage {
+  height: 32px;
+  width: 120px;
+  left: auto;
+  right: 48px;
+  border-radius: 5px;
+  background: black;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  position: absolute;
+  right: -1px;
+  top: 30px;
+  padding-top: 3px;
+}
+.row .col-12 .verified-check {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1px;
+}
+.row .col-12 .verifyOTP {
+  background: #41ba77;
+}
+p {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000;
+}
+h3 {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
+.form-group {
+  margin: 10px 0px;
+}
+label {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #000;
+}
+.verify {
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000;
+}
+.page-content form .form-control {
+  font-size: 12px;
+}
+.border-bottom-div {
+  border-bottom: 1px solid #cdcdcd;
+  padding: 11px 0px;
+  margin-bottom: 30px;
+}
+::ng-deep .dropbtn.btn {
+  padding: 10px 0px 0px 10px;
+}
+::ng-deep .dropbtn.btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+input.form-control:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/*image edit*/
+.avatar-upload {
+  position: relative;
+  max-width: 205px;
+  margin: 35px 0px 16px;
+}
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: 25px;
+  z-index: 1;
+  top: 10px;
+}
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+.avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.avatar-upload .avatar-edit input + label:after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 6px;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  background-image: url(/assets/icons/pen.svg);
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+}
+.avatar-upload .avatar-preview {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #f8f8f8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#profileModal button.close {
+  position: absolute;
+  right: 17px;
+  top: 17px;
+}
+::ng-deep .iti--allow-dropdown .iti__flag-container {
+  padding: 0;
+  background: #eee;
+  top: 0px;
+  bottom: -30px;
+  width: 50px;
+  height: 30px;
+  border-radius: 0.25rem;
+}
+
+::ng-deep .account input#phone {
+  border: none !important;
+  background: transparent !important;
+  // position: absolute;
+  left: 25%;
+  padding: 7px;
+  padding-top: 2px;
+}
+
+::ng-deep .iti.separate-dial-code .iti__selected-flag, .iti.separate-dial-code.iti--allow-dropdown.iti-sdc-2 .iti__selected-flag {
+  width: 50px !important;
+}
+
+::ng-deep .iti__flag.iti__us {
+  display: none !important;
+}
+
+::ng-deep .iti__arrow {
+  display: none !important;
+}
+
+.form-group.mt-md-5.mt-2.verifytext {
+  margin-top: 44px !important;
+}
+
+.verifytext a {
+  text-decoration: none !important;
+}
+
+@media screen and (max-width: 767px) {
+  .verifytext {
+    margin: -10px 0px !important;
+  }
+}
+@media screen and (max-width: 575px) {
+  .form-group.mt-md-5.mt-2.verifytext {
+    margin-top: 0 !important;
+  }
+  .border-bottom-div {
+    padding: 0px;
+    width: 145%;
+    display: flex;
+    margin: 0px -26px;
+  }
+  .responsive-border {
+    width: 100%;
+    margin: 0;
+  }
+  h1,
+  p {
+    display: none;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #111111;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #profileModal .modal-dialog-centered {
+    min-height: calc(100% - -5rem);
+  }
+}
+.email-verified-img {
+  width: 30px;
+  margin-top: 4px;
+}
+/*------------------- NGX International Phone Number CSS----------------------*/
+::ng-deep .input-group input {
+  border: none !important;
+  outline: none !important;
+}
+/*----------------- intel telephone css --------------*/
+::ng-deep .account .intl-tel-input {
+  position: relative;
+  display: block;
+}
+
+
+.cropped-img {
+  object-fit: cover;
+  width: 160px;
+  height: 160px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #f8f8f8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------ Flag Input -----------------------*/
+.iti-flag.us {
+  display: none !important;
+}
+.country-dropdown {
+  display: none !important;
+}
+::ng-deep .account .intl-tel-input .flag-container {
+  padding: 0;
+  background: #eee;
+  top: 0px;
+  bottom: -30px;
+  width: 50px;
+  border-radius: 0.25rem;
+}
+::ng-deep .account .intl-tel-input.separate-dial-code input,
+.account .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input,
+.account .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input,
+.account .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input {
+  padding-left: 59px !important;
+}
+::ng-deep .account .intl-tel-input.separate-dial-code .selected-flag,
+.account .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 .selected-flag,
+.account .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 .selected-flag,
+.account .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 .selected-flag {
+  width: 50px !important;
+}
+::ng-deep .account .intl-tel-input .selected-flag .iti-arrow {
+  display: none;
+}
+.verified-label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #000;
+  margin: 0 4px;
+}
+.verified-label img {
+  margin-top: -2px;
+  margin-left: 2px;
+}

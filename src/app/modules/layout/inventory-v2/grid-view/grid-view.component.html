@@ -1,0 +1,86 @@
+<div class="row grid_col_car">
+  <ng-container *ngIf="!fetchingData">
+    <div *ngFor="
+        let item of collection.data | paginate: config
+      " class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mb-md-4 mb-1">
+      <div [class.inventory-car-colsold]="item?.vehicle_status === 4" class="inventory-car-col">
+        <div class="inventory-car-col-img gridcursor jk">
+          <img [lazyLoad]="item?.front_image + '?tr=w-600'" alt="" class="car-img"
+            [style.pointer-events]="item?.vehicle_status == 4 ? 'none' : 'auto'" (click)="getRedirectLink(item)"
+            oncontextmenu="return true;" />
+        
+          <a class="star_img_link">
+            <img src="/assets/icons/star.svg" alt="Star" *ngIf="item.is_featured" />
+          </a>
+          <span class="book_img" *ngIf="userInfo != ''">
+            <img
+              (click)="favoriteToggle(item.id, true)"
+              *ngIf="!item.is_favorite"
+              src="../../../../assets/icons/bookmark.svg"
+              class="bookmark"
+              alt="Bookmark"
+            />
+            <img
+            *ngIf="item.is_favorite"
+              (click)="favoriteToggle(item.id, false)"
+              src="../../../../assets/icons/filled_bookmark.png"
+            alt="Bookmark"
+          />
+          </span>
+          <span class="book_img" *ngIf="userInfo == ''">
+            <img src="../../../../assets/icons/bookmark.svg" alt="Bookmark" [routerLink]="'/login'" />
+          </span>
+        </div>
+        <div class="inventory-car-col-content" [class.inventory-car-colsold]="item?.vehicle_status === 4">
+          <div class="row">
+            <div class="col-md-12 col-12" (click)="getRedirectLink(item)">
+              <h4>{{ item?.year }} | {{ item?.make }} | {{ item?.model }}</h4>
+              <span class="car-trim"> {{ item?.trim }}</span>
+            </div>
+            <div class="col-md-4 col-12 pl-md-0 pr-xl-2 pr-lg-2 text-md-right text-left d-none">
+              <p class="top-offer">
+                <span>
+                  <sup class="dollar">$</sup>{{ item?.minimum_reserve_price | number: "1.0-0" }}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row rowposition">
+          <div class="col-md-12 col-12 pl-md-2 pl-0">
+            <p class="location" *ngIf="item.state && item.city != ''">
+              {{ item?.state | titlecase }} | {{ item?.city | titlecase }}
+            </p>
+            <p class="location" *ngIf="item.city == ''">
+              {{ item?.state | titlecase }}
+            </p>
+            <p class="location" *ngIf="item.state == ''">
+              {{ item?.city | titlecase }}
+            </p>
+          </div>
+        </div>
+        <div class="soldproduct" *ngIf="item?.vehicle_status === 4"
+          [style.pointer-events]="item?.vehicle_status === 4 ? 'none' : 'auto'" (click)="getRedirectLink(item)">
+          <div class="text-center producttext">
+            SOLD
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nodata mt-5" *ngIf="!fetchingData && !collection?.data.length">
+      No Data Found
+    </div>
+  </ng-container>
+  <ng-container *ngIf="fetchingData">
+    <div *ngFor="let item of array" class="col-lg-4 col-md-4 col-sm-6">
+      <div class="skeleton-card">
+        <div class="card-img skeleton"></div>
+        <div class="card-body">
+          <h2 class="card-title skeleton"></h2>
+          <p class="card-intro skeleton"></p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

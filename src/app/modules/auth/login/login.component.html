@@ -1,0 +1,96 @@
+<section class="login-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-12 text-md-left text-left offset-md-1">
+                <h1>Welcome to POST</h1>
+                <p>Enter your details below to Login</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="login-form mb-md-0 mb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-7 col-md-9 p-md-5 pt-md-4 pt-4 m-auto text-center">
+                <h2>Account Details</h2>
+
+                <div class="form pt-4">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group mb-4">
+                            <label>Email Address</label>
+                            <input class="form-control" formControlName="email" placeholder="Enter email address"
+                                [ngClass]="{
+                                    invalid: (submitted || f.email.touched) && f.email.errors
+                                   }" type="email" (keydown)="keydown($event)" />
+                            <div class="invalid-class" *ngIf="submitted || f.email?.touched">
+                                <ng-container *ngIf="f.email?.errors?.required">Email is required</ng-container>
+                                <ng-container *ngIf="f.email?.errors?.email">Please Enter valid email address
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="form-group position-relative">
+                            <label>Password</label>
+                            <input type="text" class="form-control" placeholder="Enter your Number"
+                                formControlName="cell_phone" [ngClass]="{
+                                invalid: (submitted || f?.cell_phone?.touched) && f?.cell_phone?.errors    
+                              }" maxlength="12" appNumberOnly />
+
+                            <button type="button" class="sendOtp checkinputimage" (click)="send_Otp()"
+                                *ngIf="!otpVerified">
+                                <ng-container>{{ otpSent ? "RE-SEND " : "SEND CODE" }}</ng-container>
+                            </button>
+
+
+                            <div class="invalid-class" *ngIf="submitted || f.cell_phone?.touched">
+                                <ng-container *ngIf="f.cell_phone?.errors?.required">Cell Phone is required
+                                </ng-container>
+                                <ng-container *ngIf="f.cell_phone?.errors?.pattern">Credential is not valid
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="form-group position-relative" *ngIf="!isShow">
+                            <label>Verify Code </label>
+                            <input type="text" formControlName="otp" placeholder="Verify Code" inputmode="numeric"
+                                class="form-control" mask="00000" [ngClass]="{
+                                    invalid: (submitted || f.otp.touched) && f.otp.errors}" maxlength="6" />
+                            <button type="button" class="sendOtp checkinputimage" (click)="verifyOtps($event)"
+                                *ngIf="!otpVerified" [disabled]="!otpSent">
+                                VERIFY CODE</button>
+                            <button type="button" class="verifyOTP checkinputimage" (click)="verifyOtps($event)"
+                                *ngIf="otpVerified" [disabled]="otpVerified">
+                                <i class="far fa-check-circle verified-check" style="font-size: 18px;"></i>
+                            </button>
+                            <div class="invalid-class" *ngIf="submitted || f.otp?.touched">
+                                <ng-container *ngIf="f.otp?.errors?.required">Code is required</ng-container>
+                                <ng-container *ngIf="f.otp?.errors?.otp">Please enter valid Code </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <div class="d-block">
+                                <button type="submit" class="loginbtn" [disabled]="formSubmitting"
+                                    [disabled]="!otpVerified || loginForm.get('email')?.invalid || !loginForm.get('cell_phone')?.value">
+                                    <span class="spinner" *ngIf="formSubmitting"></span>
+                                    <ng-container *ngIf="!formSubmitting">Login</ng-container>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3 pt-md-4 text-center d-none">
+                            <div class="col-lg-12 control">
+                                <div class="noaccount">
+                                    Get your best offer
+                                    <a routerLink="/appraisal">
+                                        Sell My Car
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

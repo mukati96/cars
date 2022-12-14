@@ -1,0 +1,157 @@
+<div class="input_search">
+  <input type="text" placeholder="Search Everything" class="form-control" (keyup)="setText($event)"
+  [(ngModel)]="searchText">
+  <img src="../../../../assets/icons/dropdown.png" class="submit_arrow">
+</div>
+<form [formGroup]="filterForm">
+  <ul class="nav nav-pills nav_tab" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+          <button class="nav-link " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Distance</button>
+      </li>
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Mileage</button>
+      </li>
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Year</button>
+      </li>
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-make-tab" data-bs-toggle="pill" data-bs-target="#pills-make" type="button" role="tab" aria-controls="pills-make" aria-selected="false">Make & Model</button>
+      </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+      <!-- distance -->
+      <div class="tab-pane fade" id="pills-home" role="" aria-labelledby="pills-home-tab">
+          <label for="customRange3" class="form-label"><b>Distance</b></label>
+          <div class="min_mx">
+              <p> Zip Code</p>
+              <a class="nav-link active pr-0" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+               type="button" role="tab" aria-controls="pills-home" aria-selected="true" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop" *ngIf="!show">
+                Nationwide
+              </a>
+              <a class="city_location pr-0" *ngIf="show"  data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop" >{{stateCityValue.city}},{{stateCityValue.state_name}} </a>
+          </div>
+          <div class="min_mx"  >
+              <p> Distance</p>
+              <ng-container *ngIf="!show">All</ng-container>
+              <select class="form-selected" formControlname="radius" *ngIf="show" (change)="chooseRadius($event,'radius')">
+                <option value="" selected >All</option>
+                <option [value]="item"  [selected]="f.radius?.value == item" *ngFor="let item of miles">
+                  {{ item }} miles
+                </option>
+              </select>
+          </div>
+          <div class="clear_box">
+              <a (click)="clearFilters()" class="mr-3">Clear</a>
+              <a (click)="applyDirectionFilter()"> Apply</a>
+                </div>
+      </div>
+      <!-- milease -->
+      <div class="tab-pane fade nav_margin_mobile" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <label for="customRange3" class="form-label"><b>Mileage</b></label>
+          <div class="milage">
+              <span>
+        <input type="text" [(ngModel)]="minMileage"
+        maxlength="7"
+        (input)="onChangeMileageInputMin($event)"
+        [ngModelOptions]="{standalone: true}"
+        class="mileageInput"
+        mask="separator.0"
+        thousandSeparator=",">
+      </span> to
+              <span>
+        <input type="text"
+         #required maxlength="7"
+         [(ngModel)]="maxMileage"
+         class="mileageInput"
+         mask="separator.0"
+         thousandSeparator=","
+         (input)="onChangeMileageInputMax($event)"
+         [ngModelOptions]="{standalone: true}"
+         class="mileageInput input_width">
+         <div *ngIf="maxMileage === 150000" class="plusSign">
+          +
+        </div>
+      </span>
+          </div>
+          <div class="mileageerror_msg">{{maxErrorMsg}}</div>
+          <ngx-slider [(value)]="minMileage" [(highValue)]="maxMileage" [options]="kmOptions" #value></ngx-slider>
+          <div class="clear_box">
+              <a (click)="clearFilters()" class="mr-3">Clear</a>
+              <a (click)="onUserChangeEnd(value, 'km_driven')">Apply</a>
+          </div>
+      </div>
+      <!-- year -->
+      <div class="tab-pane fade nav_margin_mobile" id="pills-contact" role="" aria-labelledby="pills-contact-tab">
+          <label for="customRange3" class="form-label">Year</label>
+          <div class="min_mx">
+              <p> Min</p>
+              <select class="form-select" #yearMin (change)="chooseYear(yearMin.value,'year__gte') ">
+        <option value="">All</option>
+        <option [value]="item" *ngFor="let item of minYear">
+          {{ item }}
+        </option>
+      </select>
+          </div>
+          <div class="min_mx">
+              <p> Max</p>
+              <select class="form-select" #yearMax (change)="chooseYear(yearMax.value,'year__lte')">
+        <option value="" >All</option>
+        <option [value]="item" *ngFor="let item of maxYear">
+          {{ item }}
+        </option>
+      </select>
+          </div>
+          <div class="clear_box">
+              <a (click)="clearFilters()" class="mr-3">Clear</a>
+              <a (click)="yearFilter(yearMin,yearMax)">Apply</a>
+          </div>
+      </div>
+      <!-- make & model -->
+      <div class="tab-pane fade nav_margin_mobile" id="pills-make" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <label for="customRange3" class="form-label">Make & Model</label>
+          <div class="min_mx">
+              <p> Make</p>
+              <select class="form-select" (change)="setMake($event)">
+        <option value="" [selected]="!make.length">All</option>
+        <option [value]="item" [selected]="f.make?.value[0] === item" *ngFor="let item of CAR_MAKES">
+          {{ item }}
+        </option>
+      </select>
+          </div>
+          <div class="min_mx">
+              <p> Model</p>
+              <select class="form-select" (change)="setModel($event)">
+        <option value="" [selected]="!model.length">All</option>
+        <option [value]="item" [selected]="f.model?.value[0] === item"
+          *ngFor="let item of models | modelFilter: f.make?.value[0]">
+          {{ item }}
+        </option>
+      </select>
+          </div>
+          <div class="clear_box">
+              <a (click)="clearFilters()" class="mr-3">Clear</a>
+              <a (click)="applyFilter()">Apply</a>
+          </div>
+      </div>
+  </div>
+</form>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <P><i class="fa fa-map-marker" aria-hidden="true"></i>By a car anywhere in the country , or on your block</P>
+        <div class="input_div">
+          <input type="text" #zipcode placeholder="Zip Code"
+           maxlength="5" />
+            <div *ngIf="!show" class="error_msg">{{errorZipcode}}</div>
+          <button class="sumbit" (click)="getDistanceData(zipcode)">Go</button>
+        </div>
+        <a (click)="zipcodeClear(zipcode)">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+</div>

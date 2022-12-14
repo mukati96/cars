@@ -1,0 +1,15 @@
+
+<!-- graph -->
+<div class="vehicle_history mt-md-0 mt-0 mb-md-0" >
+    <div class="bid_vehicle vehicle_history mt-0 mb-0">
+        <div id="chart" style="margin-bottom:-0px ;">
+            <apx-chart *ngIf="!fetchingData"
+            [series]="chartOptions.series"
+            [tooltip]="chartOptions.tooltip"
+            [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis " [yaxis]="chartOptions.yaxis" [dataLabels]="chartOptions.dataLabels" [grid]="chartOptions.grid" [stroke]="chartOptions.stroke" [title]="chartOptions.title"
+            [markers]="chartOptions.markers" [fill]="chartOptions.fill"
+            [plotOptions]="chartOptions.plotOptions">
+            </apx-chart>
+        </div>
+    </div>
+</div>

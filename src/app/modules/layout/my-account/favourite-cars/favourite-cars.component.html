@@ -1,0 +1,41 @@
+<div class=" page-content pl-md-3 pr-md-3 pl-2 pr-2">
+  <div class="row">
+    <ng-container *ngFor="let item of savedCars ">
+      <div class="col-xl-3 col-lg-4 col-md-4 col-6" *ngIf="item?.is_admin_permitted">
+        <div class="approval-content ">
+          <div class="approval-img">
+
+            <img [useSrcset]="true" [lazyLoad]="item?.front_image+ '?tr=w-600'"
+              [routerLink]="'/car-details/' + item?.id" oncontextmenu="return true;" class="fav_car" />
+            <a class="star_img_link">
+              <img src="/assets/icons/star.svg" alt="Star" *ngIf="item.is_featured" />
+            </a>
+
+            <span class="book_img">
+              <img (click)="favoriteToggle(item.id, true)" *ngIf="!item.is_favorite"
+                src="../../../../assets/icons/bookmark.png" alt="Bookmark" />
+              <i *ngIf="item.is_favorite" (click)="favoriteToggle(item.id, false)" class="fa fa-bookmark"></i>
+            </span>
+          </div>
+        </div>
+        <div class="approval-main" [routerLink]="'/car-details/' + item?.id">
+          <h4>
+            <a> {{ item?.year }} | {{ item?.make }} | {{ item?.model }} </a>
+          </h4>
+          <ul class="p-0">
+            <li *ngIf="item.state && item.city != ''">
+              {{ item?.state | titlecase }} | {{ item?.city | titlecase }}
+            </li>
+            <li *ngIf="item.city == ''">{{ item?.state | titlecase }}</li>
+            <li *ngIf="item.state == ''">{{ item?.city | titlecase }}</li>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
+    <div *ngIf="!savedCars?.length" class="text-center" style="margin: auto">
+      <div *ngIf="!spinner && !savedCars?.length" class="text-center" style="margin: auto">
+        <h5>No data found for your Favorites Cars</h5>
+      </div>
+    </div>
+  </div>
+</div>

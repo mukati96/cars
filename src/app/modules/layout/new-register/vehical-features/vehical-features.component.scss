@@ -1,0 +1,27 @@
+@import "../new-register.component.scss";
+
+.standard label {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #676b73;
+}
+.backBtn {
+  padding: 13px 13%;
+  background: #fff;
+  border-radius: 30px;
+  width: auto;
+  border: 1px solid #000;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000;
+}
+
+
+@media screen and (max-width:767px){
+  .basictype .main-head{
+    font-size: 12px;
+  }
+}

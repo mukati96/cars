@@ -1,0 +1,93 @@
+::ng-deep .ngx-pagination a,
+::ng-deep .ngx-pagination a:hover,
+::ng-deep .ngx-pagination span {
+  color: #333;
+  height: 30px;
+  width: 30px;
+  border-radius: 6px !important;
+  text-decoration: none;
+}
+
+::ng-deep .ngx-pagination li {
+  border: 1px solid #E0E0E0;
+  border-radius: 6px !important;
+  margin: 0px 10px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 24px;
+  padding: 0px !important;
+}
+
+::ng-deep .ngx-pagination .current {
+  background: #4F4F4F !important;
+  border-radius: 6px !important;
+  margin: 0px 0px 0px 9px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 28px;
+}
+::ng-deep .ngx-pagination .current span {
+  // padding: 0.1875rem 0.625rem;
+  color: #fff !important;
+  cursor: default;
+}
+
+::ng-deep .ngx-pagination li.pagination-next a:after,
+::ng-deep .ngx-pagination li.pagination-previous:before,
+::ng-deep .ngx-pagination li.pagination-next:after {
+  display: none !important;
+}
+
+
+::ng-deep .pagination-previous, ::ng-deep .pagination-next{
+  line-height: 27px !important;
+  position: relative;
+  vertical-align: top;
+}
+
+::ng-deep .pagination-previous span:first-child::before{
+  position: absolute;
+  content: "";
+  background-image: url(/assets/icons/select.svg);
+  width: 14px;
+  height: 8px;
+  background-repeat: no-repeat;
+  top: 10px;
+  left: 7px;
+  transform: rotate(90deg);
+} 
+::ng-deep .pagination-previous a:before{
+  position: absolute;
+  content: "" !important;
+  background-image: url(/assets/icons/select.svg);
+  width: 15px;
+  height: 8px;
+  background-repeat: no-repeat;
+  top: 10px;
+  left: 6px;
+  transform: rotate(90deg);
+}
+
+::ng-deep .pagination-next span:first-child::before, ::ng-deep .pagination-next a:before{
+  position: absolute;
+  content: "" !important;
+  background-image: url(/assets/icons/select.svg);
+  width: 15px;
+  height: 8px;
+  background-repeat: no-repeat;
+  top: 9px;
+  left: 7px;
+  display: block !important;
+  transform: rotate(-90deg);
+}
+
+
+@media screen and (max-width:767px) {
+  ::ng-deep .ngx-pagination.responsive .small-screen{
+    display: inline-block;
+    width: auto;
+    padding: 3px 9px !important;
+  }
+}

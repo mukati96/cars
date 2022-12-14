@@ -1,0 +1,122 @@
+<div class="side_head d-md-block d-none" *ngIf="collection">
+  <h3> Showing {{(collection.offset == 0) ? (collection.count==0) ? 0:1 : (collection.offset) }} - {{(collection.offset + 15 || 0) >= collection.count ? collection.count : (collection.offset + 15)}} of {{collection.count}}Cars</h3>
+<form [formGroup]="filterForm">
+  <div class="sidebar sidebarnone">
+    <div class="padding_box">
+    <div class="min_mx" style="padding-bottom: 5px;">
+      <p> Location</p>
+      <a aria-selected="true" data-bs-toggle="modal" data-bs-target="#Nationwide" class="city_location" *ngIf="!show" style="padding-right: 5px;">
+        Nationwide
+      </a>
+      <a class="city_location" data-bs-toggle="modal" data-bs-target="#Nationwide" *ngIf="show" style="padding-right: 5px;">{{stateCityValue.city}}, <span style="margin:0px;"> {{stateCityValue.state_name}} </span> </a>
+    </div>
+    <div class="min_mx" *ngIf="show" style="margin: 3px 0px 2px;">
+      <p> Distance</p>
+      <select class="form-select" formControlname="radius" (change)="chooseRadius($event,'radius')">
+        <option  value="" [selected]="!radius.length" >All</option>
+        <option [value]="item"  [selected]="f.radius?.value[0] == item" *ngFor="let item of miles">
+          {{ item }} miles
+        </option>
+      </select>
+    </div>
+    <div class="min_mx mb-0 max_position">
+      <p class="">Make</p>
+      <select class="form-select" formControlname="make" (change)="openNewPageWithQueryParam($event, 'make')">
+        <option value="" [selected]="!make.length">All</option>
+        <option [value]="item" [selected]="f.make?.value[0] === item" *ngFor="let item of CAR_MAKES">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+    <div class="min_mx">
+      <p>Model</p>
+      <select class="form-select" formControlname="model" (change)="openNewPageWithQueryParam($event, 'model')">
+        <option value="" [selected]="!model.length">All</option>
+        <option [value]="item" [selected]="f.model?.value[0] === item"
+          *ngFor="let item of models | modelFilter: f.make?.value[0]">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+    <hr>
+    <div class="padding_box">
+      <div class="milage year_select">
+        <label class="form-label">Year</label>
+        <span class="mr-2">
+          <select formControlName="year__gte" (change)="chooseYear($event,'year__gte') ">
+            <option value="">Min</option>
+            <option [value]="minYears" *ngFor="let minYears of minYear">
+              {{ minYears }}
+            </option>
+          </select>
+        </span> to <span class="ml-2">
+          <select formControlName="year__lte" (change)="chooseYear($event,'year__lte')">
+            <option value="">Max</option>
+            <option [value]="maxYears" *ngFor="let maxYears of maxYear">
+              {{ maxYears }}
+            </option>
+          </select></span>
+      </div>
+
+      <div class="milage">
+        <label class="form-label">Mileage</label>
+        <span class="mr-2">
+          <input type="text" [(ngModel)]="minMileage"
+           [ngModelOptions]="{standalone: true}"
+           maxlength="7"
+           mask="separator.0"
+            thousandSeparator=","
+           class="mileageInput"
+           (input)="onChangeMileageInputMin($event)"
+           >
+        </span> to
+        <span class="ml-2">
+          <input type="text"
+          [(ngModel)]="maxMileage"
+          mask="separator.0"
+          thousandSeparator=","
+          maxlength="7"
+          [ngModelOptions]="{standalone: true}"
+          class="mileageInput input_width"
+          (input)="onChangeMileageInputMax($event)"
+           >
+           <div *ngIf="maxMileage === 150000" class="plusSign d-inline-block">
+            +
+          </div>
+        </span>
+        </div>
+        <!-- <div class="mileageerror_msg">{{ minMileage < maxMileage ? '' : maxErrorMsg}}</div> -->
+        <div class="mileageerror_msg">{{maxErrorMsg}}</div>
+
+      <ngx-slider [(value)]="minMileage" [(highValue)]="maxMileage" [options]="kmOptions"
+        (userChangeEnd)="onUserChangeEnd($event, 'km_driven')"></ngx-slider>
+    </div>
+  </div>
+
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="Nationwide" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>By a car anywhere in the country , or on your block
+        </p>
+        <div class="input_div">
+          <input type="text" #zipcode placeholder="Zip Code"
+           maxlength="5" />
+            <div *ngIf="!show" class="error_msg">{{errorZipcode}}</div>
+          <button class="sumbit" (click)="getDistanceData(zipcode,'zip_code')">Go</button>
+        </div>
+        <a (click)="zipcodeClear(zipcode)" style="cursor: pointer;">Cancel</a>
+
+      </div>
+
+    </div>
+  </div>
+</div>

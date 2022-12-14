@@ -1,0 +1,59 @@
+<div class="sidebar">
+  <ul class="p-0 mt-md-0 mt-2">
+    <li
+      (click)="changeTab('/my-account/mycar')"
+      routerLink="/my-account/mycar"
+      [class.active]="isMyCar"
+    >
+      <a class="text-capitalize">
+        <img
+          [src]="
+            isMyCar
+              ? '../assets/img/sidebar/approvalactive.svg'
+              : '../assets/img/sidebar/approval.svg'
+          "
+          class="mr-2"
+          alt="img"
+        />
+        My Cars</a
+      >
+    </li>
+    <li
+      (click)="changeTab('/my-account/favourite')"
+      routerLink="/my-account/favourite"
+      [class.active]="isSaved"
+    >
+      <a class="text-capitalize">
+        <img
+          [src]="
+          isSaved
+              ? '../assets/img/sidebar/approvalactive.svg'
+              : '../assets/img/sidebar/approval.svg'
+          "
+          class="mr-2"
+          alt="img"
+        />
+        My Favorites
+      </a>
+    </li>
+    <li
+      class="first-active"
+      (click)="changeTab('/my-account/account')"
+      routerLink="/my-account/account"
+      [class.active]="isAccount"
+    >
+      <a class="text-capitalize">
+        <img
+          [src]="
+            isAccount
+              ? 'assets/img/sidebar/approvalactive.svg'
+              : 'assets/img/sidebar/approval.svg'
+          "
+          class="mr-2"
+          alt="img"
+        />
+        My Account</a
+      >
+    </li>
+  </ul>
+</div>

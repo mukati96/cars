@@ -1,0 +1,29 @@
+<div class="post_box">
+    <div class="latest_post_img">
+        <img [src]=popularCars.front_image alt="Image" [routerLink]="'/car-details/' + popularCars?.id" />
+        <span class="book_img">
+            <img (click)="favoriteToggle(popularCars.id, true)" *ngIf="!popularCars.is_favorite"
+                src="../../../../assets/img/landing/icons/bookmark.png" alt="Bookmark" />
+            <i *ngIf="popularCars.is_favorite" (click)="favoriteToggle(popularCars.id, false)"
+                class="fa fa-bookmark"></i>
+        </span>
+    </div>
+    <a href="#">
+        <div class="post_box_content">
+            <div class="post_head mt-2 mb-0">
+                <h3 class="mb-1">{{popularCars.name}}</h3>
+                <ul class="p-0 mb-1">
+                    <li>
+                        {{popularCars.fuel_type}}
+                    </li>
+                    <li>
+                        {{popularCars.year}}
+                    </li>
+                </ul>
+                <p>
+                    {{popularCars.state | slice:0:2}}&nbsp;|&nbsp;{{popularCars.city}}
+                </p>
+            </div>
+        </div>
+    </a>
+</div>

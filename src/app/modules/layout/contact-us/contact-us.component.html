@@ -1,0 +1,153 @@
+<section class="mb-5 mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-12">
+        <div class="contact-form-area">
+          <div class="area-title mb-4">
+            <h4 class="title">Leave a Message</h4>
+          </div>
+          <form [formGroup]="contactusForm" class="contact-form" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label>First Name</label>
+                <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name"
+                  formControlName="first_name" onkeydown="return /[a-z]/i.test(event.key)" [ngClass]="{
+                    invalid:
+                      (submitted || f.first_name.touched) && f.first_name.errors 
+                  }" />
+
+                  <div class="invalid-class" *ngIf="submitted || f.first_name?.touched">
+                    <ng-container *ngIf="f.first_name?.errors?.required">First Name is required</ng-container>
+                    <ng-container *ngIf="f.first_name?.errors?.pattern">allow only alphabets</ng-container>
+                  </div>
+              </div>
+              <!-- Single Input -->
+              <div class="col-md-6 form-group">
+                <label>Last Name</label>
+                <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name"
+                  formControlName="last_name" onkeydown="return /[a-z]/i.test(event.key)" [ngClass]="{
+                    invalid:
+                      (submitted || f.last_name.touched) && f.last_name.errors
+                  }" />
+
+                  <div class="invalid-class" *ngIf="submitted || f.last_name?.touched">
+                    <ng-container *ngIf="f.last_name?.errors?.required">Last Name is required</ng-container>
+                    <ng-container *ngIf="f.last_name?.errors?.pattern">allow only alphabets</ng-container>
+                  </div>
+              
+              </div>
+              <!-- single Input -->
+              <div class="col-md-12 form-group">
+                <label>Phone Number</label>
+                <input type="text" name="mobile_number"  class="form-control"
+                  placeholder="Phone Number" formControlName="mobile_number" [ngClass]="{
+                    invalid: (submitted || f.mobile_number.touched) && f.mobile_number.errors
+                  }"  maxlength="12" appNumberOnly />
+                <div class="invalid-class" *ngIf="(submitted || f.mobile_number.touched) && f.mobile_number.errors">
+                  Phone Number is required 
+                </div>
+              </div>
+              <!-- Single Input -->
+              <div class="col-md-12 form-group">
+                <label>Email Address</label>
+                <input type="email" name="emailAddress" id="emailAddress" class="form-control"
+                  placeholder="Email Address" formControlName="email" [ngClass]="{
+                    invalid: (submitted || f.email.touched) && f.email.errors
+                  }" />
+                <div class="invalid-class" *ngIf="(submitted || f.email.touched) && f.email.errors">
+                  Email is required and must be valid
+                </div>
+              </div>
+
+              <!-- Single Input -->
+              <div class="col-12 form-group">
+                <label>Subjects</label>
+                <input type="text" name="subjects" id="subjects" class="form-control" placeholder="Subjects"
+                  formControlName="subjects" [ngClass]="{
+                    invalid:
+                      (submitted || f.subjects.touched) && f.subjects.errors
+                  }" />
+                <div class="invalid-class" *ngIf="(submitted || f.subjects.touched) && f.subjects.errors">
+                  Subject is required
+                </div>
+              </div>
+              <!-- Single Input -->
+              <div class="col-12 form-group">
+                <label>Message</label>
+                <textarea class="form-control" id="message" name="message" placeholder="Write a Message...."
+                  formControlName="message" [ngClass]="{
+                    invalid:
+                      (submitted || f.message.touched) && f.message.errors
+                  }"></textarea>
+                <div class="invalid-class" *ngIf="(submitted || f.message.touched) && f.message.errors">
+                  Message is required
+                </div>
+              </div>
+              <!-- Form Button -->
+              <div class="col-12 form-group mb-0 pt-2">
+                <button type="submit" class="loginbtn">
+                  <ng-container *ngIf="!formSubmitting">
+                    Submit
+                  </ng-container>
+                  <span class="spinner" *ngIf="formSubmitting"></span>
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- Contact Form end -->
+        </div>
+      </div>
+      <div class="col-md-4 col-12">
+        <div class="contact-information-area">
+          <!-- Box Area title  -->
+          <div class="area-title">
+            <h4 class="title">Our Information</h4>
+          </div>
+          <!-- Information Box -->
+          <div class="info-box">
+            <div class="icon">
+              <span><img src="/assets/icons/email.svg" class="" alt="img" /></span>
+            </div>
+            <div class="content">
+              <span>Mail Us</span>
+              <p class="text">
+                <a href="mailto:contact@postyourcars.com">contact@postyourcars.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="icon">
+              <span><img src="/assets/icons/call.svg" class="" alt="img" /></span>
+            </div>
+            <div class="content">
+              <span>Call Us</span>
+              <p class="text">
+                <a>
+                  949-866-3743
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <div class="icon">
+              <span><img src="/assets/icons/clock.svg" class="" alt="img" /></span>
+            </div>
+            <div class="content">
+              <span>Business Hours</span>
+              <p class="text">
+                <a>
+                  Mon - Fri - 9:30 - 6:30 ( PST ) <br/>
+                  Sat - 9:30 - 4:30 <br/>
+                  Sun - Closed
+                </a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

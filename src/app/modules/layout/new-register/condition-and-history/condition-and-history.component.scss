@@ -1,0 +1,90 @@
+@import "../new-register.component.scss";
+
+/*custom toggle*/
+.condition-toggle .btn-group {
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: auto;
+  border-right: 0px;
+}
+.condition-toggle .btn-group .btn {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  color: #333333;
+  padding: 7px 40px;
+}
+.condition-toggle .btn-group .btn.active {
+  background-color: #000;
+  color: #fff;
+}
+.condition-toggle .btn:first-child,
+.condition-toggle .btn:last-child {
+  border-right: 1px solid #d6d6d6 !important;
+}
+.condition-toggle .btn:nth-child(2),
+.condition-toggle .btn:nth-child(3),
+.condition-toggle .btn:nth-child(4) {
+  border-right: 1px solid #d6d6d6 !important;
+}
+.condition-toggle .btn-group .btn.focus {
+  box-shadow: none;
+}
+
+.condition-toggle .conditionlabel {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 26px;
+  color: #333333;
+}
+.condition-toggle a {
+  color: #37c1bc;
+  text-decoration: none;
+}
+.conditioninput {
+  height: 50px;
+  width: 45%;
+}
+
+@media screen and (max-width: 767px) {
+  .conditioninput {
+    width: 100%;
+  }
+  .condition-toggle .btn-group .btn {
+    padding: 7px 30px;
+    font-size: 12px;
+  }
+  .condition-toggle .conditionlabel {
+    font-size: 12px;
+  }
+  .conditionmob label.btn {
+    padding: 10px 14px !important;
+  }
+  .btn-mob-condition label {
+    padding: 10px 20px !important;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 325px) {
+  .conditionmob label.btn {
+    font-size: 9px !important;
+  }
+  .toggle-btn span:nth-child(1) {
+    width: 34%;
+  }
+}
+
+.backBtn {
+  padding: 12px 13%;
+  background: #fff;
+  border-radius: 30px;
+  width: auto;
+  border: 1px solid #000;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000;
+}

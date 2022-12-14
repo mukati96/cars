@@ -1,0 +1,85 @@
+<div class="modal-content make-anoffercontent buyNowModal" style="cursor: pointer;">
+    <div class="modal-header border-0">
+      <button type="button" class="close" >
+        <img src="/assets/icons/modal_close.png" alt="Image" (click)="close()" />
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="latestPriceForm" class="contact-form" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <!-- Single Input -->
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name"
+              formControlName="first_name" onkeydown="return /[a-z]/i.test(event.key)" [ngClass]="{
+                invalid:
+                  (submitted || f.first_name.touched) && f.first_name.errors
+              }" />
+
+              <div class="invalid-class" *ngIf="submitted || f.first_name?.touched">
+                <ng-container *ngIf="f.first_name?.errors?.required">First Name is required</ng-container>
+                <ng-container *ngIf="f.first_name?.errors?.pattern">allow only alphabets</ng-container>
+              </div>
+          </div>
+          <!-- Single Input -->
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name"
+              formControlName="last_name" onkeydown="return /[a-z]/i.test(event.key)" [ngClass]="{
+                invalid:
+                  (submitted || f.last_name.touched) && f.last_name.errors
+              }" />
+
+              <div class="invalid-class" *ngIf="submitted || f.last_name?.touched">
+                <ng-container *ngIf="f.last_name?.errors?.required">Last Name is required</ng-container>
+                <ng-container *ngIf="f.last_name?.errors?.pattern">allow only alphabets</ng-container>
+              </div>
+          </div>
+          <!-- single Input -->
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" name="mobile_number"  class="form-control"
+              placeholder="Phone Number" formControlName="mobile_number" [ngClass]="{
+                invalid: (submitted || f.mobile_number.touched) && f.mobile_number.errors
+              }"  maxlength="12" appNumberOnly />
+            <div class="invalid-class" *ngIf="(submitted || f.mobile_number.touched) && f.mobile_number.errors">
+              Phone Number is required
+            </div>
+          </div>
+          <!-- Single Input -->
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="emailAddress" id="emailAddress" class="form-control"
+              placeholder="Email Address" formControlName="email" [ngClass]="{
+                invalid: (submitted || f.email.touched) && f.email.errors
+              }" />
+            <div class="invalid-class" *ngIf="(submitted || f.email.touched) && f.email.errors">
+              Email is required and must be valid
+            </div>
+          </div>
+
+          <!-- Single Input -->
+          <div class=" form-group">
+            <label>Subjects</label>
+            <input type="text" name="subjects" id="subjects" class="form-control" placeholder="Subjects"
+              formControlName="subjects" [ngClass]="{
+                invalid:
+                  (submitted || f.subjects.touched) && f.subjects.errors
+              }" />
+            <div class="invalid-class" *ngIf="(submitted || f.subjects.touched) && f.subjects.errors">
+              Subject is required
+            </div>
+          </div>
+          <!-- Form Button -->
+          <div class=" form-group mb-0 pt-2">
+            <button type="submit" class="btn make-offersavebtn">
+              <ng-container *ngIf="!formSubmitting">
+                Submit
+              </ng-container>
+              <span class="spinner" *ngIf="formSubmitting"></span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

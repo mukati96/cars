@@ -1,0 +1,443 @@
+a:hover {
+  text-decoration: none;
+}
+.inventory-car-col {
+  background: #ffffff;
+  border-radius: 6px;
+  transition: all 0.5s ease;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  // cursor: pointer;
+}
+
+.inventory-car-col-img {
+  overflow: hidden;
+  height: 170px;
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+}
+.car-trim {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #C8C8C8;
+}
+.inventory-car-col-img img {
+  width: 100%;
+  height: 100%;
+  // object-fit: contain;
+  object-fit: cover;
+  position: relative;
+  z-index: 999;
+}
+
+.like-btn img {
+  height: auto;
+}
+.inventory-car-col-content {
+  padding: 20px 10px 15px;
+}
+.inventory-car-col-content h4 {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 15px;
+  margin-bottom: 0px;
+  color: #242833;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  text-transform: uppercase;
+}
+.inventory-car-col-content ul li {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333333;
+  display: inline-block;
+  padding: 5px 4px 0px 0px;
+}
+.inventory-car-col-content .location {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
+  color: #8A8C8E;  
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.inventory-car-col-content .top-offer {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333333;
+  transition: all 0.5s ease;
+  margin-bottom: 10px;
+}
+.inventory-car-col-content .top-offer span {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 12px;
+  text-align: right;
+  color: #000000;
+}
+.dollar {
+  font-size: 15px;
+  padding-right: 2px;
+  font-weight: 400;
+  top: 0px;
+  right: -1px;
+}
+.inventory-car-col:hover .inventory-car-col-content h4 {
+  color: #3d75f7;
+} 
+.like-btn {
+  opacity: 0;
+  position: absolute;
+  content: "";
+  right: 6px;
+  top: 6px;
+  background: #24283361;
+  height: 30px;
+  width: 30px;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 26px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  z-index: 9999;
+}
+.like-btn img {
+  width: auto !important;
+  margin-top: 5px;
+}
+.inventory-car-col:hover .like-btn {
+  opacity: 1;
+}
+.top-offer-not {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: #FFFFFF;
+  background: #797979;
+  border-radius: 100px;
+  margin: 2px 0px 10px;
+  display: inline-block;
+  padding: 4px 10px;
+}
+.border-car-bottom {
+  border-bottom: 1px solid #d6d6d6;
+  padding-bottom: 15px;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  border-radius: 50% !important;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 20px;
+  color: #3d75f7;
+}
+.pagination > li .page-link {
+  transition: all 0.5s ease;
+}
+.pagination > li .page-link:hover {
+  background: #3d75f7;
+  color: #fff;
+}
+
+.producttext {
+  color: #ff0000;
+  text-transform: uppercase;
+  font-size: 19px;
+  margin-top: 2%;
+  display: inline-block;
+  width: 100%;
+}
+.inventory-car-colsold:hover {
+  box-shadow: none !important;
+}
+.inventory-car-colsold {
+  cursor: inherit;
+}
+.bid-btn1 {
+  background: #333333;
+  border-radius: 100px;
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 14px !important;
+  line-height: 17px;
+  display: inline-block;
+  padding: 4px 15px;
+}
+.buy-now-btn{
+  background: #3D75F7;
+  border-radius: 27px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 3px 7px;
+  margin: 0px 10px;
+  vertical-align: top;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1400px) {
+  .inventory-head h4 {
+    font-weight: 300;
+    font-size: 14px;
+  }
+  .inventory-col1 img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .inventory-col {
+    text-align: center;
+  }
+  .inventory-col-content {
+    padding: 3% 20px 0px;
+    width: 100%;
+  }
+  .dollar {
+    top: -1px;
+  }
+  .inventory-img {
+    width: auto;
+  }
+  .inventory-head:after {
+    background-image: url("/assets/dealer-img/icons/mob-line.png");
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .inventory-car-col-content {
+    padding: 0px 5px 15px;
+  }
+  .inventory-car-col-content h4 {
+    font-size: 13px;
+  }
+  .inventory-car-col-content ul li {
+    font-size: 11px;
+    line-height: 20px;
+    color: #868686;
+  }
+  .inventory-car-col-content p {
+    font-weight: 300;
+    font-size: 12px !important;
+  }
+  .inventory-car-col-content .top-offer span {
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .producttext {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .inventory-car-col-img {
+    height: 250px;
+    margin-bottom: 20px;
+  }
+  .inventory-car-col-img img {
+    height: 100%;
+  }
+}
+
+%skeleton-placeholder {
+  position: relative;
+  overflow: hidden;
+  background-color: #cfd3d5;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateX(-100%);
+    content: "";
+    background: linear-gradient(0.25turn, transparent, #fff, transparent);
+    pointer-events: none;
+    opacity: 0.8;
+    animation: skeleton-animation 2s infinite;
+  }
+}
+
+@mixin skeleton-background($animate: true) {
+  @extend %skeleton-placeholder;
+  @if $animate != true {
+    &::before {
+      display: none;
+    }
+  } @else {
+    &:not(:empty) {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin skeleton-bone(
+  $width: null,
+  $maxWidth: null,
+  $height: null,
+  $maxHeight: null,
+  $multipleDirection: false,
+  $multipleSpacing: null,
+  $lastWidth: null,
+  $animate: true
+) {
+  .skeleton-bone {
+    @if $width != null {
+      width: $width;
+    } @else {
+      width: 100%;
+    }
+    @if $maxWidth != null {
+      max-width: $maxWidth;
+    }
+    @if $height != null {
+      height: $height;
+    } @else {
+      height: 100%;
+    }
+    @if $maxHeight != null {
+      max-height: $maxHeight;
+    }
+    @if $multipleDirection !=false and $multipleSpacing !=null {
+      &:not(:first-child) {
+        @if $multipleDirection == top {
+          margin: $multipleSpacing 0 0 0;
+        } @else if $multipleDirection == right {
+          margin: 0 $multipleSpacing 0 0;
+        } @else if $multipleDirection == bottom {
+          margin: 0 0 $multipleSpacing 0;
+        } @else if $multipleDirection == left {
+          margin: 0 0 0 $multipleSpacing;
+        }
+      }
+      @if $lastWidth != null {
+        &:not(:only-child):last-child {
+          max-width: $lastWidth;
+        }
+      }
+    }
+    @if $animate != true {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skeleton-bone {
+  display: block;
+  @extend %skeleton-placeholder;
+}
+
+.list {
+  position: relative;
+  .item {
+    padding: 10px 0px;
+    position: relative;
+    .card-demo {
+      display: flex;
+      flex-direction: row;
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border: 1px solid #c9c9c9;
+      .infos {
+        width: 30%;
+        margin-right: 16px;
+        .thumbnail {
+          width: 100%;
+          padding-bottom: 60%;
+          background-size: cover;
+          @include skeleton-background();
+          img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .date {
+          margin-top: 8px;
+          font-size: 12px;
+          line-height: 16px;
+          @include skeleton-bone($height: 16px, $maxWidth: 70%);
+        }
+      }
+      .title {
+        width: 65%;
+        font-size: 18px;
+        font-weight: bold;
+        @include skeleton-bone(
+          $height: 20px,
+          $multipleDirection: top,
+          $multipleSpacing: 12px,
+          $lastWidth: 70%
+        );
+      }
+    }
+  }
+}
+
+@keyframes skeleton-animation {
+  0% {
+    transform: translateX(-100%);
+  }
+  30% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.slider-icon {
+  color: #ff647c;
+  z-index: 9;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(50, 50, 71, 0.06),
+    0px 4px 4px rgba(50, 50, 71, 0.08);
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 30px;
+}

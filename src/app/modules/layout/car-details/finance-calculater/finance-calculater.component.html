@@ -1,0 +1,261 @@
+<div class="finance_div">
+    <h3 class="mb-3">
+        Finance Calculator
+    </h3>
+
+    <p class="finance_price">
+         ${{calculatedEMIs  | number : '1.0-0'}}/mo.  
+    </p>
+    <p class="finance_para mb-3" *ngIf="financeCalculater.value">
+        Estimated payment for {{financeCalculater.value.loanmonths}} months at 
+        {{financeCalculater.value.annualpercentagerate}}% APR*
+    </p>
+
+    <div class="breakdown_content" *ngIf="show">
+        <div class="break_first_content">
+            <div class="row">
+                <div class="col-md-7">
+                    <p>
+                        Car price
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <span>${{(f['vehicleprice'].value || 0)}} </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <p>
+                        Down payment
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <span> -${{(f['downpayment'].value || 0)}} </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <p >
+                        Trade-in value
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <span> -${{(f['tradeinvalue'].value || 0)}} </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <p>Estimated sales tax</p>
+                    <p> ({{(f['salestax'].value || 0) | number: '1.2-2'}}%)</p>
+                </div>
+
+                <div class="col-md-5">
+                    <span> +${{salesTex}} </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <p>
+                        Other fees*
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <span> not included </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-bottom-div1 pt-0 mb-3"> </div>
+
+        <div class="break_other_content">
+            <div class="row">
+                <div class="col-md-7">
+                    <p>
+                        Total loan amount
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <span> ${{totalLoanAmount}} </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <p>
+                        Total interest paid
+                        <span>(over life of loan)</span>
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <span> +${{interestAmount}} </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <p>
+                        Total loan & interest paid
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <span> ${{totalLoanAndInterestPaid}} </span>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <p>
+                        Monthly payment
+                    </p>
+                </div>
+
+                <div class="col-md-5">
+                    <span> ${{calculatedEMIs | number : '1.0-0'}} </span>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <p class="break_para" *ngIf="!hide" (click)="showbreakdown()">
+        Show breakdown <img src="/assets/img/inventory/icons/down.svg" alt="Image" />
+    </p>
+
+    <p class="break_para" *ngIf="hide" (click)="Hidebreakdown()">
+        Hide breakdown <img src="/assets/img/inventory/icons/up.svg" alt="Image" />
+    </p>
+
+    <div class="finance_form">
+        <form [formGroup]="financeCalculater">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-6">
+                    <div class="form-group box_input">
+                        <label> Vehicle price </label>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                            </div>
+                            <input type="text" formControlName="vehicleprice" maxlength="6" (keypress)="checkNumber($event)" class="form-control"   placeholder="0,000" aria-label="Watchprice" aria-describedby="basic-addon1" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-6">
+                    <div class="form-group box_input">
+                        <label>
+                         Down payment (Optional)
+                        </label>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">$</span>
+                            </div>
+                            <input type="text" class="form-control" formControlName="downpayment"  maxlength="6" (keypress)="checkNumber($event)" placeholder="0,000" aria-label="Watchprice" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-6">
+                    <div class="form-group box_input">
+                        <label>
+                          Trade-in value (optional)
+                        </label>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3">$</span>
+                            </div>
+                            <input type="text" class="form-control" formControlName="tradeinvalue"  maxlength="6" (keypress)="checkNumber($event)" placeholder="0,000" aria-label="Watchprice" aria-describedby="basic-addon3">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-12 mt-2">
+                    <div class="form-group">
+                        <p>
+                            Length of loan (in months)
+                        </p>
+
+                        <div class="radio_buttons">
+                            <label>
+                            <input type="radio" value="12"   formControlName="loanmonths" (change)="onItemChange($event.target)">
+                            <span class="" >12</span>
+                            </label>
+
+                            <label>
+                                <input type="radio" value="24"   formControlName="loanmonths" (change)="onItemChange($event.target)">
+                                <span class="">24</span>
+                            </label>
+
+                            <label>
+                                <input type="radio" value="36"   formControlName="loanmonths" (change)="onItemChange($event.target)">
+                                <span class="">36</span>
+                            </label>
+
+                            <label>
+                                <input type="radio" value="48"  formControlName="loanmonths" (change)="onItemChange($event.target)">
+                                <span class="">48</span>
+                            </label>    
+
+                                                    <label>
+                            <input type="radio" value="60"  formControlName="loanmonths" (change)="onItemChange($event.target)">
+                            <span class="">60</span>
+                            </label>
+
+                                                    <label>
+                            <input type="radio" value="72" formControlName="loanmonths" (change)="onItemChange($event.target)">
+                            <span class="">72</span>
+                            </label>
+
+                            <label>
+                            <input type="radio" value="84" formControlName="loanmonths" (change)="onItemChange($event.target)">
+                            <span class="">84</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-6">
+                    <div class="form-group box_input">
+                        <label>
+                          Annual percentage rate (APR)
+                        </label>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control max_pro"   suffix="%" mask="separator.2"  formControlName="annualpercentagerate" placeholder="0.00%" style="    margin-top: -5px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-6">
+                    <div class="form-group box_input">
+                        <label>
+                          Sales tax
+                        </label>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control"   suffix="%" mask="separator.2"  formControlName="salestax" placeholder="0.00%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="terms_finance mb-0">
+                *Title and other fees and incentives are not included in this calculation, which is an estimate only. Monthly payment estimates are for informational purpose and do not represent a financing offer from the seller of this Watch. Other taxes may apply.
+            </p>
+        </form>
+    </div>
+</div>

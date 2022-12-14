@@ -1,0 +1,518 @@
+<section class="breadcrumb pb-0 mb-1 pl-md-2 pl-0">
+    <div class="container">
+        <ol class="pl-0 car_for_sell">
+            <li class="breadcrumb-item pointer">
+                <a routerLink="/inventory">Cars For Sale</a>
+            </li>
+            <li class="breadcrumb-item active pointer ">
+                <a>{{ carDetail?.make }} </a>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="car-detail detail-car-div">
+    <div class="container">
+        <div class="col-12 border-detail-left position_detail p-0">
+            <div class="car-description mt-0 new_car_detail">
+                <h3 style="text-transform: uppercase">
+                    {{ carDetail?.year }} | {{ carDetail?.make }} |
+                    {{ carDetail?.model }} | {{ carDetail?.trim }}
+                </h3>
+                <div class="detail_border"></div>
+                <div class="detail_car_button">
+                    <button class="btn_certified" *ngIf="carDetail?.certified_seller==true">
+                        <img src="../../../../../../assets/img/btn_logo.png" /> Certified seller
+                    </button>
+                    <button class="btn_certified">
+                        STOCK# {{carDetail?.reference_num || "N/A"}}
+                    </button>
+                </div>
+                <div class="detail_border"></div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="position_gallery">
+                    <post-gallery-with-thumbnail-slider [galleryImages]="galleryImages" oncontextmenu="return true;">
+                    </post-gallery-with-thumbnail-slider>
+
+                    <div class=""></div>
+                </div>
+            </div>
+        </div>
+            <div class="value_price d-md-none d-block">
+                <div class="row">
+                    <div class="col-lg-7 col-6 pr-0">
+                        <h5>Asking Price</h5>
+                    </div>
+                    <div class="col-lg-5 col-6 save_car">
+                        <div class="col-lg-5 save_car">
+                            <img (click)="saveCars(carDetail.id,true)" class="bookmark"
+                                *ngIf="!carDetail.is_favorite" src="../../../../assets/icons/bookmark.svg"
+                                alt="Bookmark" />
+
+                            <img *ngIf="carDetail?.is_favorite" (click)="saveCars(carDetail.id,false)"
+                                src="../../../../assets/icons/bookmark2.svg" alt="Bookmark" />
+
+                              <p>Save the car</p>
+                        </div>
+                    </div>
+                </div>
+                <h1>${{carDetail?.asking_price | number: "1.0-0"}}</h1>
+                <button class="btn1" (click)="latestPricePopup()">Get the latest price</button>
+                <button class="btn2" (click)="checkAvalibilityPopup()">Check avalibility</button>
+                <button class="btn2" (click)="openChatPopup()">Chat with seller</button>
+                <button class="btn3" (click)="testDrivePopup()">Schedule a test drive</button>
+            </div>
+
+        <div class="row about_car new_car_detail">
+            <div class="col-lg-8 col-sm-8 col-12">
+                <div class="vicle_info no_border_mobile">
+                    <h3 class="heading_about mb-3">Information</h3>
+                    <div class="row ">
+                        <div class="col-lg-4 col-sm-6 col-12">
+                            <ul class="p-0 car-specific mb-0">
+                                <li *ngIf="carDetail?.vin">
+                                    <span class="list_content"> VIN # </span>
+                                    <span class=" list_heading"> {{ carDetail?.vin }}</span>
+                                </li>
+                                <li *ngIf="carDetail?.exterior_color">
+                                    <span class="list_content"> Exterior Color </span>
+                                    <span class=" list_heading"> {{ carDetail?.exterior_color }}</span>
+                                </li>
+                                <li class="p-0">
+                                    <span class="list_content"> Mileage </span>
+                                    <span class=" list_heading"> {{carDetail?.mileage | number: "1.0-0"}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 col-12">
+                            <ul class="p-0 car-specific mb-0">
+                                <li *ngIf="carDetail?.transmission">
+                                    <span class="list_content"> Transmission </span>
+                                    <span class=" list_heading"> {{ carDetail?.transmission }} </span>
+                                </li>
+                                <li>
+                                    <span class=" list_content"> Interior color </span>
+                                    <span class="list_heading"> {{ carDetail?.interior_color || "N/A" }} </span>
+                                </li>
+                                <li>
+                                    <span class=" list_content"> Stock # </span>
+                                    <span class="list_heading"> {{carDetail?.reference_num|| "N/A"}} </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 col-12">
+                            <ul class="p-0 car-specific mb-0">
+                                <li *ngIf="carDetail.engine">
+                                    <span class=" list_content"> Engine </span>
+                                    <span class="list_heading"> {{ carDetail?.engine }}</span>
+                                </li>
+                                <li *ngIf="carDetail?.body_type">
+                                    <span class="list_content"> Body Type </span>
+                                    <span class=" list_heading"> {{ carDetail?.body_type }}</span>
+                                </li>
+                                <li class="" *ngIf="carDetail?.drive_type">
+                                    <span class=" list_content">Drive Type </span>
+                                    <span class="list_heading"> {{ carDetail?.drive_type }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vicle_info mob_border_slid">
+                    <div class="car_fax">
+                        <h3 class="heading_about"> CarFax &amp; Build Sheet </h3>
+                        <a [attr.href]="
+                        carDetail?.doc_file_carfax
+                        ?carDetail?.doc_file_carfax
+                        : null
+                      " target="_blank">
+                            <img src="../../../../../assets/img/detail/1.png" class="mr-3" alt=""></a>
+                        <a [attr.href]="
+                        carDetail?.doc_file_windows
+                        ?carDetail?.doc_file_windows
+                        : null
+                      " target="_blank">
+                            <img src="../../../../../assets/img/detail/2.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="vicle_info">
+                    <h3 class="heading_about">Description</h3>
+                    <p class="description_pera" *ngIf="carDetail?.market_modification_description">
+                        {{carDetail?.market_modification_description}}</p>
+                    <p class="description_pera" *ngIf="!carDetail?.market_modification_description">
+                        No Description Available</p>
+                </div>
+                <div class="car-description mt-md-0 mt-3 new_car_detail">
+                    <div class="vicle_info">
+                        <div class="row">
+                            <div class="col-md-12 col-12">
+                                <p class="heading_about">Post User Activity &#8482; </p>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-12 border-detail-left position_detail">
+                                <div class="car-description mt-0 new_car_detail">
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <div class="table_section">
+                                                <div class="table_responsive">
+                                                    <div class="table-responsive wrapper">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Location</th>
+                                                                    <th scope="col">Activity Type</th>
+                                                                    <th scope="col">DATE</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody *ngIf="activityData">
+                                                                <tr *ngFor="let data of activityData">
+                                                                    <td> {{data?.activity_type_city}},{{data?.activity_type_state}}</td>
+                                                                    <td>{{data?.activity_type_name}}</td>
+                                                                    <td>{{data?.created_at | date: "MMM d, h:mm a" | uppercase}} PDT</td>
+                                                                </tr>
+                                                            </tbody>
+                                                             <tbody *ngIf="!activityData" class="no_data_available ">
+                                                                <tr>
+                                                                    <td>No Data Available</td>
+                                                                </tr>
+                                                             </tbody>
+
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vicle_info">
+                        <p class="heading_about">Make an Offer </p>
+                        <div class="row my-3">
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-6 ofer_purchase"> Offered purchase price
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-6 rangeValue "> ${{value| number: "1.0-0"}}</div>
+                        </div>
+                        <div class="slidecontainer">
+                             <ngx-slider [(value)]="value" [options]="options">
+                            </ngx-slider>
+                        </div>
+                        <div class="check_box  row">
+                            <div class="col-lg-6" *ngFor="let ques of question">
+                                <div class="form-check ">
+                                    <input class="form-check-input" (change)="changedata($event)" type="checkbox"
+                                        [value]=ques.text>
+                                    <label class="form-check-label">
+                                        {{ques.text}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row sub_off">
+                            <div class="col-lg-3 col-sm-3 col-5">
+                                <button (click)="offer()">Submit this offer</button>
+                            </div>
+                            <div class="col-lg-9 col-sm-9 col-7 pad_mob_none">
+                                <p>Buy with PostYourCars and do none of the leg work</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vicle_info">
+                        <p class="heading_about">Location </p>
+                        <post-google-map [location]="geoLateLong" *ngIf="geoLateLong"></post-google-map>
+                        <div class="cal_ship">
+                            <a href="">Need the car shipped to you?</a>
+                            <button (click)="openChatPopup()">Calculate shipping</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-12">
+                <div class="value_price d-md-block d-none">
+                    <div class="row">
+                        <div class="col-lg-7 col-6 pr-0">
+                            <h5>Asking Price</h5>
+                        </div>
+                        <div class="col-lg-5 col-6 save_car">
+                            <img (click)="saveCars(carDetail.id, true)" class="bookmark"
+                                *ngIf="!carDetail?.is_favorite" src="../../../../assets/icons/bookmark.svg"
+                                alt="Bookmark" />
+  
+                            <img *ngIf="carDetail?.is_favorite" (click)="saveCars(carDetail.id, false)"
+                                src="../../../../assets/icons/bookmark2.svg" alt="Bookmark" />
+  
+                              <p>Save the car</p>
+                          </div>
+                    </div>
+                    <h1>${{carDetail?.asking_price | number: "1.0-0"}}</h1>
+                    <button class="btn1" (click)="latestPricePopup()">Get the latest price</button>
+                    <button class="btn2" (click)="checkAvalibilityPopup()">Check avalibility</button>
+                    <button class="btn2" (click)="openChatPopup()">Chat with seller</button>
+                    <button class="btn3" (click)="testDrivePopup()">Schedule a test drive</button>
+                </div>
+                <div class="your_worth">
+                    <h5>What is your trade in <br> worth?</h5>
+                    <p>Find out in minutes our free appraisal</p>
+                    <button routerLink="/new-register">Get started</button>
+                    <img src="../../../../../assets/img/car11.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- slider -->
+<section class="popular_brand dropped_slider recent_slider_post pt-3 pt-md-3 pb-md-3 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <span class="black_border"></span>
+                <h2 class="mt-0 mb-3">You May Also Like</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center you_may_slider">
+            <div class="col-md-12 col-lg-12 mobpadd0px">
+                <img src="../../../../../assets/img/Rectangle 64s.png" class="blurbox">
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                    <div class="col-md-3" ngxSlickItem *ngFor="let popularCars of popularCars" class="slide">
+                        <div class="post_box">
+                            <div class="latest_post_img">
+                                <img [src]="popularCars?.front_image+'?tr=w-280'" alt="" width="100%"
+                                    (click)="simlarCars(popularCars?.id)" oncontextmenu="return true;" loading="lazy">
+                                <a class="star_img_link">
+                                    <img src="/assets/icons/star_black.png" alt="Star"
+                                        *ngIf="!popularCars.is_featured" />
+                                </a>
+                                <a class="star_img_link">
+                                    <img src="/assets/icons/star.svg" alt="Star" *ngIf="popularCars.is_featured" />
+                                </a>
+                                <span class="book_img">
+                                    <img (click)="favorite(popularCars.id, true)" class="bookmark"
+                                        *ngIf="!popularCars.is_favorite" src="../../../../assets/icons/bookmark.svg"
+                                        alt="Bookmark" />
+                                    <img *ngIf="popularCars.is_favorite" (click)="favorite(popularCars.id, false)"
+                                        src="../../../../assets/icons/bookmark2.svg" alt="Bookmark" />
+                                </span>
+                            </div>
+                            <a>
+                                <div class="post_box_content">
+                                    <div class="post_head mt-2 mb-0" (click)="simlarCars(popularCars?.id)">
+                                        <h3 class="mb-0">
+                                            {{ popularCars?.year }} | {{ popularCars?.make }} |
+                                            {{ popularCars?.model }}
+                                        </h3>
+                                        <ul class="p-0 mb-0">
+                                            <li>
+                                                {{ popularCars.trim }}
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            {{ popularCars.state | slice: 0:2 }}&nbsp;|&nbsp;{{
+                                            popularCars.city
+                                            }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal right fade make-offer make-anoffrmodal" data-backdrop="static" *ngIf="buyNow" id="buyNowModalWeb">
+    <div class="modal-dialog">
+        <post-buy-now (buyNowCreated)="buyNowCreate($event)" [clickedOnConfirm]="isExistingUserClickConfirmed"
+            (closePopup)="closePopup($event)" [buynow]="buynow" [offerValue]="offerValue">
+        </post-buy-now>
+    </div>
+</div>
+
+<div class="modal" data-backdrop="static"  id="latestPriceModalWeb">
+    <div class="modal-dialog">
+        <post-latest-prices (closePopup)="latestPriceClosePopup()">
+        </post-latest-prices>
+    </div>
+</div>
+<!-- win-rate popup -->
+<div id="winRateModal" class="modal fade" data-backdrop="static">
+    <div class="modal-dialog modal-login modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header winRateTitle">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3">
+                        <h4 class="modal-title stepprices">
+                            ${{ offerValue | number: "1.0-0" }}
+                        </h4>
+                    </div>
+                    <div class="col-md-12"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-5 offset-md-1 col-6 mt-2">
+                        <button class="btn-success confirm" (click)="confirmWinRate()">
+                            Confirm
+                        </button>
+                    </div>
+                    <div class="col-md-5 col-6 mt-2">
+                        <button class="btn-danger Cancel" data-dismiss="modal" aria-hidden="true">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- win-rate popup -->
+<div id="submitOfferModal" class="modal fade pl-0">
+    <div class="modal-dialog modal-login modal-dialog-centered">
+        <div class="modal-content modal_content">
+            <div class="modal-header winRateTitle">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3">
+                        <h4 class="sub-heading">
+                            Your offer successfully submitted. Your login information will be
+                        </h4>
+                        <div class="sub-heading">Email: {{ payload?.email }}</div>
+                        <div class="sub-heading">
+                            Password: {{ payload?.cell_phone | cellphonePassword }}
+                        </div>
+                    </div>
+                    <div class="col-md-12"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-6 offset-md-3 col-6 mt-2 position-relative  okay_div ">
+                        <button class="btn-success confirm" (click)="autoLoginOnBid()">
+                            Okay
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- win-rate popup -->
+<div id="emailModalPopup" data-backdrop="static" class="modal fade pl-0">
+    <div class="modal-dialog modal-login modal-dialog-centered">
+        <div class="modal-content modal_content">
+            <div class="modal-header winRateTitle">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3">
+                        <h4 class="sub-heading1">You are existing user</h4>
+                        <div class="sub-heading">Email: {{ this.buynow.value.email }}</div>
+                        <div class="sub-heading">Password: xxxxxxxxxx</div>
+                    </div>
+                    <div class="col-md-12"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-5 offset-md-1 col-6 mt-2">
+                        <button class="btn-success confirm" (click)="autoEmail()">
+                            Confirm
+                        </button>
+                    </div>
+                    <div class="col-md-5 col-6 mt-2">
+                        <button class="btn-danger Cancel" (click)="loginCancelModal()">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- User-Bid popup -->
+<div id="userBiDModalPopup" data-backdrop="static" class="modal fade pl-0">
+    <div class="modal-dialog modal-login modal-dialog-centered">
+        <div class="modal-content modal_content">
+            <div class="modal-header winRateTitle">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3">
+                        <h4 class="sub-heading1">You are the Owner of vehicle, you can not take place bid.</h4>
+                    </div>
+                    <div class="col-md-12"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-6 offset-md-3 col-6 mt-2">
+                        <button class="btn-success confirm" (click)="closeUserBidmModal()">
+                            Okay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- popup -->
+<div id="offerSelectModalPopup" class="modal fade pl-0" data-backdrop="static">
+    <div class="modal-dialog modal-login modal-dialog-centered">
+        <div class="modal-content modal_content">
+            <div class="modal-header winRateTitle">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3">
+                        <h4 class="sub-heading1">Offers</h4>
+                    </div>
+                    <div class="col-md-12">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-3 mb-4">
+                    <div class="col-md-12">
+                        <h4 class="" style="color: black;
+            margin-left: 7px;
+            text-align: center;
+            ">Please select offer</h4>
+
+                    </div>
+
+                    <div class="col-md-6 col-12 offset-md-3 mt-2 text-center">
+                        <button class="btn-danger Cancel_confirm" (click)="offerCancel()">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal left make-offers make-anoffrmodals" id="exampleModal">
+    <div class="modal-dialog modal-dialog-centered submit_modal">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body aboutCar">
+                Any bid submitted by you is non-binding. It is only an indication of interest. You may retract any offer
+                you
+                make on the vehicle at any time for any reason. However all bids submitted are seen by the owner of the
+                vehicle.
+                If your bid is accepted by the vehicle owner, then the actual sales process will start and our DMV
+                Specialist
+                and Finance Team will contact you.Good luck binding!
+            </div>
+        </div>
+    </div>
+</div>

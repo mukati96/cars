@@ -1,0 +1,256 @@
+// @import "../new-register.component.scss";
+// @import "../vehicle-photo.component.scss";
+
+.file-input__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input {
+  height: 100%;
+}
+
+.file-input__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 20px;
+  height: 100%;
+}
+
+.uploaddata {
+  display: block;
+  width: 100%;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 6px;
+  text-align: center;
+  height: 100%;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.file-input__label span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #333333;
+  display: block;
+  width: 100%;
+  margin: 0px 0px 20px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+.labelimage {
+  vertical-align: middle;
+  max-height: 124px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0px 0px;
+  overflow: hidden;
+  height: 124px;
+}
+.labelimage img {
+  max-width: 100%;
+}
+
+.car-images:hover .file-input__label span,
+.car-images:hover .labelimage {
+  display: none;
+}
+// .car-images:hover {
+//   background: #3d75f7;
+// }
+.hoverupload {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  background: #3d75f7;
+  background: transparent;
+  z-index: 999;
+}
+
+.car-images {
+  display: block;
+  width: 100%;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 6px;
+  text-align: center;
+  height: 220px;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+// .bgImage {
+//   background-image: url(/assets/img/car-approval/1.png);
+//   position: absolute;
+//   content: "";
+//   z-index: 999;
+//   top: 0px;
+//   left: 0px;
+//   height: 100%;
+//   width: 100%;
+//   z-index: 0;
+//   -webkit-filter: blur(5px);
+//   -moz-filter: blur(5px);
+//   -o-filter: blur(5px);
+//   -ms-filter: blur(5px);
+//   filter: blur(5px);
+// }
+
+.car-images:hover .hoverupload {
+  display: block;
+}
+.optional-images {
+  display: block;
+  width: 100%;
+  // border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 6px;
+  text-align: center;
+  height: 100%;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.optional-images:hover .hoverupload {
+  display: block;
+}
+
+.car-images .imagename {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  bottom: -15px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 11px;
+  z-index: 99;
+}
+.hoverupload .delete {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+.hoverupload .rotate {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  cursor: pointer;
+  max-width: 100%;
+  width: 35px;
+  padding: 7px;
+  border-radius: 50%;
+  background: #fff;
+  height: 33px;
+}
+.hoverupload .checkimg {
+  position: absolute;
+  top: 30%;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  cursor: pointer;
+}
+.hoverupload .checkimg img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.hoverupload p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  bottom: -15px;
+  left: 0px;
+  right: 0px;
+  padding: 11px;
+}
+.car-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 99;
+}
+
+.backBtn {
+  padding: 17px 17% !important;
+  background: #fff;
+  border-radius: 30px;
+  width: auto;
+  border: 1px solid #000;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000;
+}
+
+.uploaddata1 input[type="file"] {
+  display: none;
+}
+
+.uploaddata1 .custom-file-upload {
+  display: inline-block;
+  padding: 9px 12px;
+  cursor: pointer;
+  background: #000;
+  border-radius: 6px;
+  width: auto;
+  border: 1px solid #000;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+}
+
+.imageadd {
+  overflow: hidden;
+  height: 90px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #d6d6d6;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.imageadd img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.invalid-images {
+  color: red;
+  font-size: 12px;
+  display: block;
+  width: 100%;
+}
+.imageadd:hover {
+  background: #000 !important;
+}

@@ -1,0 +1,209 @@
+.login-banner {
+    background-image: url("/assets/img/seller-img/bg2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 30px;
+  }
+  .login-banner h1 {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 43px;
+    color: #ffffff;
+  }
+  .login-banner p {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 29px;
+    color: #fff;
+  }
+  .head-para {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #333333;
+  }
+  .other-guide {
+    background-color: #fafafa;
+    padding: 30px 0px;
+  }
+  .other-guide h2 {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #111111;
+  } 
+  .accordion {
+    margin-top: 40px;
+  }
+  .accordion .card {
+    border: none;
+    margin-bottom: 20px;
+  }
+  .accordion .card h2 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 29px;
+    color: #242833;
+  }
+  .accordion .card-body {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: inherit;
+  }
+  .accordion .accordion-list li {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    color: #333333;
+    list-style: disc;
+  }
+  .accordion .accordion-list li span {
+    color: #2ac1bc;
+  }
+  .accordion1-list1 li {
+    list-style: none !important;
+  }
+  .accordion p {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 24px;
+    color: #333333;
+    margin-left: -15px;
+  }
+  .accordion .card-body h5 {
+    margin-left: -15px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .deskshow {
+    display: block;
+  }
+  .mobshow {
+    display: none;
+  }
+  .accordion .card-body {
+    position: relative;
+    padding: 0px 0px 17px 0px !important;
+  }
+  .accordion .card-body:after {
+    border-bottom: 1px solid #d6d6d6;
+    padding: 30px 0px;
+    position: absolute;
+    content: "";
+    z-index: 9;
+    right: 0;
+    left: -20px;
+    bottom: 0;
+    width: 100%;
+  }
+  .accordion .card:last-child .card-body:after {
+    display: none;
+  }
+  .deskshow-head {
+    display: inline-block;
+    width: 93%;
+    vertical-align: top;
+    padding-left: 6px;
+  }
+  .desknumber {
+    display: inline-block;
+    width: 7%;
+  }
+  .emailtext {
+    color: #3d75f7;
+    text-decoration: none;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .login-banner {
+      padding: 12px;
+    }
+    .login-banner h1 {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .login-banner p {
+      font-size: 14px;
+      line-height: 24px;
+      margin: 0px 0px 10px 0px;
+    }
+    .other-guide h2 {
+      font-size: 16px;
+    }
+    .accordion .card-body h5 {
+      margin-left: 0px;
+    }
+    .accordion-list {
+      margin-top: 15px;
+      padding-left: 18px !important;
+    }
+  
+    .accordion .card h2.collapsed:after {
+      background: url("/assets/img/seller-img/plus.png") no-repeat
+        calc(100% - 10px) center;
+      background-size: auto;
+      position: absolute;
+      content: "";
+      z-index: 99;
+      right: 8px;
+      height: 45px;
+      width: 45px;
+      top: -14px;
+    }
+    .accordion .card h2:after {
+      background: url("/assets/img/seller-img/minus.png") no-repeat
+        calc(100% - 10px) center;
+      background-size: auto;
+      position: absolute;
+      content: "";
+      z-index: 99;
+      right: 8px;
+      height: 45px;
+      width: 45px;
+      top: -14px;
+    }
+    .deskshow {
+      display: none;
+    }
+    .mobshow {
+      display: block;
+    }
+  
+    .card-head {
+      border-bottom: 1px solid #d6d6d6;
+    }
+  
+    .accordion .card h2 {
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 25px;
+      color: #242833;
+      padding-bottom: 10px;
+      padding-right: 20px;
+      background: none;
+      width: calc(100% - 20px);
+    }
+  
+    .accordion p {
+      margin-left: 0px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .collapse:not(.show) {
+      display: block;
+    }
+  }
+  
+  @media screen and (min-width: 1000px) {
+    .accordion .card h2 {
+      padding: 0px 70px 0px 0px;
+    }
+    .accordion .card-body {
+      cursor: auto;
+    }
+  }
+  

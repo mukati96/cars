@@ -1,0 +1,82 @@
+<section id="inventory">
+  <div class="section-border"></div>
+  <!--section-->
+  <section class="inventory mb-0 mb-md-0 pr-md-3 mt-md-3 pb-md-0">
+    <div class="container-fluid largewidth-container">
+      <div class="row">
+        <div class="col-md-3 sidebar-sticky">
+          <post-sidebar [models]="availableMakes" [filterForm]="filterForm"
+            [filtersData]="filtersData" (changeMake)="getSidebarData($event)"
+            [collection]="collection"></post-sidebar>
+        </div>
+        <div class="col-md-9 pl-md-0">
+          <div class="input_search  d-md-block d-none web_input">
+            <input [(ngModel)]="searchText" type="text" placeholder="Type your search" class="form-control" 
+            (keyup)="setText($event)">
+            <img src="../../../../assets/icons/banner_icon.svg" class="submit_arrow">
+          </div>
+          <div class="car-section">
+            <div class="row car-filter">
+
+              <div class="col-xl-6 col-lg-6 col-md-6 d-block d-md-none">
+                <app-sidebar-mobile-v2 [trims]="availablieTrims" [models]="availableMakes" [filterForm]="filterForm"
+                  [filtersData]="filtersData" (changeMake)="getSidebarData($event)"
+                  (onClose)="onClose()"></app-sidebar-mobile-v2>
+              </div>
+              <form [formGroup]="filterForm">
+                <div class="row">
+                  <div class="col-6 ">
+                    <h4 class=" m-0 d-md-none d-block" *ngIf="!fetchingData">
+                      <ng-container *ngIf="collection?.data | filter: searchFilter">
+                        {{searchFilter ? (collection?.data | filter: searchFilter)?.length : collection?.count}}
+                        <span>Cars</span>
+                      </ng-container>
+                      {{
+                      filterForm.value.city
+                      ? "in " + filterForm.value.city
+                      : ""
+                      }}
+                    </h4>
+                  </div>
+                  <div class="col-6 text-right sort_by">
+                    <label class="m-0">
+                      Sort By:
+                    </label>
+                    <select class="new_select" formControlName="sort_by">
+                      <option value=""> Best Match </option>
+                      <option value="featured"> Featured </option>
+                      <option *ngIf="userInfo==''" value="saved" disabled> Saved </option>
+                      <option value="saved" *ngIf="userInfo!=''"> Saved </option>
+
+                    </select>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+            <post-grid-view *ngIf="view === 'grid'" [collection]="collection" [config]="config" [favorites]="favorites"
+              [fetchingData]="fetchingData">
+            </post-grid-view>
+
+            <div class="mt-5 mb-5" *ngIf="(collection?.data | filter: searchFilter)?.length">
+              <post-pagination *ngIf="collection?.data.length " (pageChange)="onPageChange($event)" ></post-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<div class="modal sidebar-invisible" id="exampleModal1" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-slideout sidebar-modal" role="document">
+    <div class="modal-content sidebar-modal">
+      <div class="modal-header text-center">
+        <button type="button" class="close close-sidebar" (click)="onClose()">
+          <span aria-hidden="true">
+            <img src="../../../../assets/img/inventory/icons/modalcross.png" alt="img" />
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="custom-slider" *ngIf="galleryImages?.length">
+  <div class="main-img-wrapper">
+    <ngx-slick-carousel class="carousel" (afterChange)="afterChange($event)" #mainSlickModal="slick-carousel"
+      [config]="mainSlideConfig">
+      <div ngxSlickItem *ngFor="let img of galleryImages;index as i" class="slide">
+        <img class="main-img" [src]="img?.big" alt="" loading="lazy">
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>
+
+<div class="thum_img">
+  <ngx-slick-carousel class="carousel" #thumbnailSlickModal="slick-carousel" [config]="thumbnailSlideConfig">
+    <div ngxSlickItem *ngFor="let img of galleryImages;index as i" class="slide" [class.slgactive]="img?.isSelected">
+      <img (click)="selectMainImageFromThumbnail(i)" class="thumbnail"
+        [src]="img?.small" alt="" loading="lazy">
+    </div>
+  </ngx-slick-carousel>
+  <!-- <ng-container>
+    <div class="arrow left" (click)="moveThumbnailPrev()">
+      <img src="/assets/icons/left_arrow.svg" alt="" />
+    </div>
+    <div class="arrow right" (click)="moveThumbnailNext()">
+      <img src="/assets/icons/right_arrow.svg" alt="" />
+    </div>
+  </ng-container> -->
+</div>

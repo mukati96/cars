@@ -1,0 +1,575 @@
+<form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+  <div class="card-body ml-md-0 m-0 pl-md-0 pl-0 pt-md-2 pt-0" formGroupName="vehicle_info_a">
+    <!-- <p class="text-light1 mt-4 mb-0 p-md-0 p-1">
+       Please review the information we have about your vehicle
+       and make updates so everything is correct.
+    </p>
+    <p class="text-dark1 mt-md-2 mt-0 mb-3  p-md-0 p-1">
+      We’re happy to post your car to local dealer. Which are you most interested in?
+    </p>
+    <div
+       class="btn-group btn-group-toggle"
+       >
+       <label 
+       class="btn btn-basic"
+       for="Sell" 
+       [ngClass]="{'active': theBasics.owner_type.value === 'Sell'}"
+       >
+       <input
+          type="radio"
+          id="Sell"
+          formControlName="owner_type"
+          value="Sell"
+          />
+       SELL
+       </label>
+       <label 
+       class="btn btn-basic" 
+       for="Trade-in"
+       [ngClass]="{'active': theBasics.owner_type.value === 'Trade-in'}"
+       >
+       <input
+          type="radio"
+          id="Trade-in"
+          formControlName="owner_type"
+          value="Trade-in"
+          autocomplete="off"
+          />
+       Trade
+       </label> 
+       <label 
+       class="btn btn-basic"
+       for="Not sure"
+       [ngClass]="{'active': theBasics.owner_type.value === 'Not sure'}"
+       >
+       <input
+          type="radio"
+          id="Not sure"
+          formControlName="owner_type"
+          value="Not sure"
+          />
+       Not Sure
+       </label>
+    </div>
+    <div class="invalid-class" *ngIf="(submitted || theBasics?.owner_type?.touched) && 
+      theBasics?.owner_type?.errors?.required">
+      Which are you most interested in is required
+    </div>
+    <div class="border-bottom-div1 pt-3 mb-3"></div>-->
+    <div class="inputall">
+      <!-- <div class="form-group mt-md-4 mt-0" style="position: relative">
+         <label>Brand </label>
+         <div class="inputcheck">
+            <input 
+            type="text" 
+            formControlName="brand" 
+            class="form-control" 
+            [ngClass]="{'invalid': (submitted || theBasics?.brand?.touched) && 
+            theBasics?.brand?.errors}"
+            />
+            <span class="checkinputimage"
+            *ngIf="theBasics?.brand.valid"
+            ><img src="/assets/icons/check.svg" alt=""/>
+            </span>
+         </div>
+         <div class="invalid-class" *ngIf="(submitted || theBasics?.brand?.touched) && 
+           theBasics?.brand?.errors?.required">
+           brand is required
+         </div>
+      </div> -->
+       <div class="form-group mt-md-4 mt-0" style="position: relative">
+          <label>Model </label>
+          <div class="inputcheck">
+             <input 
+             type="text" 
+             formControlName="model" 
+             class="form-control" 
+             [ngClass]="{'invalid': (submitted || theBasics?.model?.touched) && 
+             theBasics?.model?.errors}"
+             readonly />
+             <span class="checkinputimage"
+             *ngIf="theBasics?.model.valid"
+             ><img src="/assets/icons/check.svg" alt=""/>
+             </span>
+          </div>
+          <div class="invalid-class" *ngIf="(submitted || theBasics?.model?.touched) && 
+            theBasics?.model?.errors?.required">
+            Model is required
+          </div>
+       </div>
+       <div class="form-group mt-4" style="position: relative">
+          <label>Make </label>
+          <div class="inputcheck">
+             <input 
+             type="text" 
+             formControlName="make" 
+             class="form-control" 
+             [ngClass]="{'invalid': (submitted || theBasics?.make?.touched) && 
+             theBasics?.make?.errors}"
+             readonly />
+             <span class="checkinputimage"
+             *ngIf="theBasics?.make.valid"
+             ><img src="/assets/icons/check.svg" alt=""/>
+             </span>
+          </div>
+          <div class="invalid-class" *ngIf="(submitted || theBasics?.make?.touched) && 
+            theBasics?.make?.errors?.required">
+            Make is required
+          </div>
+       </div>
+       <div class="form-group mt-4" style="position: relative">
+          <label>Year </label>
+          <div class="inputcheck">
+             <input 
+             type="text" 
+             formControlName="year" 
+             class="form-control" 
+             [ngClass]="{'invalid': (submitted || theBasics?.year?.touched) && 
+             theBasics?.year?.errors}"
+             readonly/>
+             <span class="checkinputimage"
+             *ngIf="theBasics?.year.valid"
+             ><img src="/assets/icons/check.svg" alt=""/>
+             </span>
+          </div>
+          <div class="invalid-class" *ngIf="(submitted || theBasics?.year?.touched) && 
+            theBasics?.year?.errors?.required">
+            Year is required
+          </div>
+       </div>
+      <div class="form-group mt-4" style="position: relative">
+         <label>Mileage </label>
+         <div class="inputcheck">
+         <input 
+         type="text" 
+         formControlName="mileage" 
+         class="form-control"
+         pattern="[0-9]*"
+         inputmode="numeric"
+         mask="separator.0"
+         thousandSeparator=","
+         maxlength="7"
+         [ngClass]="{'invalid': (submitted || theBasics?.mileage?.touched) && 
+         theBasics?.mileage?.errors}"
+         />
+         <span class="checkinputimage"
+         *ngIf="theBasics?.mileage.valid"
+         ><img src="/assets/icons/check.svg" alt=""/>
+         </span>
+      </div>
+         <div class="invalid-class" *ngIf="(submitted || theBasics?.mileage?.touched) && 
+         theBasics?.mileage?.errors?.required">
+         Mileage is required
+         </div>
+      </div>
+      
+       <div class="form-group mt-4" style="position: relative">
+          <label>Zip Code </label>
+          <div class="inputcheck">
+            <input 
+            type="text" 
+            formControlName="zip_code" 
+            pattern="[0-9]*"
+            inputmode="numeric"
+            class="form-control"
+            mask="00000"
+            [ngClass]="{'invalid': ((submitted || submittedZip) || theBasics?.zip_code?.touched) && 
+            theBasics?.zip_code?.errors}"
+            />
+            <span class="checkinputimage"
+            *ngIf="submittedZip && !fetchingZipCode && theBasics?.zip_code.valid"
+            ><img src="/assets/icons/check.svg" alt=""/>
+            </span>
+            <p class="spininput" *ngIf="fetchingZipCode && theBasics?.zip_code?.value">
+               <span class="spinner"></span>
+            </p>
+          </div>
+         
+          <div class="invalid-class" *ngIf="((submitted) || theBasics?.zip_code?.touched) && 
+            theBasics?.zip_code?.errors?.required">
+            Zip Code is required
+          </div>
+          <div class="invalid-class" *ngIf="((submitted || submittedZip) || theBasics?.zip_code?.touched) && 
+            theBasics?.zip_code?.errors?.invalid">
+            Wrong Zip Code Please Try With Different ZIP Code!!
+          </div>
+       </div>
+
+      <div class="form-group mt-4" style="position: relative">
+         <label>Asking Price</label>
+         <div class="inputcheck">
+            <input 
+            type="text" 
+            formControlName="asking_price" 
+            class="form-control"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            mask="separator.0"
+            thousandSeparator=","
+            maxlength="7"
+            [ngClass]="{'invalid': (submitted || theBasics?.asking_price?.touched) && 
+            theBasics?.asking_price?.errors}"
+            />
+            <span class="checkinputimage"
+            *ngIf="theBasics?.asking_price.value && theBasics?.asking_price.valid"
+            ><img src="/assets/icons/check.svg" alt=""/>
+            </span>
+           
+         </div>
+         <div class="invalid-class" *ngIf="(submitted || theBasics?.asking_price?.touched) && 
+         theBasics?.asking_price?.errors?.required">
+         Asking Price is required
+         </div>
+         <div class="invalid-class" *ngIf="(submitted || theBasics?.asking_price?.touched) && 
+         theBasics?.asking_price?.errors?.max">
+         Asking Price must be less than  99,999,999
+         </div>
+      </div>
+    </div>
+    <div class="border-bottom-div1 pt-3 mb-3"></div>
+    <div class="basictype pt-3">
+       <h5 class="mb-4">Color</h5>
+       <div class="custom-radios">
+             <div class="col-md-3 col-4">
+                <input
+                  formControlName="exterior_color"
+                  type="radio"
+                  id="color-1"
+                  value="Black"
+                   />
+                <label for="color-1">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Black
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-2"
+                   formControlName="exterior_color"
+                   value="Gray"
+                   />
+                <label for="color-2">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Gray
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-3"
+                   formControlName="exterior_color"
+                   value="Silver"
+                   />
+                <label for="color-3">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Silver
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-4"
+                   formControlName="exterior_color"
+                   value="White"
+                   />
+                <label for="color-4">
+                <span>
+                <img
+                   src="/assets/icons/checked.png"
+                   alt="image"
+                   />
+                </span>
+                White
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-5"
+                   formControlName="exterior_color"
+                   value="Blue"
+                   />
+                <label for="color-5">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Blue
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-6"
+                   formControlName="exterior_color"
+                   value="Purple"
+                   />
+                <label for="color-6">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Purple
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-8"
+                   formControlName="exterior_color"
+                   value="Red"
+                   />
+                <label for="color-8">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Red
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-10"
+                   formControlName="exterior_color"
+                   value="Brown"
+                   />
+                <label for="color-10">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Brown
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-12"
+                   formControlName="exterior_color"
+                   value="Gold"
+                   />
+                <label for="color-12">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Gold
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-14"
+                   formControlName="exterior_color"
+                   value="Yellow"
+                   />
+                <label for="color-14">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Yellow
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-15"
+                   formControlName="exterior_color"
+                   value="Green"
+                   />
+                <label for="color-15">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Green
+                </label>
+             </div>
+             <div class="col-md-3 col-4">
+                <input
+                   type="radio"
+                   id="color-16"
+                   formControlName="exterior_color"
+                   value="Other"
+                   />
+                <label for="color-16">
+                <span>
+                <img
+                   src="/assets/icons/radiocheck.png"
+                   alt="image"
+                   />
+                </span>
+                Other
+                </label>
+             </div>
+         </div>
+         <div class="invalid-class" *ngIf="(submitted || theBasics?.exterior_color?.touched) && 
+           theBasics?.exterior_color?.errors?.required">
+           Please choose color
+         </div>
+    </div>
+    <div class="border-bottom-div1 pt-3 mb-3"></div>
+    <!-- Transmission -->
+    <ng-container *ngIf="vehicleFormData?.transmission?.length">
+       <div class="basictype pt-3">
+          <h5 class="mb-3">TRANSMISSION</h5>
+          <div 
+          class="transmissiondiv mb-3 pointer"
+          *ngFor="let item of vehicleFormData?.transmission"
+          [ngClass]="{'active': theBasics?.transmission.value === item}"
+          >
+           <p 
+           [ngClass]="{'d-inline-block': theBasics?.transmission.value === item}"
+           (click)="changeTransmission(item)"
+           >{{item}}
+           </p>
+           <span 
+           *ngIf="theBasics?.transmission.value === item"
+           ><img src="/assets/icons/check.svg" alt=""/>
+           </span>
+          </div>
+          <div *ngIf="!vehicleFormData?.transmission?.length">
+            <p>N/A</p>
+          </div>
+       </div>
+       <div class="border-bottom-div1 pt-1 mb-1"></div>
+    </ng-container>
+
+    <!-- Drive Type -->
+    <ng-container>
+       <div class="basictype pt-3">
+          <h5>DRIVETRAIN</h5>
+          <p class="mt-3" *ngIf="theBasics?.drive_type.value">
+             <img 
+             src="/assets/icons/check.svg" 
+             class="mr-2" alt=""/>
+             {{(theBasics?.drive_type.value)}}
+             <a class="pointer editContent" (click)="theBasics?.drive_type?.patchValue('')">Edit</a>
+          </p>
+          <ng-container  *ngIf="!theBasics?.drive_type?.value">
+             <ng-select 
+             formControlName="drive_type"
+             >
+               <ng-option 
+               [value]="item" 
+               *ngFor="let item of driveType"
+               >{{item}}
+               </ng-option>
+            </ng-select>
+            <div class="invalid-feedback-photos" *ngIf="(submitted  || theBasics?.drive_type?.touched) && 
+               theBasics?.drive_type?.errors">
+               Drive Type is required
+            </div>
+          </ng-container>
+          
+       </div>
+       <div class="border-bottom-div1 pt-1 mb-1"></div>
+    </ng-container>
+    
+    <!-- Engine -->
+    <ng-container *ngIf="vehicleFormData?.engine">
+       <div class="basictype pt-3">
+          <h5>ENGINE</h5>
+          <p class="mt-3">
+            <img 
+            *ngIf="vehicleFormData?.engine" 
+            src="/assets/icons/check.svg" 
+            class="mr-2" alt=""/>
+            {{(vehicleFormData?.engine || 'N/A')}}
+          </p>
+       </div>
+       <div class="border-bottom-div1 pt-1 mb-1"></div>
+    </ng-container>
+
+    <!-- Fuel Type -->
+    <ng-container >
+       <div class="basictype pt-3">
+          <h5>Fuel Type</h5>
+          <p class="mt-3" *ngIf="theBasics?.fuel_type?.value">
+            <img 
+            src="/assets/icons/check.svg" 
+            class="mr-2" alt=""/>
+            {{(theBasics?.fuel_type?.value)}}
+            <a class="pointer editContent" (click)="theBasics?.fuel_type?.patchValue('')">Edit</a>
+         </p>
+         <ng-container *ngIf="!theBasics?.fuel_type?.value">
+            <ng-select 
+            formControlName="fuel_type"
+            >
+              <ng-option 
+              [value]="item" 
+              *ngFor="let item of fuelTypes"
+              >{{item}}
+              </ng-option>
+           </ng-select>
+            <div class="invalid-feedback-photos" *ngIf="(submitted  || theBasics?.fuel_type?.touched) && 
+               theBasics?.fuel_type?.errors">
+               Fuel Type is required
+            </div>
+         </ng-container>
+       </div>
+       <div class="border-bottom-div1 pt-1 mb-1"></div>
+    </ng-container>
+    
+    <!-- Body Type -->
+    <ng-container *ngIf="vehicleFormData?.body_type" >
+       <div class="basictype pt-3">
+          <h5>Body Type</h5>
+          <p class="mt-3">
+            <img 
+            *ngIf="vehicleFormData?.body_type" 
+            src="/assets/icons/check.svg" 
+            class="mr-2" alt=""/>
+            {{(vehicleFormData?.body_type || 'N/A')}}
+          </p>
+       </div>
+       <div class="border-bottom-div1 pt-1 mb-5"></div>
+    </ng-container>
+    
+    <div class="mb-3 mt-3">
+         <button
+         type="button"
+         (click)="prev()"
+         class="backBtn" 
+         >Back</button>
+
+       <button 
+       [type]="fetchingZipCode ? 'button' : 'submit'" 
+       class="nextBtn nextbtn_step1" 
+       [disabled]="f?.vehicle_info_a.invalid"
+       >Next</button>
+    </div>
+  </div>
+</form>

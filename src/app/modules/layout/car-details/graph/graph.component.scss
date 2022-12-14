@@ -1,0 +1,242 @@
+// .graphPrice {
+//   font-family: Gotham regular;
+//   font-weight: 325;
+//   font-size: 14px;
+//   line-height: 14px;
+//   color: #000000;
+// }
+// .lowerBid{
+//   font-family: 'Gotham regular';
+//   font-style: normal;
+//   font-weight: 350;
+//   font-size: 13px;
+//   line-height: 16px;
+//   text-align: right;
+//   text-decoration-line: underline;
+//   color: #45C8C3;
+//   margin-bottom: 8px;
+// }
+// .Price {
+//   writing-mode: tb-rl;
+//   transform: rotate(-180deg);
+//   font-family: Gotham regular;
+//   font-weight: 325;
+//   font-size: 14px;
+//   line-height: 14px;
+//   color: #37c1bc;
+//   position: absolute;
+//   left: -21px;
+//   top: 100px;
+// }
+
+// .Date {
+//   font-family: Gotham regular;
+//   font-weight: 325;
+//   font-size: 14px;
+//   line-height: 14px;
+//   color: #37c1bc;
+//   text-align: center;
+// }
+
+// .apexcharts-xaxis-label {
+//   word-wrap: break-word;
+// }
+
+// .vehicle_history .reachus_para {
+//   font-family: Gotham regular;
+//   font-weight: 325;
+//   line-height: 17px;
+//   color: #000000;
+//   margin: 13px 0px 0px;
+//   font-size: 12px;
+// }
+
+// .vehicle_history h3 {
+//   font-family: Gotham medium;
+//   font-weight: 350;
+//   font-size: 16px;
+//   line-height: 25px;
+//   color: #242833;
+// }
+
+// .vehicle_history .reachus_para a {
+//   font-family: Gotham medium;
+//   background: #000;
+//   border: 1px solid #000000;
+//   border-radius: 3px;
+//   font-weight: 350;
+//   color: #fff;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   text-transform: uppercase;
+//   height: 26px !important;
+//   font-size: 9px !important;
+//   line-height: 20px !important;
+//   padding-top: 3px;
+//   cursor: pointer;
+//   width: 79px!important;
+// }
+
+// .vehicle_history ul li {
+//   display: inline-block;
+//   width: auto;
+//   margin-right: 15px;
+// }
+
+// .vehicle_history img {
+//   width: 30px;
+//   height: 30px;
+//   margin-top: 12px;
+// }
+
+// .vehicle_history .head_col {
+//   font-family: Gotham regular;
+//   display: inline-block;
+//   font-weight: 325;
+//   font-size: 10px;
+//   line-height: 5px;
+//   color: #000000;
+//   vertical-align: top;
+// }
+
+// .vehicle_history span {
+//   font-family: Gotham regular;
+//   font-weight: 325;
+//   font-size: 12px;
+//   line-height: 17px;
+//   color: #4f4f4f;
+//   display: block;
+//   padding-left: 33px;
+//   margin-top: -10px;
+//   padding-right: 12px;
+// }
+
+// @media screen and (min-width: 768px) and (max-width: 1199px) {
+//   .car-maincontent h4,
+//   .vehicle_history h3 {
+//     font-size: 15px !important;
+//   }
+
+//   .vehicle_history .head_col {
+//     font-size: 12px;
+//   }
+
+//   .vehicle_history span {
+//     font-size: 12px;
+//   }
+// }
+
+// @media screen and (max-width: 767px) {
+//   .vehicle_history h3 {
+//     font-size: 18px;
+//   }
+//   .vehicle_history .head_col {
+//     font-size: 10px;
+//   }
+//   .vehicle_history span {
+//     font-size: 10px;
+//     line-height: 18px;
+//     padding-left: 32px;
+//   }
+//   .vehicle_history img {
+//     width: 28px;
+//     height: auto;
+//     vertical-align: middle;
+//     margin-top: 6px;
+//   }
+//   .vehicle_history .reachus_para a {
+//     border-radius: 0 !important;
+//     font-size: 10px !important;
+//     height: 40px !important;
+//     width: 100% !important;
+//   }
+// }
+
+// @media screen and (max-width: 300px) {
+//   .vehicle_history .head_col {
+//     width: 100%;
+//     max-width: 100%;
+//     flex: 0 0 100%;
+//     font-size: 12px;
+//   }
+//   .vehicle_history .head_col:nth-child(2) {
+//     padding-left: 15px !important;
+//     margin-top: 10px;
+//   }
+// }
+// .noGraph {
+//   text-align: center;
+//   position: relative;
+//   font-size: 18px;
+//   font-weight: 600;
+//   margin-top: -81px;
+//   top: -135px;
+//   border: 2px solid;
+//   left: 10px;
+//   width: 96%;
+//   height: 79px;
+//   padding-top: 26px;
+//   border-radius: 20px;;
+// }
+// @media screen and (max-width: 575px) {
+//   .noGraph {
+//     text-align: center;
+//     font-size: 16px;
+//     font-weight: 600;
+//     margin-top: -82px;
+//   }
+// }
+
+// .vehicle_history_ico {
+//   color: transparent;
+//   -webkit-filter: blur(-4px);
+// }
+
+
+// @media screen and (max-width:767px){
+//   .lowerBid{
+//     text-align: left;
+//     font-size: 11px;
+//   }
+// }
+// .login_box {
+//   align-items: center;
+//   background-color: #fff;
+//   background: #fff;
+//   border: 1px solid #4f4f4f;
+//   border-radius: 6px;
+//   border-radius: 12px;
+//   box-shadow: 240;
+//   display: flex;
+//   height: 140px;
+//   left: 50%;
+//   position: absolute!important;
+//   top: 310px;
+//   -webkit-transform: translate(-50%,-50%);
+//   transform: translate(-50%,-50%);
+//   width: 280px;
+//   z-index: 9;
+// }
+// .graph_modal_text {
+//   color: #000!important;
+//   font-family: Gotham regular!important;
+//   font-size: 14px!important;
+//   font-style: normal!important;
+//   font-weight: 325!important;
+//   line-height: 21px!important;
+//   text-align: center!important;
+// }
+// .login_container {
+//  padding: 20px 15px 10px;
+//    text-align: center; 
+// }
+::ng-deep .tooltip-ui {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  align-items: left;
+  margin: 0;
+  padding: 5px;
+}

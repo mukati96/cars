@@ -1,0 +1,103 @@
+.contact-form-area {
+  background-color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+  padding: 25px 20px;
+  border: 1px solid #f5f2f2;
+  box-shadow: 0px 15px 32px rgba(50, 50, 71, 0.08),
+    0px 16px 16px rgba(50, 50, 71, 0.08);
+  border-radius: 7px;
+}
+.contact-information-area {
+  background-color: #fff;
+  margin-bottom: 30px;
+  position: relative;
+  padding: 25px 20px;
+  border: 1px solid #f5f2f2;
+  box-shadow: 0px 15px 32px rgba(50, 50, 71, 0.08),
+    0px 16px 16px rgba(50, 50, 71, 0.08);
+  border-radius: 7px;
+  height: calc(100% - 30px);
+}
+.area-title .title {
+  font-family: Gotham Bold;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  color: #111111;
+  margin-bottom: 8px;
+}
+.contact-information-area .info-box {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid #b9b6b6;
+  width: 100%;
+}
+.icon {
+  margin-top: 7px;
+}
+.contact-information-area .info-box .icon span {
+  width: 30px;
+  height: 30px;
+  line-height: 25px;
+  display: inline-block;
+  text-align: center;
+  font-size: 21px;
+  margin-right: 10px;
+  border: 1px solid #000;
+  text-transform: capitalize;
+  border-radius: 100px;
+}
+.contact-information-area .info-box .content span {
+  color: #000;
+  font-weight: 500;
+  font-size: 13px;
+  font-family: Gotham medium;
+}
+.contact-information-area .info-box .content .text,
+.contact-information-area .info-box .content .text a {
+  margin: 2px 0px 0px;
+  line-height: 17px;
+  font-size: 12px;
+  color: #000;
+  text-decoration: none;
+  word-break: break-all;
+  font-weight: 400;
+  font-family: Gotham regular;
+}
+.loginbtn {
+  font-family: Gotham regular;
+  background: #000;
+  border: none;
+  border-radius: 0px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  height: 36px;
+  line-height: 31px;
+  margin-top: 15px;
+  padding: 0 44px;
+  width: auto;
+}
+.contact-form-area .contact-form label, .contact-form-area .contact-form .form-control{
+  font-size: 14px;
+  font-family: Gotham light;
+  color: #000;
+}
+/*----------------- intel telephone css --------------*/
+::ng-deep.intl-tel-input {
+  position: relative;
+  display: block;
+}
+::ng-deep input#phone {
+  border: none !important;
+  background: transparent !important;
+  width: 100% !important;
+}
+@media screen and (max-width:767px){
+  .contact-form-area .contact-form label, .contact-form-area .contact-form .form-control{
+    font-size: 12px;
+  }
+}

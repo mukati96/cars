@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap');
+
+.make-anoffercontent h5 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    text-decoration-line: underline;
+    color: #000000;
+}
+
+.aboutCar {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #444444;
+}
+
+// .make-anoffercontent{
+//     border: 0;
+//     padding: 30px;
+// }
+.make-anoffercontent .modal-header, .make-anoffercontent .modal-body, .make-anoffercontent .modal-dialog {
+    padding: 0;
+  }
+
+// .make-anoffercontent .modal-body input.form-control{
+//     height: 56px;
+// }
+// .make-anoffercontent .modal-body .form-group{
+//     position: relative;
+// }
+// .make-anoffercontent .modal-body form{
+//     margin-top: 20px;
+// }
+// .make-anoffercontent .modal-body .form-group label{
+//     color: #333;
+//     font-size: 12px;
+//     font-weight: 400;
+//     left: 13px;
+//     line-height: 13px;
+//     top: -5px;
+//     background-color: #fff;
+//     font-family: Roboto, Helvetica, Arial, sans-serif;
+//     position: absolute;
+//     padding: 0px 7px;
+//     z-index: 9;
+// }
+// .make-anoffercontent .modal-body .dollar-fix{
+//     left: 22px;
+//     color: #9da0a6;
+//     font-size: 13px;
+//     font-weight: 300;
+//     line-height: 16px;
+//     font-family: SF Pro Display;
+//     font-style: normal;
+//     text-align: center;
+//     position: absolute;
+//     top: 20px;
+// }
+// .make-anoffercontent .invalid-class{
+//     color: red;
+//     font-size: 11px;
+//     margin-top: 5px;
+//     font-family: 'Gotham regular';
+//     font-weight: 400;
+//     position:relative;
+//     margin-left: 0 !important;
+// }
+// .make-offersavebtn{
+//     font-family: SF Pro Display;
+//     font-style: normal;
+//     text-align: center;
+//     background: #000;
+//     border: none;
+//     border-radius: 6px;
+//     color: #fff;
+//     font-size: 14px;
+//     font-weight: 500;
+//     height: 50px;
+//     line-height: 17px;
+//     margin-bottom: 20px;
+//     margin-top: 15px;
+//     width: 100%;
+// }
+
+// .mistake_box{
+//     align-items: baseline;
+//     display: flex;
+//     justify-content: center;
+// }
+// .mistake_box img{
+//     position: relative;
+//     top: 5px;
+// }
+// .mistake_box p{
+//     color: #9da0a6;
+//     font-size: 13px;
+//     font-weight: 300;
+//     line-height: 16px;
+//     font-family: SF Pro Display;
+//     font-style: normal;
+//     padding-left: 9px;
+// }
+.modal-content {
+    border: none;
+    height: 460px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.make-anoffercontent .modal-body input.form-control:hover {
+    border: 1px solid;
+}
+
+.make-anoffercontent .modal-body h3 {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Gotham regular';
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+.make-anoffercontent .modal-body button {
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    background: #000;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Gotham regular';
+}
+
+.make-anoffercontent .close {
+    padding: 0px;
+    position: absolute;
+    right: 25px;
+    top: 18px;
+    opacity: 1;
+}
+
+.make-anoffercontent .close img {
+    height: 18px;
+    width: 18px;
+}
+
+.make-anoffercontent.available-items {
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    padding:5;
+}
+
+.make-anoffercontent.available-items::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(202, 92, 92, 0.3) !important;
+    background-color: #f5f5f5 !important;
+    border-radius: 10px !important;
+}
+
+.make-anoffercontent.available-items::-webkit-scrollbar {
+    width: 5px !important;
+    background-color: #f5f5f5 !important;
+}
+
+.make-anoffercontent.available-items::-webkit-scrollbar-thumb {
+    border-radius: 5px !important;
+    background-image: -webkit-gradient(linear,
+            left bottom,
+            left top,
+            color-stop(0.72, rgb(198, 198, 199)),
+            color-stop(0.72, rgb(198, 198, 199)),
+            color-stop(0.72, rgb(198, 198, 199))) !important;
+}
+
+@media screen and (max-width:767px){
+    .make-anoffercontent.available-items{
+        padding: 0px;
+        height: auto;
+    }
+}
+
+//     width: 100%;
+// height: 35px;
+// border: 1px solid #00000075;
+// border-radius: 10px;
+
+
+// .iti-flag.us {
+//     display: none !important;
+// }
+// .country-dropdown {
+//     display: none !important;
+// }
+// input::-webkit-outer-spin-button,
+// input::-webkit-inner-spin-button {
+// -webkit-appearance: none;
+// margin: 0;
+// }
+// input[type=number] {
+// -moz-appearance: textfield;
+// }
+
+// .form-group .checkinputimage img {
+//     float: right;
+//     margin-top: -38px;
+//     margin-right: 15px;
+//  }
+//  .checkinputimage{
+//     position: absolute;
+//  }
+//  .checkinputimage i {
+//     position: relative;
+//     left: 307px;
+//     top: -36px;
+//     font-size: 18px;
+//     color: green;
+//  }
+//  .checkinputIcon i {
+//     position: relative;
+//     left: 307px;
+//     top: -36px;
+//     font-size: 18px;
+//     color: #ff2500d6;
+//  }
+//  .checkinputIcon{
+//     position: absolute;
+//  }
+//  .checkinputimage .sendOtp{
+//     position: relative;
+//     top: -56px;
+//     height: 56px;
+//     width: 107px;
+//     left: 228px;
+//     border-radius: 5px;
+//     background: BLACK;
+//     border: none;
+//     color: white;
+//     font-weight: 600;
+//     font-size: 14px;
+//  }

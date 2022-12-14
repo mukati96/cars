@@ -1,0 +1,884 @@
+@font-face {
+  font-family: Avenir Roman;
+  src: url(../../../../assets/fonts/avenir/AvenirLTStd-Roman.otf)
+    format("opentype");
+}
+
+@font-face {
+  font-family: Avenir Regular;
+  src: url(../../../../assets/fonts/avenir/AvenirLTStd-Book.otf)
+    format("opentype");
+}
+
+@font-face {
+  font-family: Avenir Bold;
+  src: url(../../../../assets/fonts/avenir/AvenirLTStd-Black.otf)
+    format("opentype");
+}
+button[disabled] {
+  background-color:gray;
+}
+
+.tab-appraisel h1 {
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 45px;
+  color: #111111;
+}
+.tableft-appraisal {
+  margin: 20px 0px;
+}
+.tableft-appraisal img {
+  vertical-align: top;
+}
+.tableft-content {
+  margin: 4px 0px 10px 5px;
+  display: inline-block;
+}
+.tab-appraisel .tableft-appraisal .tableft-content span,
+.tab-appraisel .tableft-appraisal .tableft-content p {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #868686;
+  margin-bottom: 10px;
+}
+
+.tab-vincontent {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 30px 25px 10px;
+}
+.tab-appraisel ul {
+  border: none;
+
+}
+
+label {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #868686;
+  position: relative;
+  background: no-repeat;
+  z-index: 9;
+}
+.form-group .form-control {
+  height: 44px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333;
+  padding: 0px 8px;
+}
+.tab-appraisel p.formpara {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff !important;
+}
+.vinlink {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
+
+.fa-question-circle {
+  color: #fff;
+  padding: 3px;
+  font-size: 15px;
+}
+.modal-content {
+  background: #fafafa;
+  border-radius: 20px;
+  padding: 18px 30px;
+}
+.modal-header {
+  border: none;
+}
+.modal-body h5 {
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #111111;
+}
+.modal-para {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #333333;
+}
+.modal-para1 {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #333333;
+}
+h4 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #333333;
+}
+ul li {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 170%;
+  color: #868686;
+}
+.form-control::-webkit-input-placeholder {
+  color: #8e8a8a;
+}
+.breadcrumb-item.active {
+  color: #676b73 !important;
+}
+.breadcrumb-item a {
+  color: #000 !important;
+}
+.invalid-feedback {
+  bottom: 6px;
+  padding-left: 6px;
+}
+.border-bottom-div1 {
+  border-bottom: 2px solid #e6e8ed;
+  padding: 0px 0px 10px;
+  margin-bottom: 20px;
+}
+
+/*how it works*/
+.howworks h3 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #333333;
+}
+.howworks p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #868686;
+}
+.work-content {
+  padding: 30px;
+  position: relative;
+}
+.work-content:after {
+  position: absolute;
+  content: "";
+  bottom: 34%;
+  left: 93%;
+  background-image: url("/assets/img/appraisal/arrow.png");
+  background-repeat: no-repeat;
+  z-index: 9999;
+  height: 19px;
+  width: 71px;
+  background-position: center;
+}
+.howworks .col-md-4:last-child .work-content:after {
+  display: none;
+}
+.work-content h4 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #111111;
+  margin: 20px 0px 15px 0px;
+}
+.work-content p {
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  color: #868686;
+  padding: 5px 9%;
+}
+.next-btn {
+  padding: 21px;
+  width: 100%;
+  border-color: #000;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #fff !important;
+  background: #ffffff;
+  border-radius: 30px;
+  background: #000;
+  border-radius: 100px;
+}
+
+/*current auction*/
+.current-auction {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 25px;
+}
+.current-auction h5 {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #111111;
+  margin-bottom: 30px;
+}
+.auctionview {
+  background: #000;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: inline;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 13px 30px;
+  justify-content: center;
+  cursor: pointer;
+}
+.current-auction p {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: #333333;
+}
+.workimg {
+  overflow: hidden;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.workimg img {
+  max-width: 100%;
+}
+.auction-left {
+  overflow: hidden;
+  width: 150px;
+}
+.auction-left img {
+  max-width: 100%;
+}
+
+/*new*/
+.appraisal-bg {
+  // background: #000;
+  // border-radius: 10px;
+  padding: 20px 20px 40px;
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 10px;
+  // position: relative;
+}
+.carright {
+  position: absolute;
+  top: -61%;
+  bottom: auto;
+  overflow: hidden;
+  right: -10%;
+  width: 67%;
+}
+.carright img {
+  max-width: 100%;
+}
+.charge h5 {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+.spinner {
+  border-top-color: #fff;
+  border-left-color: #fff;
+}
+
+.section-height {
+  min-height: 58vh;
+  display: flex;
+  align-items: center;
+}
+
+select {
+  -webkit-appearance: none;
+}
+
+.bg-color1 {
+  background: #fff;
+  height: 100%;
+  position: relative;
+}
+.bg-color1:before {
+  background: #000;
+  height: 322px;
+  position: absolute;
+  content: "";
+  width: 100%;
+}
+.bg-color1 .tab-appraisel .toppara {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff !important;
+  margin-bottom: 0px;
+}
+.bg-color1 .tab-appraisel h1 {
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 50px;
+  color: #111111;
+}
+.bg-color1 .tab-appraisel .appraisal-bg ul {
+  background: #fafafa;
+  border-radius: 10px;
+}
+.bg-color1 .tab-appraisel .appraisal-bg ul li a {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #868686;
+  padding: 20px 15px;
+}
+.bg-color1 .tab-appraisel .appraisal-bg ul li {
+  width: 50%;
+}
+.bg-color1 .tab-appraisel .entervinpara {
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: center;
+  color: #111111;
+}
+.bg-color1 .tab-appraisel .entervinpara a {
+  color: #3d75f7;
+  text-decoration: none;
+  font-weight: bold;
+}
+.bg-color1 .tab-appraisel .inputvin {
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 56px;
+  margin: 20px auto;
+  width: 100%;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+.selectafter {
+  position: relative;
+}
+.selectafter:after {
+  position: absolute;
+  content: "";
+ background-image: url("/assets/icons/select.svg");
+  background-repeat: no-repeat;
+  height: 8px;
+  width: 15px;
+  right: 16px;
+  top: 24px;
+  background-position: right;
+  background-size: contain;
+}
+.rightimg {
+  position: absolute;
+  right: 3%;
+  top: 8%;
+}
+
+::ng-deep.ng-select.ng-select-disabled .ng-select-container:after {
+  border-bottom-color: rgba(0, 0, 0, 0.42) !important;
+  background-image: none !important;
+  background-size: 4px 1px;
+  background-repeat: repeat-x;
+}
+::ng-deep.ng-select.ng-select-single .ng-select-container .ng-arrow-wrapper {
+  display: none !important;
+}
+.loadr {
+  position: absolute;
+  right: 13%;
+  top: 30%;
+  border-top-color: #29b8b4;
+  border-left-color: #000;
+}
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup,
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  overflow: visible !important;
+  text-overflow: inherit !important;
+  white-space: normal !important;
+  line-height: 30px !important;
+  margin-bottom: 10px;
+}
+
+
+/*new web form*/
+.car_price_banner.banner_car .mob_appraisal{
+  display: block !important;
+}
+.car_price_banner.banner_car .h-100vh{
+  display: none !important;
+}
+.selectafter .dropdown-toggle:after{
+  display: none;
+}
+.selectafter .form-control.dropdown-toggle{
+  background-color: #fff;
+}
+
+  .section-height {
+    min-height: 80vh;
+  }
+  .carright {
+    top: -60%;
+    right: -10%;
+    width: 80%;
+  }
+
+  .carright {
+    top: -60%;
+    right: -10%;
+    width: 90%;
+  }
+  // .appraisal-bg {
+  //   width: 295px !important;
+  //   top: -48px !important;
+  // }
+  .bg-color1 .tab-appraisel .appraisal-bg ul li a.active{
+    border: 1px solid #4F4F4F;
+    box-sizing: border-box;
+    border-radius: 5px 0px 0px !important;
+    background-color: #000;
+    color: #fff!important;
+  }
+
+  .next-btn {
+    font-family: Avenir Roman;
+    padding: 10px 14px 11px !important;
+    margin: auto;
+    width: 100%;
+    display: block;
+    height: 55px;
+    border-radius: 0px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 17px;
+    color: #fff !important;
+    background: #000000;
+    border-radius: 5px;
+  }
+  .tab-vincontent {
+    padding: 30px 15px 10px;
+  }
+  .tab-appraisel h1 {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 24px;
+  }
+  .modal-content {
+    padding: 18px 0px;
+  }
+  .modal-body img {
+    width: 100%;
+  }
+  .modal-dialog {
+    margin: 0px;
+  }
+  .modal-content {
+    border-radius: 0px;
+  }
+  .modal-content ul li {
+    font-size: 13px;
+    color: #333333;
+  }
+  .modal-body h5 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .modal-para {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 150%;
+  }
+  .modal-para1 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  h4 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #111111;
+  }
+  .modal-body button {
+    position: absolute;
+    right: 20px;
+    top: -3px;
+    font-size: 24px;
+  }
+  .work-content {
+    padding: 0px;
+  }
+  .work-content:after {
+    display: none;
+  }
+  .bg-color1 .tab-appraisel h1 {
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 29px;
+    margin: 10px 0px;
+    width: 200px;
+  }
+  .bg-color1 .tab-appraisel .appraisal-bg ul li a {
+    font-weight: 700;
+    font-size: 13px !important;
+    line-height: 16px !important;
+    padding: 12px 10px !important;
+    letter-spacing: 0.2px;
+    // border: 1px solid transparent;
+    color: #000;
+  }
+  .bg-color1 .tab-appraisel .appraisal-bg ul li a.active {
+    box-shadow: none !important;
+    background: #000000;
+    border: 1px solid #4F4F4F;
+    border-radius: 5px;
+    color: #fff !important;
+  }
+  .appraisal-bg{
+    width: 100%;
+    margin: 0 auto !important;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0px;
+    background: transparent;
+    border: none;
+    padding: 0px;
+  }
+  .rightimg {
+    height: 152px;
+    width: 162px;
+    overflow: hidden;
+  }
+  .rightimg img {
+    width: 100%;
+    height: 100%;
+  }
+  .bg-color1 .tab-appraisel .appraisal-bg ul {
+    background: transparent !important;
+    margin: 0px 0px !important;
+    border: 1px solid #D6D6D6;
+    border-radius: 5px;
+    height: 44px;
+  }
+  .bg-color1:before {
+    display: none;
+  }
+  .mob_appraisal .tab-appraisel p {
+    font-family: Avenir Roman !important;
+    font-weight: normal !important;
+    font-size: 13px !important;
+    line-height: 13px !important;
+    color: #868686 !important;
+    text-align: left !important;
+    margin-bottom: 18px !important;
+    padding: 0px 1px;
+  }
+  .mob_appraisal.bg-color1 {
+    background: transparent;
+  }
+  .mob_appraisal.bg-color1 form {
+    margin-top: -10px;
+  }
+  .bg-color1 .tab-appraisel .form-control {
+    border: 1px solid #D6D6D6 !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+    font-size: 14px !important;
+    line-height: 13px !important;
+    letter-spacing: 0.2px !important;
+    color: #868686 !important;
+    padding: 13px !important;
+    height: 40px !important;
+    margin: 0px !important;
+    font-family: Avenir Roman !important;
+    font-weight: normal !important;
+    background: transparent;
+  }
+  .bg-color1 .tab-appraisel select.form-control {
+    border: none !important;
+  }
+  .label_form_appraisal {
+    font-family: Avenir Roman;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #868686;
+    text-align: left;
+    display: none;
+  }
+
+  .selectafter:after {
+    position: absolute;
+    content: "";
+    background-image: url("/assets/icons/select.svg");
+    background-repeat: no-repeat;
+    height: 8px;
+    width: 15px;
+    right: 15px;
+    top: 15px;
+    background-position: right;
+    background-size: contain;
+  }
+  .appraisal-bg .invalid-class {
+    position: relative;
+    text-align: left;
+  }
+@media screen and (min-width: 577px) and (max-width: 767px) {
+  .carright {
+    top: auto;
+    right: -8px;
+    width: 100%;
+    bottom: -48%;
+  }
+}
+// @media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 720px;
+    margin: 1.75rem auto;
+  }
+// }
+
+// @media screen and (max-width: 576px) {
+  .work-content {
+    padding: 30px;
+  }
+  .form-group .form-control {
+    font-size: 16px;
+    line-height: 27px;
+    color: #333;
+    padding: 0px 13px;
+  }
+  .work-content:after {
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+    top: auto;
+  }
+  .tableft-appraisal {
+    margin: 10px 0px 0px;
+  }
+  .tableft-appraisal img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+  }
+  .tableft-content {
+    margin: 4px 0px 0px 0px;
+  }
+  .tab-appraisel .tableft-appraisal .tableft-content span,
+  .tab-appraisel .tableft-appraisal .tableft-content p {
+    font-size: 12px !important;
+  }
+  .carright {
+    top: auto;
+    right: -8px;
+    width: 100%;
+    bottom: -8px;
+  }
+  .section-height {
+    min-height: 52vh;
+  }
+
+  .modal_content_vin{
+    top: 5%;
+  }
+  .modal_content_vin .modal-content {
+    padding: 18px;
+  }
+// }
+@media screen and (max-width: 330px) {
+  .auction-left img {
+    height: 120px;
+  }
+  .auctionview {
+    padding: 13px 26px;
+  }
+}
+
+@media screen and (min-width: 1135px) and (max-width: 1300px) {
+  .rightimg {
+    position: absolute;
+    right: -5%;
+    top: 14%;
+  }
+  .rightimg img {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1134px) {
+  .rightimg {
+    position: absolute;
+    right: -9%;
+    top: 15%;
+  }
+  .rightimg img {
+    width: 67%;
+  }
+}
+
+
+@media screen and (min-width:768px){
+  .bg-color1.mob_appraisal .appraisal-bg{
+    padding: 0px;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0px;
+    border:none;
+  }
+  .bg-color1.mob_appraisal:before{
+    background:transparent
+  }
+  .bg-color1.mob_appraisal{
+    border:none;
+    background-color: transparent;
+    border-radius: 0px;
+    padding:0px;
+  }
+  .bg-color1.mob_appraisal .tab-appraisel .appraisal-bg form{
+    padding:0px;
+  }
+  .bg-color1.mob_appraisal .tab-appraisel .appraisal-bg ul{
+    background-color: transparent;
+    height: 44px;
+    border: 1px solid #D6D6D6;
+    border-radius: 5px;
+  }
+  .bg-color1.mob_appraisal .tab-appraisel .appraisal-bg ul li a.active{
+    border: 1px solid #4F4F4F;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #fff !important;
+    background-color: #000;
+  }
+  .bg-color1.mob_appraisal .tab-appraisel .appraisal-bg ul li a{
+    font-family: Avenir Roman !important;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing:0.2px;
+    color: #4f4f4f;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding:12px 15px;
+    border:1px solid transparent;
+  }
+  .bg-color1.mob_appraisal label{
+    font-family: Avenir Regular;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #4F4F4F;
+    text-transform: inherit;
+  }
+  .bg-color1.mob_appraisal .form-control{
+    height: 60px !important;
+    border: 1px solid #D6D6D6 !important;
+    border-radius: 4px !important;
+    margin: 0px !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    line-height: 13px !important;
+    color: #828282;
+    background: transparent !important;
+  }
+  .bg-color1.mob_appraisal .form-control::-webkit-input-placeholder{
+    color: #4F4F4F !important;
+  }
+  .bg-color1.mob_appraisal .next-btn{
+    border-color: #000;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 11px;
+    color: #fff !important;
+    height: 45px;
+    letter-spacing: 0.2px;
+    font-family: Avenir Regular;
+  }
+  .bg-color1.mob_appraisal .tab-appraisel .entervinpara {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: left;
+    color: #868686;
+  }
+  .bg-color1.mob_appraisal .form_bg_group{
+    padding:0px;
+  }
+}
+.bg-color1 .tab-appraisel .appraisal-bg .selectafter .dropdown-menu{
+  background-color: #fff !important;
+}
+.dropdown-menu.show{
+  background-color: #fff !important;
+  scroll-behavior: auto;
+  overflow-y: scroll;
+  height: 175px !important;
+  position: absolute;
+  transform: translate3d(0px, 38px, 0px);
+  top: 0px;
+  left: 0px;
+  background-color: white !important;
+  will-change: transform;
+  width: 100%;
+  li {
+    width: 100% !important;
+  }
+  li:hover {
+    background: gray;
+  }
+
+}
+.dropdown-toggle:empty::after {
+  margin-left: 0;
+  float: right;
+  height: 15px;
+  margin-top: 13px;
+}
+
+
+@media screen and (max-width:767px) {
+  .next-btn {
+    height: 40px;
+    font-size: 12px;
+  }
+  .bg-color1 .tab-appraisel .form-control{
+    font-size: 12px !important;
+  }
+}

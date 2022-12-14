@@ -1,0 +1,156 @@
+.login-banner {
+  background-image: url("/assets/img/seller-img/bg1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 10px;
+  overflow: hidden;
+}
+.login-banner h1 {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 43px;
+  color: #ffffff;
+}
+
+.login-banner p {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 29px;
+  color: #fff;
+}
+.head-para {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #333333;
+}
+
+.accordion {
+  margin-top: 40px;
+}
+.accordion .card {
+  border: none;
+  margin-bottom: 20px;
+}
+.accordion .card-body {
+  position: relative;
+  padding: 0px 0px 0px 0px !important;
+}
+.accordion .accordion-list li {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 22px;
+  color: #333333;
+  list-style: disc;
+}
+.accordion .accordion-list1 li {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 22px;
+  color: #333333;
+}
+.accordion .card-body p {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 22px;
+  color: #333333;
+  padding: 14px 12px;
+}
+p.info_para{
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  color: #333333;
+  padding: 14px 12px;
+}
+p.info_para a{
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+}
+.accordion .card h2 {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  color: #242833;
+  padding: 14px;
+  background: #f5f5f5;
+}
+.accordion .card h2[aria-expanded="true"]:after {
+  background: url("/assets/img/seller-img/minus.svg") no-repeat
+    calc(100% - 10px) center;
+  background-size: auto;
+  position: absolute;
+  content: "";
+  z-index: 99;
+  right: 21px;
+  height: 45px;
+  width: 45px;
+  top: 0px;
+}
+.accordion .card h2:after {
+  background: url("/assets/img/seller-img/plus.svg") no-repeat calc(100% - 10px)
+    center;
+  background-size: auto;
+  position: absolute;
+  content: "";
+  z-index: 99;
+  right: 21px;
+  height: 45px;
+  width: 45px;
+  top: 0px;
+}
+.list_text_line{
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+  .login-banner {
+    padding: 12px;
+  }
+  .login-banner h1 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .login-banner p {
+    font-size: 14px;
+    line-height: 24px;
+    margin: 0px 0px 10px 0px;
+  }
+  .other-guide h2 {
+    font-size: 16px;
+  }
+
+  .accordion .card-body h5 {
+    margin-left: 0px;
+  }
+  .accordion-list,
+  .accordion-list1 {
+    margin-top: 15px;
+    padding-left: 18px !important;
+  }
+
+  .accordion p {
+    margin-left: 0px;
+  }
+  .accordion .card h2 {
+    width: 84%;
+    word-break: break-word;
+    font-size: 15px;
+    padding: 8px;
+    line-height: 20px
+  }
+  .accordion .card h2.collapsed:after {
+    height: 100% !important;
+    background-color: #f5f5f5 !important;
+    width: 15% !important;
+  }
+  .accordion .card h2:after {
+    height: 100% !important;
+    background-color: #f5f5f5 !important;
+    width: 15% !important;
+  }
+}

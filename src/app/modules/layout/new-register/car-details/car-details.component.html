@@ -1,0 +1,724 @@
+<section class="breadcrumb pb-0 mb-1 pl-md-2 pl-0">
+  <div class="container">
+    <ol class="pl-0">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <!-- <li class="breadcrumb-item"><a>All</a></li> -->
+      <li class="breadcrumb-item active">
+        {{ vehicleObj?.vehicle_info_a?.make }}
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="car-detail paddingless">
+  <div class="container">
+    <div class="border-bottom-div pb-2 pb-md-2 mb-2">
+      <div class="row">
+        <!-- <ngx-gallery
+          [options]="galleryOptions"
+          [images]="galleryImages"
+        ></ngx-gallery> -->
+        <div class="col-md-12 col-12 ">
+          <div class="car-description">
+            <h3>{{ vehicleObj?.name }}</h3>
+            <ul class="p-0">
+              <li>{{ vehicleObj?.vehicle_info_a.mileage | number }}&nbsp;&nbsp;Miles&nbsp;</li>
+              <li>•&nbsp;&nbsp;{{ vehicleObj?.personal_info.city || userInfo.city }}&nbsp;</li>
+              <li>&nbsp;&nbsp;{{ vehicleObj?.vehicle_info_a?.state }}&nbsp;</li>
+              <li>&nbsp;&nbsp;{{ vehicleObj?.personal_info.zip_code || userInfo.zip_code }}</li>
+            </ul>
+            <!-- <p class="location" *ngIf="vehicleObj?.personal_info.city">
+              <img
+                src="../assets/icons/location.png"
+                class="pr-2"
+                alt="image"
+              />
+              {{ vehicleObj?.personal_info.city }}
+            </p> -->
+            <p class="price-offer" *ngIf="vehicleObj?.vehicle_info_a.current_price">
+              Highest offer:
+              <span>
+                ${{ vehicleObj?.vehicle_info_a.current_price | number }}
+              </span>
+              <!-- <span
+                *ngIf="!vehicleObj?.vehicle_info_a.current_price"
+                class="offer-noprice"
+                >$ xxxxxx
+              </span> -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="car-maincontent">
+  <div class="container">
+    <div
+      class="row"
+      *ngIf="vehicleObj?.vehicle_condition?.message"
+    >
+      <div class="col-md-3">
+        <h4>Description</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="border-bottom-div1">
+          <p>
+            {{ vehicleObj?.vehicle_condition?.message }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Specifications</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="border-bottom-div1 pb-0">
+          <ul class="p-0 car-specific">
+            <li *ngIf="vehicleObj?.vehicle_info_a?.vin">
+              VIN No.
+              <span> {{ vehicleObj?.vehicle_info_a?.vin }}</span>
+            </li>
+            <li *ngIf="vehicleObj?.vehicle_info_a?.transmission">
+              Transmission
+              <span> {{ vehicleObj?.vehicle_info_a?.transmission }} </span>
+            </li>
+            <li *ngIf="vehicleObj?.vehicle_info_a?.body_type">
+              Body Type
+              <span> {{ vehicleObj?.vehicle_info_a?.body_type }}</span>
+            </li>
+            <li *ngIf="vehicleObj?.vehicle_info_a?.engine">
+              Engine
+              <span> {{ vehicleObj?.vehicle_info_a?.engine }}</span>
+            </li>
+            <li *ngIf="vehicleObj?.vehicle_info_a?.drive_type">
+              Drive Type
+              <span> {{ vehicleObj?.vehicle_info_a?.drive_type }}</span>
+            </li>
+            <li *ngIf="vehicleObj?.vehicle_info_a?.fuel_type">
+              Fuel Type
+              <span> {{ vehicleObj?.vehicle_info_a?.fuel_type }}</span>
+            </li>
+            <li>
+              Exterior Color
+              <span> {{ vehicleObj?.vehicle_info_a?.exterior_color }}</span>
+            </li>
+            <li *ngIf="vehicleObj?.vehicle_info_a?.trim">
+              Trim
+              <span> {{ vehicleObj?.vehicle_info_a?.trim }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div 
+    class="row"
+    *ngIf="vehicleObj?.vehicle_features.premium_features?.length
+    || vehicleObj?.vehicle_features.market_modification_upgrades?.length"
+    >
+      <div class="col-md-3">
+        <h4>Premium Features</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="border-bottom-div1 pb-3">
+          <div class="premiumfeature">
+            <div class="row">
+              <div class="col-md-6 col-12" *ngIf="premiumData.braking_traction?.length">
+                <div class="form-group mt-0">
+                  <label class="d-block fontfeature mb-4"
+                    >Breaking & Traction</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize" 
+                    *ngFor="let item of premiumData.braking_traction; index as i"
+                      >{{item}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12" *ngIf="premiumData.comform_convenienc">
+                <div class="form-group mt-0">
+                  <label class="d-block fontfeature mb-4"
+                    >Comform & Convenience</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize"
+                      >{{premiumData.comform_convenienc}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-12" *ngIf="premiumData.entertainment_instrumentation?.length">
+                <div class="form-group mt-3">
+                  <label class="text-none d-block fontfeature mb-4"
+                    >Entertainment & Instrumentation</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span 
+                    class="form-check-label text-capitalize"
+                    *ngFor="let item of premiumData.entertainment_instrumentation"
+                      >{{item}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12" *ngIf="premiumData.roof_glass">
+                <div class="form-group mt-3">
+                  <label class="text-none d-block fontfeature mb-4"
+                    >Roof & Glass</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize"
+                      >{{premiumData.roof_glass}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-12" *ngIf="premiumData.exterior">
+                <div class="form-group mt-3">
+                  <label class="text-none d-block fontfeature mb-4"
+                    >Exterior</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize"
+                      >{{premiumData.exterior}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12"  *ngIf="premiumData.cargo_towning">
+                <div class="form-group mt-3">
+                  <label class="text-none d-block fontfeature mb-4"
+                    >Cargo & Towning</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize"
+                      >{{premiumData.cargo_towning}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-12" *ngIf="premiumData.wheels_tires?.length">
+                <div class="form-group mt-3">
+                  <label class="text-none d-block fontfeature mb-4"
+                    >Wheels & Tires</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize"
+                    *ngFor="let item of premiumData.wheels_tires"
+                      >{{item}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12" *ngIf="premiumData.seats">
+                <div class="form-group mt-3">
+                  <label class="text-none d-block fontfeature mb-4"
+                    >Seats</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize"
+                      >{{premiumData.seats}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" >
+              <div class="col-md-6 col-12" *ngIf="premiumData.accesssory_packages">
+                <div class="form-group mt-3">
+                  <label class="text-none d-block fontfeature mb-4"
+                    >Accesssory Packages</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize"
+                      >{{premiumData.accesssory_packages}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="form-group mt-3" *ngIf="premiumData.lighting">
+                  <label class="text-none d-block fontfeature mb-4"
+                    >Lighting</label
+                  >
+                  <div class="form-check form-check-inline mr-5">
+                    <span class="form-check-label text-capitalize"
+                      >{{premiumData.lighting}}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row aftermarket" *ngIf="premiumData.after_market_modification?.length">
+              <div class="col-md-12 col-12">
+                <div class="form-group mt-3">
+                  <label class="d-block fontfeature mb-4"
+                    >After Market Modifications</label
+                  >
+                  <div class="row">
+                    <div class="col-md-12 col-12">
+                      <div class="form-check form-check-inline mr-0">
+                        <span class="form-check-label text-capitalize"
+                        *ngFor="let item of premiumData.after_market_modification;"
+                          >{{item}}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row toggleinfo mt-md-3">
+      <div class="col-md-3">
+        <h4>Additional Information</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="border-bottom-div1">
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >How did you purchased your vehicle?</label
+              >
+              <div class="col-md-6 col-7 radio-toggle p-0">
+                <div class="d-block toggle-mobile conditionmob mb-3">
+                  <div class="btn-group btn-group-toggle">
+                    <label
+                      class="btn"
+                      [ngClass]="{
+                        active:
+                          vehicleObj?.vehicle_condition.purchased === 'FINANCE'
+                      }"
+                    >
+                      <input type="radio" id="option1" />
+                      Finance
+                    </label>
+                    <label
+                      class="btn"
+                      [ngClass]="{
+                        active:
+                          vehicleObj?.vehicle_condition.purchased === 'LEASED'
+                      }"
+                    >
+                      <input type="radio" id="option2" />
+                      Lease
+                    </label>
+                    <label
+                      class="btn"
+                      [ngClass]="{
+                        active:
+                          vehicleObj?.vehicle_condition.purchased === 'PAID OFF'
+                      }"
+                    >
+                      <input type="radio" id="option3" autocomplete="off" />
+                      Cash (Paid-off)
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >Has the vehicle been in an accident?</label
+              >
+              <div class="col-md-6 col-7 pl-0">
+                <label class="switch">
+                  <input
+                    class="switch-input"
+                    type="checkbox"
+                    [checked]="vehicleObj?.vehicle_condition?.has_accident === 'NO'"
+                    disabled
+                  />
+                  <span class="switch-label" data-on="1" data-off="2+"></span>
+                  <span class="switch-handle"></span>
+                  <div class="toggle-btn">
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.has_accident !== 'NO'
+                      "
+                      >yes</span
+                    >
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.has_accident === 'NO'
+                      "
+                      >no</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="vehicleObj?.vehicle_condition?.has_accident === 'YES'">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >Has any accident damage to your vehicle been fully repaired?</label
+              >
+              <div class="col-md-6 col-7 pl-0">
+                <label class="switch">
+                  <input
+                    class="switch-input"
+                    type="checkbox"
+                    [checked]="vehicleObj?.vehicle_condition?.fully_repaired === 'NO'"
+                    disabled
+                  />
+                  <span class="switch-label" data-on="1" data-off="2+"></span>
+                  <span class="switch-handle"></span>
+                  <div class="toggle-btn">
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.fully_repaired !== 'NO'
+                      "
+                      >yes</span
+                    >
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.fully_repaired === 'NO'
+                      "
+                      >no</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >Does your vehicle have any exterior damage, including hail
+                damage?</label
+              >
+              <div class="col-md-6 col-7 pl-0">
+                <label class="switch">
+                  <input
+                    class="switch-input"
+                    type="checkbox"
+                    [checked]="vehicleObj?.vehicle_condition?.accident === 'NO'"
+                    disabled
+                  />
+                  <span class="switch-label" data-on="1" data-off="2+"></span>
+                  <span class="switch-handle"></span>
+                  <div class="toggle-btn">
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.accident !== 'NO'
+                      "
+                      >yes</span
+                    >
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.accident === 'NO'
+                      "
+                      >no</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >Does your vehicle have any issues that would stop us from driving it?</label
+              >
+              <div class="col-md-6 col-7 pl-0">
+                <label class="switch">
+                  <input
+                    class="switch-input"
+                    type="checkbox"
+                    [checked]="
+                      vehicleObj?.vehicle_condition?.run_nd_drive === 'NO'
+                    "
+                    disabled
+                  />
+                  <span class="switch-label" data-on="1" data-off="2+"></span>
+                  <span class="switch-handle"></span>
+                  <div class="toggle-btn">
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.run_nd_drive !== 'NO'
+                      "
+                      >yes</span
+                    >
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.run_nd_drive === 'NO'
+                      "
+                      >no</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >Does your vehicle have mechanical defects or dashboard warning
+                lights?</label
+              >
+              <div class="col-md-6 col-7 pl-0">
+                <label class="switch">
+                  <input
+                    class="switch-input"
+                    type="checkbox"
+                    [checked]="
+                      vehicleObj?.vehicle_condition?.warning_light === 'NO'
+                    "
+                    disabled
+                  />
+                  <span class="switch-label" data-on="1" data-off="2+"></span>
+                  <span class="switch-handle"></span>
+                  <div class="toggle-btn">
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.warning_light !== 'NO'
+                      "
+                      >yes</span
+                    >
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.warning_light === 'NO'
+                      "
+                      >no</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >Are there any modifications to your vehicle (e.g. suspension,
+                engine, etc.)?</label
+              >
+              <div class="col-md-6 col-7 pl-0">
+                <label class="switch">
+                  <input
+                    class="switch-input"
+                    type="checkbox"
+                    [checked]="vehicleObj?.vehicle_condition?.modifications === 'NO'"
+                    disabled
+                  />
+                  <span class="switch-label" data-on="1" data-off="2+"></span>
+                  <span class="switch-handle"></span>
+                  <div class="toggle-btn">
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.modifications !== 'NO'
+                      "
+                      >yes</span
+                    >
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.modifications === 'NO'
+                      "
+                      >no</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >Has your vehicle been smoked in?</label
+              >
+              <div class="col-md-6 col-7 pl-0">
+                <label class="switch">
+                  <input
+                    class="switch-input"
+                    type="checkbox"
+                    [checked]="vehicleObj?.vehicle_condition?.smoked === 'NO'"
+                    disabled
+                  />
+                  <span class="switch-label" data-on="1" data-off="2+"></span>
+                  <span class="switch-handle"></span>
+                  <div class="toggle-btn">
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.smoked !== 'NO'
+                      "
+                      >yes</span
+                    >
+                    <span
+                      [class.toggle-button-active]="
+                        vehicleObj?.vehicle_condition?.smoked === 'NO'
+                      "
+                      >no</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >How many keys do you have for this vehicle?</label
+              >
+              <div class="col-md-6 col-7 pl-md-2 pl-2">
+                <span class="togglenoanswer">{{
+                  vehicleObj?.vehicle_condition?.keys
+                }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >What is the condition of your vehicle</label
+              >
+              <div class="col-md-6 col-7 pl-md-2 pl-2">
+                <span class="togglenoanswer">{{
+                  vehicleObj?.vehicle_condition?.condition
+                }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-6 col-5"
+                >How many miles have you driven on your current tires?</label
+              >
+              <div class="col-md-6 col-7 pl-md-2 pl-2">
+                <span class="togglenoanswer">{{
+                  vehicleObj?.vehicle_condition?.current_miles
+                }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row featurecar" *ngIf="vehicleObj?.vehicle_info_a?.options">
+      <div class="col-md-3">
+        <h4>Features</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="border-bottom-div1">
+          <div class="row">
+            <div
+              class="col-md-3 col-sm-4 col-4 text-center"
+              *ngIf="vehicleObj?.vehicle_info_a?.options?.includes('Smart Key')"
+            >
+              <div class="featureimg">
+                <img src="../assets/img/signupcar/smartkey.png" alt="img" />
+              </div>
+              <h5>Smart key</h5>
+            </div>
+            <div
+              class="col-md-3 col-sm-4 col-4 pl-md-0 pl-3 text-center"
+              *ngIf="
+                vehicleObj?.vehicle_info_a?.options?.includes('Navigation')
+              "
+            >
+              <div class="featureimg">
+                <img src="../assets/img/signupcar/navigation.png" alt="img" />
+              </div>
+              <h5>Navigation</h5>
+            </div>
+            <div
+              class="col-md-3 col-sm-4 col-4 text-center"
+              *ngIf="
+                vehicleObj?.vehicle_info_a?.options?.includes('Heated Seats')
+              "
+            >
+              <div class="featureimg">
+                <img src="../assets/img/signupcar/heatedseats.png" alt="img" />
+              </div>
+              <h5>Heated Seats</h5>
+            </div>
+            <div
+              class="col-md-3 col-sm-4 col-4 text-center"
+              *ngIf="
+                vehicleObj?.vehicle_info_a?.options?.includes('Leather Seats')
+              "
+            >
+              <div class="featureimg">
+                <img src="../assets/img/signupcar/leather.png" alt="img" />
+              </div>
+              <h5>Leather Seats</h5>
+            </div>
+            <div
+              class="col-md-3 col-sm-4 col-4 text-center"
+              *ngIf="
+                vehicleObj?.vehicle_info_a?.options?.includes(
+                  'Ventilation Seats'
+                )
+              "
+            >
+              <div class="featureimg">
+                <img
+                  src="../assets/img/signupcar/ventilationseats.png"
+                  alt="img"
+                />
+              </div>
+              <h5>Ventilayion Seats</h5>
+            </div>
+            <div
+              class="col-md-3 col-sm-4 col-4 text-center"
+              *ngIf="vehicleObj?.vehicle_info_a?.options?.includes('Sunroof')"
+            >
+              <div class="featureimg">
+                <img src="../assets/img/signupcar/sunroof.png" alt="img" />
+              </div>
+              <h5>Sunroof</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="list-inline mt-3 mb-5 pt-1 mt-0">
+      <li class="">
+        <button type="button" class="cancel-btn" routerLink="/new-register">
+          Edit
+        </button>
+      </li>
+      <li class="pull-right mt-0">
+        <button
+          type="button"
+          [disabled]="formSubmitting"
+          class="next-btn mt-0"
+          (click)="onSubmit()"
+        >
+          <span class="spinner" *ngIf="formSubmitting"></span>
+          <ng-container *ngIf="!formSubmitting">Confirm</ng-container>
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>

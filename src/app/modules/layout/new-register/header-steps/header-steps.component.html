@@ -1,0 +1,261 @@
+<div class="wizard">
+  <div class="wizard-inner">
+    <div [ngClass]="userInfo ? 'connecting-line-logged' : 'connecting-line'"></div>
+    <div class="web-nav">
+      <ul
+        class="nav nav-tabs"
+        role="tablist"
+        [ngClass]="userInfo ? 'logged-in' : ''"
+      >
+        <li
+          [ngClass]="
+            currentStep === 1
+              ? 'active'
+              : currentStep >= 2
+              ? 'completed'
+              : 'disabled'
+          "
+        >
+          <span class="logo_list_tab">
+            <img
+              src="/assets/img/logo_mark.png"
+              alt="Image"
+              class="imagenone"
+            />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(1)">
+            <span class="pointer">1 </span>
+            <span class="textnumber"> {{ userInfo ? "of 3" : "of 4" }}</span>
+          </p>
+          <i class="webview"
+            >The <br />
+            Basics</i
+          >
+        </li>
+        <li
+          [ngClass]="
+            currentStep === 2
+              ? 'active'
+              : currentStep >= 3
+              ? 'completed'
+              : 'disabled'
+          "
+        >
+          <span class="logo_list_tab">
+            <img
+              src="/assets/img/logo_mark.png"
+              alt="Image"
+              class="imagenone"
+            />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(2)">
+            <span class="pointer">2 </span>
+            <span class="textnumber">{{ userInfo ? "of 3" : "of 4" }}</span>
+          </p>
+          <i
+            >Vehicle<br />
+            Features</i
+          >
+        </li>
+        <li
+          [ngClass]="
+            currentStep === 3
+              ? 'active'
+              : currentStep >= 4
+              ? 'completed'
+              : 'disabled'
+          "
+        >
+          <span class="logo_list_tab">
+            <img
+              src="/assets/img/logo_mark.png"
+              alt="Image"
+              class="imagenone"
+            />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(3)">
+            <span class="pointer">3 </span>
+            <span class="textnumber">{{ userInfo ? "of 3" : "of 4" }}</span>
+          </p>
+          <i
+            >Condition <br />
+            and History
+          </i>
+        </li>
+        <!-- <li
+          [ngClass]="
+            currentStep === 4
+              ? 'active'
+              : currentStep >= 5
+              ? 'completed'
+              : 'disabled'
+          "
+        >
+        <span class="logo_list_tab"> 
+          <img src="/assets/img/logo_mark.png" alt="Image" class="imagenone" />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(4)">
+            <span class="pointer">4 </span>
+            <span class="textnumber">{{ userInfo ? "of 4" : "of 5" }}</span>
+          </p>
+          <i class="webview"
+            >Vehicle <br />
+            Photo</i
+          >
+        </li> -->
+
+        <li
+          *ngIf="!userInfo"
+          [ngClass]="currentStep === 4 ? 'active' : 'disabled'"
+        >
+          <span class="logo_list_tab">
+            <img
+              src="/assets/img/logo_mark.png"
+              alt="Image"
+              class="imagenone"
+            />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(4)">
+            <span class="pointer">4 </span>
+            <span class="textnumber">of 4</span>
+          </p>
+          <i
+            >Personal <br />
+            Information</i
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Mobile responsive header steps start here -->
+    <div class="mobile-nav">
+      <ul
+        class="nav nav-tabs"
+        role="tablist"
+        [ngClass]="userInfo ? 'logged-in-mobile' : ''"
+      >
+        <li
+          [ngClass]="
+            currentStep === 1
+              ? 'active'
+              : currentStep >= 2
+              ? 'completed'
+              : 'disabled'
+          "
+        >
+          <span class="logo_list_tab">
+            <img
+              src="/assets/img/logo_mark.png"
+              alt="Image"
+              class="imagenone"
+            />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(1)">
+            <span class="pointer">1 </span>
+          </p>
+          <i class="webview"
+            >The <br />
+            Basics</i
+          >
+        </li>
+        <li
+          [ngClass]="
+            currentStep === 2
+              ? 'active'
+              : currentStep >= 3
+              ? 'completed'
+              : 'disabled'
+          "
+        >
+          <span class="logo_list_tab">
+            <img
+              src="/assets/img/logo_mark.png"
+              alt="Image"
+              class="imagenone"
+            />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(2)">
+            <span class="pointer">2 </span>
+          </p>
+          <i
+            >Vehicle <br />
+            Features</i
+          >
+        </li>
+        <li
+          [ngClass]="
+            currentStep === 3
+              ? 'active'
+              : currentStep >= 4
+              ? 'completed'
+              : 'disabled'
+          "
+        >
+          <span class="logo_list_tab">
+            <img
+              src="/assets/img/logo_mark.png"
+              alt="Image"
+              class="imagenone"
+            />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(3)">
+            <span class="pointer">3</span>
+          </p>
+          <i class="webview">
+            Condition <br />
+            and History
+          </i>
+        </li>
+        <!-- <li
+          [ngClass]="
+            currentStep === 4
+              ? 'active'
+              : currentStep >= 5
+              ? 'completed'
+              : 'disabled'
+          "
+        >
+        <span class="logo_list_tab"> 
+          <img src="/assets/img/logo_mark.png" alt="Image" class="imagenone" />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(4)">
+            <span class="pointer">4</span>
+          </p>
+          <i
+            >Vehicle <br />
+            Photo</i
+          >
+        </li> -->
+        <li
+          *ngIf="!userInfo"
+          [ngClass]="currentStep === 4 ? 'active' : 'disabled'"
+        >
+          <span class="logo_list_tab">
+            <img
+              src="/assets/img/logo_mark.png"
+              alt="Image"
+              class="imagenone"
+            />
+          </span>
+
+          <p class="round-tab" (click)="goToStep(5)">
+            <span class="pointer">4</span>
+          </p>
+          <i>
+            Personal <br />
+            Information
+          </i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,306 @@
+<form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+  <div
+    class="card-body ml-md-3 m-0 pl-md-2 pl-0 pt-md-2 pt-0"
+    formGroupName="personal_info"
+  >
+    <p class="text-light1 mt-0 mb-0 w-100 p-md-0 p-1 mt-md-3">
+      Please sign up and manage your appraisal
+    </p>
+
+    <form [formGroup]="mobileNumberForm" (ngSubmit)="verifyOTP()">
+      <div class="row mt-4">
+        <div class="col-md-6 col-12">
+          <div class="form-group">
+              <input type="text"  class="form-control" placeholder="Enter your Number" formControlName="phone_number" [ngClass]="{
+                invalid: (submitted || f?.phone_number?.touched) && f?.phone_number?.errors    
+              }" maxlength="12" appNumberOnly (ngModelChange)="verifyPhoneNumber($event)"/>
+        
+              <div class="invalid-class" *ngIf="submitted || f.phone_number?.touched">
+                <ng-container *ngIf="f.phone_number?.errors?.required">Phone number is required</ng-container>
+                <ng-container *ngIf="f.phone_number?.errors?.pattern">Phone number is already exist</ng-container>
+              </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                (mobileSubmitted || mobile?.phone_number.touched) &&
+                mobile?.phone_number?.errors" >
+                {{checknumber}}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-12" *ngIf="!otpVerified">
+          <div class="form-group">
+           <div class="wrap">
+              <button
+                type="button"
+                (click)="sendOTP()"
+                class="button"
+                [disabled]="otpSending || mobile?.phone_number?.invalid" >
+                <ng-container *ngIf="!otpSending">
+                  {{ otpSent ? "Re send Code" : "Send Code" }}
+                </ng-container>
+                <span class="spinner" *ngIf="otpSending"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12" *ngIf="!otpVerified && otpSent">
+          <div class="form-group">
+            <!-- <label class="text-none mob-text">Email</label> -->
+            <input
+              class="form-control"
+              [ngClass]="{
+                invalid:
+                  (otpSubmitted || mobile?.code.touched) && mobile?.code?.errors
+              }"
+              formControlName="code"
+              appNumberOnly
+              type="text"
+              maxlength="6"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="otpSubmitted || mobile?.code.touched"
+            >
+              <ng-container *ngIf="mobile?.code?.errors?.required">
+                code is required
+              </ng-container>
+              <ng-container *ngIf="mobile?.code?.errors?.minlength">
+                code should be 6 digit long
+              </ng-container>
+              <ng-container *ngIf="mobile?.code?.errors?.maxlength"
+                >Max 6 digits are allowed only
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 pt-1 mb-4" *ngIf="otpSent">
+        <label class="verified-label" *ngIf="otpVerified"> 
+          Verified
+          <img src="./assets/icons/checkmark.svg" alt="" />
+        </label>
+        <div class="wrap" *ngIf="!otpVerified">
+          <button type="submit" class="button" [disabled]="otpSubmitting">
+            <ng-container *ngIf="!otpSubmitting">
+              {{ otpVerified ? "Verified Code" : "Verify Code" }}
+            </ng-container>
+            <span class="spinner" *ngIf="otpSubmitting"></span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <ng-container>
+      <div class="row mt-4">
+        <div class="col-md-6 col-12">
+          <div class="form-group">
+            <input
+              class="form-control"
+              [ngClass]="{
+                invalid:
+                  (submitted || personalInfo?.full_name?.touched) &&
+                  personalInfo?.full_name?.invalid }"
+              formControlName="full_name"
+              onkeydown="return /[a-z\s]/i.test(event.key)"
+              placeholder="Full Name"
+              type="text"
+              name="name"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                (submitted || personalInfo?.full_name?.touched) &&
+                personalInfo?.full_name?.errors?.required" >
+                 Full Name is required
+            </div>
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                (submitted || personalInfo?.full_name?.touched) &&
+                personalInfo?.full_name?.errors?.pattern ">
+                 Last Name is required and Must be valid
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="form-group">
+            <input
+              class="form-control"
+              [ngClass]="{
+                invalid:
+                  (submitted || personalInfo?.email?.touched) &&
+                  personalInfo?.email?.errors}"
+              formControlName="email"
+              (input)="personalInfo.email.setValue(personalInfo.email.value.toLowerCase())"
+              placeholder="Email"
+              type="email"
+              name="email"
+              (ngModelChange)="verifyEmail()"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted || personalInfo?.email?.touched"
+            >
+              <ng-container *ngIf="personalInfo?.email?.errors?.required"
+                >Email is required</ng-container
+              >
+              <ng-container *ngIf="personalInfo?.email?.errors?.email"
+                >Please Enter valid email address</ng-container
+              >
+              <ng-container *ngIf="personalInfo?.email?.errors?.invalid"
+                >Email already taken</ng-container
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <div class="form-group">
+            <input
+              class="form-control"
+              [ngClass]="{
+                invalid:
+                  (submitted || personalInfo?.confirm_email?.touched) &&
+                  personalInfo?.confirm_email?.errors }"
+              formControlName="confirm_email"
+              (input)="personalInfo.confirm_email.setValue(personalInfo.confirm_email.value.toLowerCase())"
+              placeholder="Re-type Email"
+              type="email"
+              name="confirm_email"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted || personalInfo?.confirm_email?.touched"
+            >
+              <ng-container
+                *ngIf="personalInfo?.confirm_email?.errors?.required"
+                >Re-type Email is required</ng-container
+              >
+              <ng-container
+                *ngIf="personalInfo?.confirm_email?.errors?.mustMatch"
+                >Re-type Email is not matching</ng-container
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="form-group">
+            <input
+              [attr.disabled]="true"
+              class="form-control"
+              [ngClass]="{
+                invalid:
+                  (submitted || personalInfo?.city?.touched) &&
+                  personalInfo?.city?.errors?.required
+              }"
+              formControlName="city"
+              placeholder="City"
+              type="text"
+              name="city"
+            />
+            <div
+              class="invalid-feedback"
+              *ngIf="
+                (submitted || personalInfo?.city?.touched) &&
+                personalInfo?.city?.errors?.required">
+               City is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-bottom-div1 pt-1 mb-4"></div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div
+            class="form-check form-check-inline agree-label label1agree mt-4"
+          >
+            <input
+              class="form-check-input inputmargin"
+              formControlName="customer_support"
+              type="checkbox"
+              id="check1"
+              value="option5"
+              checked
+            />
+            <label class="form-check-label pl-md-2 pl-2" for="check1"
+              >It is OK for POST to call and text me. I consent to receive
+              autodialed calls and text messages from POST and its third-party
+              customer support team to the telephone number(s) that I provide,
+              including mobile numbers, regarding my interest in selling a
+              vehicle and for marketing/sales, informational or servicing
+              purposes. My consent is not required to purchase any products
+              services from POST. I may opt out by responding “STOP” to any text
+              message or by updating the information in my account. Message and
+              data rates may apply.
+            </label>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-check form-check-inline agree-label mt-3">
+            <input
+              class="form-check-input"
+              formControlName="receive_updates"
+              type="checkbox"
+              id="check2"
+              value="option5"
+              checked
+            />
+            <label class="form-check-label pt-1 pl-md-2 pl-2" for="check2"
+              >I want to receive communication about POST news and
+              offers.</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="border-bottom-div1 pt-1 mb-4"></div>
+      <div class="mb-3 mt-4">
+        <button type="button" class="backBtn" (click)="prev()">Back</button>
+
+        <button
+          type="submit"
+          class="nextBtn"
+          [disabled]="f?.personal_info.invalid"
+        >
+          Submit
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</form>
+
+<!-- Login Modal -->
+<div id="submitOfferModal" class="modal fade pl-0">
+  <div class="modal-dialog modal-login modal-dialog-centered">
+    <div class="modal-content modal_content">
+      <div class="modal-header winRateTitle">
+        <div class="row">
+          <div class="col-md-12 mt-3 mb-3">
+            <h4 class="sub-heading">Your login information will be</h4>
+            <div class="sub-heading">
+              Email: {{ personalInfo?.email?.value }}
+            </div>
+            <div class="sub-heading">
+              Password: {{ personalInfo?.password?.value }}
+            </div>
+          </div>
+          <div class="col-md-12"></div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3 mb-4">
+          <div class="col-md-6 offset-md-3 col-12 mt-2">
+            <button class="btn-success confirm" (click)="autoLoginOnBid()">
+              Okay
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

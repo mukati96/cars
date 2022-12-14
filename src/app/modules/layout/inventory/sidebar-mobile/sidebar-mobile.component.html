@@ -1,0 +1,466 @@
+<div class="sidebar sidebarnone">
+  <h3 class="d-inline-block">Customize your Search</h3>
+  <div class="input-search ">
+    <input class="form-control" #search type="text" placeholder="Year, Make, Model." >  
+      <img class="submit_arrow" src="../../../../assets/icons/submit.png"
+        (click)="setText(search.value)" />
+  </div>
+  <form [formGroup]="filterForm">
+    <div class="example-chip-list save-search">
+      <div class="match_search">
+        <p>{{ chips?.length }} Matches</p>
+      </div>
+
+      <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let item of chips; index as i">
+            <img class="pointer" src="../../../../../assets/dealer-img/icons/cross.svg" (click)="remove(item)" alt="" />
+            {{ item.value }}
+          </mat-chip>
+        </mat-chip-list>
+        <p class="clear_text pointer" (click)="clearFilters()">Clear all</p>
+      </mat-form-field>
+    </div>
+
+    <div class="accordion-main" id="accordionExample">
+      <!--budget-->
+      <ng-container *ngIf="false">
+        <div class="card">
+          <div class="budget mt-2">
+            <div class="tabs">
+              <div class="tab">
+                <input class="input-filter" type="radio" id="sd1" name="rd" />
+                <label class="tab-label" for="sd1">Search by budget</label>
+                <div class="tab-content">
+                  <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="budgetOptions"
+                    (userChangeEnd)="onUserChangeEnd($event, 'budget')"></ngx-slider>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-all"></div>
+      </ng-container>
+
+      <!--make-->
+      <div class="card">
+        <div class="selectafter selectafter_mob">
+          <select class="accordion" formControlname="make" (change)="openNewPageWithQueryParam($event, 'make')">
+            <option value="" [selected]="!make.length">All Makes</option>
+            <option [value]="item" [selected]="make[0] === item" *ngFor="let item of CAR_MAKES">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="border-all"></div>
+
+      <!--modal-->
+      <ng-container *ngIf="f.make.value?.length">
+        <div class="card">
+          <div class="budget mt-2">
+            <div class="tabs">
+              <div class="tab">
+                <input class="input-filter" type="radio" id="sd3" name="rd" />
+                <label class="tab-label" for="sd3">{{ f.make?.value[0] }} Models</label>
+                <div class="tab-content">
+                  <div class="card-body">
+                    <div class="panel p-0">
+                      <div class="car-make transmission available-items">
+                        <div class="form-group mt-3 mb-0">
+                          <div class="form-check mr-0">
+                            <input class="form-check-input" type="checkbox" (click)="optionsChecked($event, 'model')"
+                              [checked]="!f.model.value.length" value="" />
+                            <label class="form-check-label text-capitalize">
+                              All
+                            </label>
+                          </div>
+                          <ng-container *ngFor="
+                              let item of models | modelFilter: f.make?.value[0]
+                            ">
+                            <div class="form-check mr-0">
+                              <input class="form-check-input" type="checkbox"
+                                (click)="openNewPageWithQueryParam($event, 'model')"
+                                [checked]="f.model.value?.includes(item)" [value]="item" />
+                              <label class="form-check-label text-capitalize">
+                                {{ item | titlecase }}
+                                <!-- <span> ({{ item?.name_count | number }})</span> -->
+                              </label>
+                            </div>
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-all"></div>
+      </ng-container>
+
+      <!--search by trim-->
+      <ng-container *ngIf="f.make.value?.length && f.model.value?.length">
+        <ng-container *ngFor="let model of f.model.value; index as i">
+          <div class="card">
+            <div class="budget mt-2">
+              <div class="tabs">
+                <div class="tab">
+                  <input class="input-filter" type="radio" [id]="'sd4' + i" name="rd" />
+                  <label class="tab-label" [for]="'sd4' + i">{{ model }} trims</label>
+                  <div class="tab-content">
+                    <div class="card-body">
+                      <div class="panel p-0">
+                        <div class="car-make transmission available-items">
+                          <div class="form-group mt-3 mb-0">
+                            <div class="form-check mr-0">
+                              <input class="form-check-input" type="checkbox" (click)="optionsChecked($event, 'trim')"
+                                [checked]="!f.trim.value?.length" value="" />
+                              <label class="form-check-label text-capitalize">
+                                All
+                              </label>
+                            </div>
+                            <ng-container *ngFor="
+                                let item of trims
+                                  | trimFilter: f.make?.value[0]:model
+                              ">
+                              <div class="form-check mr-0" *ngIf="item">
+                                <input class="form-check-input" type="checkbox"
+                                  (click)="openNewPageWithQueryParam($event, 'trim')"
+                                  [checked]="f.trim.value?.includes(item)" [value]="item" />
+                                <label class="form-check-label text-capitalize">
+                                  {{ item | titlecase }}
+                                  <!-- <span> ({{ item?.name_count | number }})</span> -->
+                                </label>
+                              </div>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="border-all"></div>
+        </ng-container>
+      </ng-container>
+
+      <!--kilometer-->
+      <div class="card">
+        <div class="budget mt-2">
+          <div class="tabs">
+            <div class="tab">
+              <input class="input-filter" type="radio" id="sd5" name="rd" />
+              <label class="tab-label" for="sd5">Mileage</label>
+              <div class="tab-content kilometer-content">
+                <ngx-slider [(value)]="minMileage" [(highValue)]="maxMileage" [options]="kmOptions"
+                  (userChangeEnd)="onUserChangeEnd($event, 'km_driven')"></ngx-slider>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-all"></div>
+
+      <!--Model year-->
+      <div class="row">
+        <div class="col-md-6 col-6">
+          <div class="form-group year_box">
+            <label> Min year</label>
+            <div class="selectafter">
+              <div class="selectafter">
+                <select formControlName="year__gte" (change)="chooseYear()">
+                  <option value="">Oldest</option>
+                  <option [value]="item" *ngFor="let item of minYear">
+                    {{ item }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-6 ">
+          <div class="form-group year_box year_box_right">
+            <label> Max year</label>
+            <div class="selectafter">
+              <div class="selectafter">
+                <select formControlName="year__lte" (change)="chooseYear()">
+                  <option value="">Newest</option>
+                  <option [value]="item" *ngFor="let item of maxYear">
+                    {{ item }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-all"></div>
+
+      <!--Fuel-->
+      <div class="card">
+        <div class="budget mt-2">
+          <div class="tabs">
+            <div class="tab">
+              <input class="input-filter" type="radio" id="sd6" name="rd" />
+              <label class="tab-label" for="sd6">Fuel Type</label>
+              <div class="tab-content transmission">
+                <div class="card-body">
+                  <div class="panel p-0">
+                    <div class="form-group mt-3 mb-0">
+                      <div class="form-check mr-5">
+                        <input class="form-check-input" type="checkbox" (click)="optionsChecked($event, 'fuel_type')"
+                          [checked]="!f.fuel_type.value?.length" value="" />
+                        <label class="form-check-label text-capitalize">
+                          All
+                          <span>
+                            ({{ filtersData?.fuel_type?.total | number }})</span>
+                        </label>
+                      </div>
+                      <ng-container *ngFor="let item of filtersData?.fuel_type">
+                        <div class="form-check mr-5">
+                          <input class="form-check-input" type="checkbox"
+                            (click)="openNewPageWithQueryParam($event, 'fuel_type')" [checked]="
+                              f.fuel_type.value?.includes(item?.fuel_type)
+                            " [value]="item?.fuel_type" />
+                          <label class="form-check-label text-capitalize">
+                            {{ item?.fuel_type | titlecase }}
+                            <span> ({{ item?.name_count | number }})</span>
+                          </label>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-all"></div>
+
+      <!--Body Type-->
+      <div class="card">
+        <div class="budget mt-2">
+          <div class="tabs">
+            <div class="tab">
+              <input class="input-filter" type="radio" id="sd7" name="rd" />
+              <label class="tab-label" for="sd7">Body Type</label>
+              <div class="tab-content">
+                <div class="card-body">
+                  <div class="panel p-0">
+                    <ul class="bodytype-content pl-0 color-section">
+                      <li (click)="choose('', 'body_type')" [ngClass]="{
+                          active: filterForm.value.body_type === ''
+                        }">
+                        <div class="body-img">
+                          <img [src]="'/assets/dealer-img/inventory-body/SUV.png'" alt="" />
+                        </div>
+                        <div class="bodytype-main">
+                          <h5>All</h5>
+                          <span>({{
+                            filtersData?.body_type?.total | number
+                            }})</span>
+                        </div>
+                      </li>
+                      <ng-container *ngFor="let item of filtersData?.body_type">
+                        <li (click)="choose(item.body_type, 'body_type')" [ngClass]="{
+                            active:
+                              filterForm.value.body_type === item.body_type
+                          }">
+                          <div class="body-img">
+                            <img [src]="
+                                '/assets/dealer-img/inventory-body/' +
+                                item.body_type +
+                                '.png'
+                              " onError="this.src = '/assets/dealer-img/inventory-body/SUV.png'" alt="img" />
+                          </div>
+                          <div class="bodytype-main">
+                            <h5>{{ item.body_type | titlecase }}</h5>
+                            <span>({{ item.name_count | number }})</span>
+                          </div>
+                        </li>
+                      </ng-container>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-all"></div>
+
+      <!--Transmission-->
+      <div class="card">
+        <div class="budget mt-2">
+          <div class="tabs">
+            <div class="tab">
+              <input class="input-filter" type="radio" id="sd8" name="rd" />
+              <label class="tab-label" for="sd8">Transmission</label>
+              <div class="tab-content transmission">
+                <div class="card-body">
+                  <div class="panel p-0">
+                    <div class="form-group mt-3 mb-0">
+                      <div class="form-check mr-0">
+                        <input class="form-check-input" type="checkbox" (click)="optionsChecked($event, 'transmission')"
+                          [checked]="!f.transmission.value?.length" value="" />
+                        <label class="form-check-label text-capitalize">
+                          All
+                          <span>
+                            ({{
+                            filtersData?.transmission?.total | number
+                            }})</span>
+                        </label>
+                      </div>
+                      <ng-container *ngFor="let item of filtersData?.transmission">
+                        <div class="form-check mr-3">
+                          <input class="form-check-input" type="checkbox"
+                            (click)="openNewPageWithQueryParam($event, 'transmission')" [checked]="
+                              f.transmission.value?.includes(item?.transmission)
+                            " [value]="item?.transmission" />
+                          <label class="form-check-label text-capitalize">
+                            {{ item?.transmission | titlecase }}
+                            <span> ({{ item?.name_count | number }})</span>
+                          </label>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-all"></div>
+
+     <!--Colors-->
+      <div class="card">
+        <div class="budget mt-2">
+          <div class="tabs">
+            <div class="tab">
+              <input class="input-filter" type="radio" id="sd9" name="rd" />
+              <label class="tab-label" for="sd9">Colors</label>
+              <div class="tab-content">
+                <div class="card-body">
+                  <div class="panel p-0">
+                    <ul class="color-section p-0">
+                      <li (click)="choose('', 'color')" [ngClass]="{ active: filterForm.value.color === '' }">
+                        <div class="color-code color-other"></div>
+                        <p>All</p>
+                      </li>
+                      <li (click)="choose('White', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'White'
+                        }">
+                        <div class="color-code color-white"></div>
+                        <p>White</p>
+                      </li>
+
+                      <li (click)="choose('Silver', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Silver'
+                        }">
+                        <a>
+                          <div class="color-code color-silver"></div>
+                          <p>Silver</p>
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Black', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Black'
+                        }">
+                        <a>
+                          <div class="color-code color-black"></div>
+                          <p>Black</p>
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Red', 'color')" [ngClass]="{ active: filterForm.value.color === 'Red' }">
+                        <a>
+                          <div class="color-code color-red"></div>
+                          <p>Red</p>
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Gold', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Gold'
+                        }">
+                        <a>
+                          <div class="color-code color-gold"></div>
+                          <p>Gold</p>
+                          <!-- <span>(52)</span> -->
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Purple', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Purple'
+                        }">
+                        <a>
+                          <div class="color-code color-purple"></div>
+                          <p>Purple</p>
+                          <!-- <span>(50)</span> -->
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Blue', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Blue'
+                        }">
+                        <a>
+                          <div class="color-code color-blue"></div>
+                          <p>Blue</p>
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Brown', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Brown'
+                        }">
+                        <a>
+                          <div class="color-code color-brown"></div>
+                          <p>Brown</p>
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Yellow', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Yellow'
+                        }">
+                        <a>
+                          <div class="color-code color-yellow"></div>
+                          <p>Yellow</p>
+                          <!-- <span>(8)</span> -->
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Green', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Green'
+                        }">
+                        <a>
+                          <div class="color-code color-green"></div>
+                          <p>Green</p>
+                        </a>
+                      </li>
+
+                      <li (click)="choose('Gray', 'color')" [ngClass]="{
+                          active: filterForm.value.color === 'Gray'
+                        }">
+                        <a>
+                          <div class="color-code color-gray"></div>
+                          <p>Gray</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-all"></div>
+    </div>
+  </form>
+</div>

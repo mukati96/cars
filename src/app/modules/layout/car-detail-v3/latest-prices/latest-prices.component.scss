@@ -1,0 +1,204 @@
+.stepValue{
+    font-weight: 700;
+      font-size: 26px;
+      line-height: 36px;
+      color: #111111;
+  }
+  .make-anoffercontent {
+    border: 0;
+    padding: 30px;
+    z-index: 999999 !important;
+    border: 1px solid #a9a6a6;
+  }
+  
+  .make-anoffercontent .modal-body input.form-control {
+    height: 56px;
+  }
+  
+  .make-anoffercontent .modal-body .form-group {
+    position: relative;
+  }
+  
+  .make-anoffercontent .modal-body form {
+    margin-top: 20px;
+  }
+  
+  .make-anoffercontent .modal-body .form-group label {
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+    left: 13px;
+    line-height: 13px;
+    top: -5px;
+    background-color: #fff;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    position: absolute;
+    padding: 0px 7px;
+    z-index: 9;
+  }
+  button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+  .make-anoffercontent .modal-body .dollar-fix {
+    left: 22px;
+    color: #9da0a6;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+    font-family: SF Pro Display;
+    font-style: normal;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+  }
+  
+  .make-anoffercontent .invalid-class {
+    color: red;
+    font-size: 11px;
+    margin-top: 5px;
+    font-family: "Gotham regular";
+    font-weight: 400;
+    position: relative;
+    margin-left: 0 !important;
+  }
+  
+  .make-offersavebtn {
+    font-family: Gotham medium;
+    text-align: center;
+    background: #000;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 350;
+    height: 50px;
+    line-height: 17px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  .mistake_box {
+    align-items: baseline;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .mistake_box img {
+    position: relative;
+    top: 5px;
+  }
+  
+  .mistake_box p {
+    color: #9da0a6;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+    font-family: SF Pro Display;
+    font-style: normal;
+    padding-left: 9px;
+  }
+  .make-anoffercontent .close {
+    opacity: 1;
+  }
+  
+  .make-anoffercontent .close img {
+    height: 18px;
+    width: 18px;
+  }
+  
+  .iti-flag.us {
+    display: none !important;
+  }
+  
+  .country-dropdown {
+    display: none !important;
+  }
+  .modal.right .modal-header input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  
+  .form-group .checkinputimage img {
+    float: right;
+    margin-top: -38px;
+    margin-right: 15px;
+  }
+  
+  .checkinputimage i {
+    font-size: 22px;
+    color: white;
+  }
+  .error {
+    border: 1px solid red !important;
+  }
+  .checkinputIcon i {
+    position: relative;
+    left: 385px;
+    top: -36px;
+    font-size: 18px;
+    color: #ff2500d6;
+  }
+  
+  .checkinputimage .sendOtp {
+    position: absolute;
+    top: 0px;
+    height: 56px;
+    width: 140px;
+    left: auto;
+    right: 0px;
+    border-radius: 5px;
+    background: #000;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .checkinputimage .verifyOTP {
+    position: absolute;
+    top: 0px;
+    height: 56px;
+    width: 140px;
+    left: auto;
+    right: 0px;
+    border-radius: 5px;
+    background: #41ba77;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+  }
+.modal-header h5{
+  text-transform: capitalize;  font-family: Gotham medium;
+  font-weight: 350;
+  font-size: 24px;
+  line-height: 36px;
+  color: #111111;
+  }
+.close{
+  position: relative;
+  top: -20px ;
+  right: -16px;
+}
+
+@media screen and (max-width: 575px){
+ .modal-header{
+    padding: 0;
+  }
+ .modal-header h5{
+   font-size: 20px;
+  }
+}
+
+
+  @media screen and (max-width: 340px) {
+    .checkinputimage .sendOtp {
+      width: 107px;
+    }
+  }
+   
+  

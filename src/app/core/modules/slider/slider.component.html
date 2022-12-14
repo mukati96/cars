@@ -1,0 +1,32 @@
+<div class="post_box" [routerLink]="'/car-details/' + popularCars?.id">
+  <div class="latest_post_img">
+    <img [src]="popularCars.front_image" alt="Image" />
+    <a href="#" class="book_img">
+      <img src="../../../../assets/icons/bookmark.png" alt="Bookmark" />
+    </a>
+
+    <a class="star_img_link" *ngIf="showStars">
+      <img src="/assets/icons/star.svg" alt="Star" />
+    </a>
+  </div>
+  <a href="#">
+    <div class="post_box_content">
+      <div class="post_head mt-2 mb-0">
+        <h3 class="mb-1">{{ popularCars.name }}</h3>
+        <ul class="p-0 mb-2">
+          <li>
+            {{ popularCars.fuel_type }}
+          </li>
+          <li>
+            {{ popularCars.year }}
+          </li>
+        </ul>
+        <p>
+          {{ popularCars.state | slice: 0:2 }}&nbsp;|&nbsp;{{
+            popularCars.city
+          }}
+        </p>
+      </div>
+    </div>
+  </a>
+</div>

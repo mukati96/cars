@@ -1,0 +1,31 @@
+.bid-btn1 {
+  background: #333333;
+  border-radius: 100px;
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 17px;
+  display: inline-block;
+  padding: 4px 4px;
+  width: 117px;
+}
+
+@media screen and (max-width: 767px) {
+  .bid-btn1 {
+    font-size: 12px;
+    padding: 4px 6px;
+    width: 113px;
+  }
+  .col-md-4.col-4.text-right.pr-md-2.pl-0 {
+    margin-left: -10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1400px) {
+  .bid-btn1 {
+    font-size: 11px;
+    padding: 4px 2px;
+    width: 94px;
+    margin-right: 3px;
+  }
+}

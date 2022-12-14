@@ -1,0 +1,493 @@
+<section class="breadcrumb pb-0 mb-1 pl-md-2 pl-0">
+  <div class="container">
+    <ol class="p-0">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <!-- <li class="breadcrumb-item"><a>All</a></li> -->
+      <li class="breadcrumb-item">
+        <a>{{ dealerDetails.full_name }}</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="login-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-8 text-left">
+        <h1>Give a genuine review</h1>
+        <p>
+          Provide a genuine review for a dealer, it will help others to build
+          trust.
+        </p>
+      </div>
+      <div class="col-md-6 col-4">
+        <div class="carright">
+          <img src="/assets/img/newhome/rightcarall.png" alt="image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pt-5 pb-3 reviewbg">
+  <div class="container">
+    <div class=" pl-md-5 pl-0 pl-md-5 ml-0">
+      <div class="row">
+        <div class="col-lg-2 col-md-3 col-4 pl-md-0">
+          <div class="userimage">
+            <img
+              [src]="
+                dealerDetails.profile_pic
+                  ? dealerDetails.profile_pic
+                  : '../assets/img/default-user.png'
+              "
+            />
+          </div>
+        </div>
+
+        <div class="col-lg-10 col-md-9 col-8">
+          <div class="userinfo mt-md-4 mt-3">
+            <h4 *ngIf="dealerDetails.full_name">{{ convertNameToAsterisk(dealerDetails.full_name) | titlecase}}</h4>
+            <ul class="p-0 mt-4">
+              <li>
+                <span> {{ dealerDetails?.total_deal || 'N/A' }}</span>
+                Total Deals
+              </li>
+              <li>
+                <span> {{ dealerDetails?.created_at | date: "MMM, yyyy" }}</span>
+                Joined on
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-12">
+          <div class="carInfo mt-4">
+            <h4>
+              {{ dealerDetails.dealership_name }}
+            </h4>
+            <p>
+              {{ dealerDetails.address }}
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-12" *ngIf="dealerDetails?.adminReview">
+          <div class="review-rating mt-3">
+            <div class="row">
+              <div class="col-md-5 col-12">
+                <div class="overallrating mt-md-4">
+                  <h5>Ratings</h5>
+                  <span> {{ dealerDetails?.adminReview.totalCount }}</span>
+                  <div class="star pl-md-5 ml-md-4">
+                    <post-ratings
+                      [disabled]="true"
+                      [getValue]="dealerDetails?.adminReview.totalCount"
+                      [from]="''"
+                    ></post-ratings>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-7 col-12">
+                <ul class="reviewright p-0">
+                  <li class="starhead">
+                    <p>Customer service</p>
+                    <div class="star">
+                      <post-ratings
+                        [disabled]="true"
+                        [getValue]="dealerDetails?.adminReview.customer_service"
+                        [from]="''"
+                      ></post-ratings>
+                    </div>
+                    <!-- <span>
+                      {{ dealerDetails?.adminReview.customer_service }}
+                    </span> -->
+                  </li>
+
+                  <li class="starhead">
+                    <p>Buying process</p>
+                    <div class="star">
+                      <post-ratings
+                        [disabled]="true"
+                        [getValue]="dealerDetails?.adminReview.buying_process"
+                        [from]="''"
+                      ></post-ratings>
+                    </div>
+                    <!-- <span>
+                      {{ dealerDetails?.adminReview.buying_process }}
+                    </span> -->
+                  </li>
+
+                  <li class="starhead">
+                    <p>Depreciation</p>
+                    <div class="star">
+                      <post-ratings
+                        [disabled]="true"
+                        [getValue]="dealerDetails?.adminReview.depreciation"
+                        [from]="''"
+                      ></post-ratings>
+                    </div>
+                    <!-- <span> 
+                      {{ dealerDetails?.adminReview.depreciation }}
+                    </span> -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-12" *ngIf="dealerDetails?.adminReview">
+          <div class="aboutdeal mt-5">
+            <h5>
+              About the Dealer
+            </h5>
+            <p>
+              {{ dealerDetails?.adminReview.your_review }}
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-12 mt-md-5 mt-2">
+          <div class="mb-3">
+            <button type="submit" class="nextBtn" (click)="openModal()">
+              Write a review
+            </button>
+          </div>
+
+          <div class="border-bottom-div1 pt-3 "></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviewdetail reviewbg pb-5">
+  <div class="container">
+    <div
+      class="pl-md-5 pl-0 l-md-5 ml-0"
+      *ngFor="let item of dealerDetails?.dealer_review"
+    >
+      <div class="row">
+        <div class="col-md-1 col-3 pr-0">
+          <div class="reviewimage">
+            <img
+              [src]="
+                item.profile_pic
+                  ? item.profile_pic
+                  : '../assets/img/default-user.png'
+              "
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-md-8 col-9">
+          <div class="reviewdetail-right">
+            <h5 class="mb-0">
+              {{ item.name | titlecase}}
+            </h5>
+            <span>{{ item?.created | date: "MMM, yyyy" }}</span>
+            <div class="star">
+              <post-ratings
+                [disabled]="true"
+                [getValue]="item.rating"
+                [from]="''"
+              ></post-ratings>
+            </div>
+          </div>
+          <div class="reviewpara">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.your_review }}</p>
+          </div>
+
+          <!-- <div class="row mt-4">
+            <div class="col-md-1 col-3 pr-0">
+              <div class="reviewimage1">
+                <img src="/assets/img/user2.png" alt="image" />
+              </div>
+            </div>
+            <div class="col-md-8 col-9">
+              <div class="reviewdetail-right1">
+                <h5 class="mb-0">
+                  John Miller
+                </h5>
+                <span>October 5, 2020</span>
+              </div>
+              <div class="reviewpara1">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever.
+                </p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="col-md-9 col-12">
+        <div class="border-bottom-div1 pt-2 mb-4"></div>
+      </div>
+    </div>
+    <div class="text-center" *ngIf="!dealerDetails?.dealer_review?.length">
+      No reviews available
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="reviewModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="reviewModalCenterTitle"
+  aria-hidden="true"
+  data-backdrop="static"
+  data-keyboard="false"
+>
+  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h5 class="modal-title" id="reviewModalLongTitle">Write a review</h5>
+        <button type="button" class="close" (click)="close()">
+          <img src="/assets/icons/cross-del1.png" alt="image" />
+          <!-- <span aria-hidden="true">&times;</span> -->
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="review-form">
+          <form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group mt-4" style="position: relative">
+                  <label>Title </label>
+                  <input
+                    [class.invalid]="
+                      (submitted || f.title.touched) && f.title.errors
+                    "
+                    formControlName="title"
+                    class="form-control"
+                    type="text"
+                    maxlength="50"
+                  />
+                  <p class="formtext pl-2 pb-3 text-right">
+                    {{ 50 - f.title.value?.length }} Characters
+                  </p>
+                  <div
+                    class="invalid-feedback-review"
+                    *ngIf="(submitted || f.title.touched) && f.title.errors"
+                  >
+                    Title is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group mt-1" style="position: relative">
+                  <label>Your review </label>
+                  <textarea
+                    [class.invalid]="
+                      (submitted || f.your_review.touched) &&
+                      f.your_review.errors
+                    "
+                    formControlName="your_review"
+                    class="form-control"
+                    style="min-height: 100px;"
+                    maxlength="250"
+                  ></textarea>
+                  <p class="formtext pl-2 pb-3 text-right">
+                    {{ 250 - f.your_review.value?.length }} Characters
+                  </p>
+                  <div
+                    class="invalid-feedback-review"
+                    *ngIf="
+                      (submitted || f.your_review.touched) &&
+                      f.your_review.errors
+                    "
+                  >
+                    Your review is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <ul class="reviewmodalstar p-0 mb-5">
+                  <li class="starhead">
+                    <p>Customer service</p>
+                    <div class="star">
+                      <post-ratings
+                        [disabled]="false"
+                        [getValue]="f.customer_service.value"
+                        [from]="'customer_service'"
+                      ></post-ratings>
+                      <div
+                        class="invalid-stars"
+                        *ngIf="
+                          (submitted || f.customer_service.touched) &&
+                          f.customer_service.errors
+                        "
+                      >
+                        Customer service is required
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="starhead">
+                    <p>Buying process</p>
+                    <div class="star">
+                      <post-ratings
+                        [disabled]="false"
+                        [getValue]="f.buying_process.value"
+                        [from]="'buying_process'"
+                      ></post-ratings>
+                      <div
+                        class="invalid-stars"
+                        *ngIf="
+                          (submitted || f.buying_process.touched) &&
+                          f.buying_process.errors
+                        "
+                      >
+                        Buying process is required
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="starhead">
+                    <p>Depreciation</p>
+                    <div class="star">
+                      <post-ratings
+                        [disabled]="false"
+                        [getValue]="f.depreciation.value"
+                        [from]="'depreciation'"
+                      ></post-ratings>
+                      <div
+                        class="invalid-stars"
+                        *ngIf="
+                          (submitted || f.depreciation.touched) &&
+                          f.depreciation.errors
+                        "
+                      >
+                        Depreciation is required
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group mt-0" style="position: relative">
+                  <label>Name </label>
+                  <input
+                    [class.invalid]="
+                      (submitted || f.name.touched) && f.name.errors
+                    "
+                    formControlName="name"
+                    class="form-control"
+                    type="text"
+                  />
+                  <div
+                    class="invalid-class"
+                    *ngIf="(submitted || f.name.touched) && f.name.errors"
+                  >
+                    Name is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group mt-3" style="position: relative">
+                  <label>City, State </label>
+                  <input
+                    [class.invalid]="
+                      (submitted || f.city.touched) && f.city.errors
+                    "
+                    formControlName="city"
+                    class="form-control"
+                    type="text"
+                  />
+                  <div
+                    class="invalid-class"
+                    *ngIf="(submitted || f.city.touched) && f.city.errors"
+                  >
+                    City is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group mt-3" style="position: relative">
+                  <label>Email </label>
+                  <input
+                    [class.invalid]="
+                      (submitted || f.email.touched) && f.email.errors
+                    "
+                    formControlName="email"
+                    class="form-control"
+                    type="email"
+                  />
+                  <div
+                    class="invalid-class"
+                    *ngIf="
+                      (submitted || f.email.touched) && f.email.errors?.required
+                    "
+                  >
+                    Email is required
+                  </div>
+                  <div
+                    class="invalid-class"
+                    *ngIf="
+                      (submitted || f.email.touched) && f.email.errors?.email
+                    "
+                  >
+                    Email should be valid
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group mt-0">
+                  <p class="formtext pt-0 pl-2 pb-3 text-left">
+                    Your email will NOT postear in the review and we will not
+                    share it with the dealer.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <button type="submit" class="nextBtn1">
+                  <ng-container *ngIf="!formSubmitting"
+                    >Submit Review</ng-container
+                  >
+                  <p
+                    *ngIf="formSubmitting"
+                    style="margin: 0px;padding: 2px 40px;height: 18px;display: block;"
+                  >
+                    <span class="spinner"></span>
+                  </p>
+                </button>
+                <button
+                  type="button"
+                  class="cancelBtn ml-md-3 ml-3"
+                  (click)="close()"
+                >
+                  Cancel
+                </button>
+              </div>
+
+              <div class="col-md-12">
+                <p class="formtext pl-2 pb-3 text-left">
+                  By clicking "Submit Review" above, you expressly agree to the
+                  postyourcars.com Temrs of Service and further certify that you
+                  are not associated with a dealership or service center, past
+                  or present, nor is anyone in your family.
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

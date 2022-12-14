@@ -1,0 +1,538 @@
+a:hover {
+  text-decoration: none;
+}
+::ng-deep .gridcursor {
+  outline: none;
+  cursor: pointer;
+}
+
+select:focus {
+  outline-offset: 0;
+}
+.inventory-car-col {
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 6px;
+  transition: all 0.5s ease;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  flex: 1 0 auto;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.row.rowposition {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  bottom: 0px;
+}
+.rowposition p {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+.inventory-car-col-img {
+  overflow: hidden;
+  // height: 250px;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 10px;
+  padding: 0;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #fff;
+}
+
+.book_img i {
+  color: #000;
+  z-index: 10000;
+  position: relative;
+  font-size: 16px;
+  right: 5px;
+  top: 2px;
+  cursor: pointer;
+  height: 30px !important;
+  width: 30px !important;
+  background: #fff;
+  border-radius: 50% !important;
+  padding: 7px 2px;
+}
+.book_img .bookmark {
+  cursor: pointer;
+  height: 30px !important;
+  width: 30px !important;
+  background: #fff;
+  border-radius: 50% !important;
+  padding: 7px 2px;
+}
+.car-img {
+  height: 295px;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.inventory-car-col-content {
+  padding: 0px 7px 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.inventory-car-col-content h4 {
+  font-family: Gotham Medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0px;
+  color: #242833;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+.car-trim {
+  font-family: Gotham regular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #333;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: -5px;
+}
+.dollar {
+  font-size: 16px;
+  padding-right: 2px;
+  font-weight: 400;
+  top: 1px;
+  z-index: 9999;
+}
+.inventory-car-col-content ul li {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333333;
+  display: inline-block;
+  padding: 5px 4px 0px 0px;
+  text-transform: capitalize;
+}
+.inventory-car-col-content .location {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.inventory-car-col-content .top-offer {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #333333;
+  transition: all 0.5s ease;
+  float: right;
+}
+.inventory-car-col-content .top-offer span {
+  font-family: Gotham medium;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 12px;
+  text-align: right;
+  color: #000000;
+}
+.inventory-car-col:hover .inventory-car-col-content h4,
+.inventory-car-col:hover .inventory-car-col-content .top-offer span {
+  color: #3d75f7;
+}
+.like-btn {
+  opacity: 0;
+  position: absolute;
+  content: "";
+  right: 6px;
+  top: 6px;
+  height: 30px;
+
+  background: #797979;
+  border-radius: 100px;
+  width: 30px;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 26px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  z-index: 9999;
+}
+.like-btn img {
+  width: auto !important;
+  height: auto;
+  margin-top: 5px;
+}
+.inventory-car-col:hover .like-btn {
+  opacity: 1;
+}
+.top-offer-not {
+  background: #797979;
+  border-radius: 100px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  margin: 2px 0px 0px;
+  display: inline-block;
+  padding: 4px 6px !important;
+}
+.soldproduct {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  height: 100%;
+  background: #ffffff57;
+}
+.producttext {
+  color: #ff0000;
+  text-transform: uppercase;
+  font-size: 19px;
+  padding: 13px !important;
+  background: #0e0e0e85;
+  margin-top: 27%;
+  display: inline-block;
+  width: 100%;
+}
+.inventory-car-colsold:hover {
+  box-shadow: none !important;
+}
+.inventory-car-colsold {
+  cursor: inherit;
+}
+.inventory-car-colsold:hover .like-btn {
+  display: none;
+}
+
+.location {
+  padding-top: 0px;
+  font-family: Gotham regular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000;
+}
+
+.top-offer.offer-buy-price span {
+  font-size: 14px !important;
+}
+
+.book_img img {
+  cursor: pointer;
+  height: 30px !important;
+  width: 30px !important;
+  background: #fff;
+  border-radius: 50% !important;
+  padding: 5px 2px;
+}
+
+.star_img_link.star_black img {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/*------------------Skeleton Effect Css ------------------*/
+
+// THE CARD
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  max-width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 10px 0 rgba(#000, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+  border: 1px solid #c9c9c9;
+}
+
+.card-img {
+  padding-bottom: 55%;
+  position: relative;
+  img {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  line-height: 1.33;
+  font-weight: 700;
+  &.skeleton {
+    min-height: 10px;
+    border-radius: 4px;
+  }
+}
+.card-intro {
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  &.skeleton {
+    min-height: 40px;
+    border-radius: 4px;
+  }
+}
+// THE LOADING EFFECT
+.skeleton {
+  background-color: #cfd3d5;
+  background-image: linear-gradient(
+    90deg,
+    rgba(#fff, 0),
+    rgba(#fff, 0.5),
+    rgba(#fff, 0)
+  );
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+.slider-icon {
+  color: #ff647c;
+  z-index: 9;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(50, 50, 71, 0.06),
+    0px 4px 4px rgba(50, 50, 71, 0.08);
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 30px;
+}
+.text-center {
+  padding: 8px 8px;
+}
+
+.star_img_link {
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+  left: 10px;
+  height: 25px;
+}
+.inventory-car-col-img .book_img {
+  position: absolute;
+  content: "";
+  right: 10px;
+  top: 10px;
+}
+
+.grid_col_car .col-xl-4 {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.grid_col_car {
+  padding-left: 5px;
+  padding-right: 6px;
+}
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+  .car-img {
+    height: 225px;
+  }
+}
+@media screen and (min-width: 1281px) and (max-width: 1439px) {
+  .car-img {
+    height: 225px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1400px) {
+  .inventory-head h4 {
+    font-weight: 300;
+    font-size: 14px;
+  }
+  .inventory-col1 img {
+    width: 100%;
+  }
+  .top-offer-not {
+    font-size: 11px;
+    padding: 4px 0px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .producttext {
+    margin-top: 24%;
+    font-size: 16px;
+    padding: 10px !important;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1300px) {
+  .inventory-car-col-content .top-offer.offer-buy-price {
+    width: auto;
+    margin: 0px 0px 0px -10px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .purposecontain {
+    position: absolute;
+    right: 31%;
+    text-align: center;
+    top: 145px;
+    z-index: 99;
+  }
+  .producttext {
+    margin-top: 25%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .car-img {
+    height: 198px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1024px) {
+  .car-img {
+    height: 155px;
+  }
+}
+@media screen and (max-width: 1040px) {
+}
+
+@media screen and (max-width: 991px) {
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .car-img {
+    height: 232px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .car-img {
+    height: 176px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .car-img {
+    height: 241px;
+  }
+  .inventory-col {
+    text-align: center;
+  }
+  .inventory-col-content {
+    padding: 3% 20px 0px;
+    width: 100%;
+  }
+  .inventory-img {
+    width: auto;
+  }
+  .inventory-head:after {
+    background-image: url("/assets/dealer-img/icons/mob-line.png");
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .inventory-car-col-content {
+    padding: 0px 0px 0px;
+  }
+  .inventory-car-col-content h4 {
+    font-size: 14px;
+    margin: 0;
+  }
+  .inventory-car-col-content ul li {
+    color: #868686;
+  }
+  .inventory-car-col-content p {
+    margin: 0px 0px 4px 0px;
+    padding: 1px 0px;
+    width: 100%;
+    text-align: left !important;
+    float: none;
+  }
+  .inventory-car-col-content .top-offer.offer-buy-price {
+    width: auto;
+    margin: 0px 0px 0px -21px;
+  }
+  // .inventory-car-col-content .buy-now-btn{
+  //   width:auto;
+  // }
+  .inventory-car-col-content .top-offer span {
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .inventory-car-col {
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 0px;
+  }
+
+  .inventory-car-col-content ul {
+    margin-bottom: 0px;
+  }
+  .inventory .col-6 {
+    padding: 8px;
+  }
+  .row.rowposition {
+    bottom: auto;
+  }
+  // .rowposition p {
+  //   margin-left: -3px;
+  // }
+  .inventory-car-col-img {
+  }
+  .grid_col_car .col-6 {
+    padding: 8px;
+  }
+}
+@media screen and (max-width: 575px) {
+  ::ng-deep .plyr--video {
+    height: inherit !important;
+  }
+  .car-img {
+    height: 177px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .producttext {
+    font-size: 15px;
+    padding: 5px !important;
+    margin-top: 27%;
+  }
+  .car-img {
+    height: 127px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .car-img {
+    height: 111px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .car-img {
+    height: 92px;
+  }
+}

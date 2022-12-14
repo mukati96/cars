@@ -1,0 +1,867 @@
+.border-bottom-div1 {
+    border-bottom: 1px solid #D6D6D6;
+    padding: 0 0 10px;
+    margin: 0px 0px 20px;
+    display: block;
+    width: 100%;
+}
+
+.star_img_link {
+    position: absolute;
+    z-index: 999;
+    top: 10px;
+    left: 10px;
+    height: 20px;
+}
+
+.dropped_slider .book_img {
+    position: absolute;
+    content: "";
+    right: 10px;
+    top: 10px;
+}
+
+.dropped_slider .book_img i {
+    color: #ffe000;
+    z-index: 10000;
+    position: relative;
+    top: 4px;
+    font-size: 20px;
+}
+
+.dropped_slider .book_img img {
+    height: 28px;
+    width: 28px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.car-description ul li:before {
+    display: none;
+}
+
+.car-description ul li {
+    margin: 5px 5px 5px 0px;
+}
+
+.breadcrumb-item.active a {
+    color: #181818 !important;
+}
+
+.breadcrumb-item a {
+    color: #0F58E3 !important;
+}
+
+label.switch {
+    text-align: center;
+    width: 100% !important;
+}
+
+.switch img {
+    margin-left: 2px;
+}
+
+.car-specific li {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 13px;
+    line-height: 24px;
+    color: #4F4F4F;
+    width: 47% !important;
+    display: inline-block;
+    margin-bottom: 25px;
+    margin-right: 8px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.car-specific li span {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 12px;
+    line-height: 17px;
+    color: #828282;
+    width: 100%;
+    display: block;
+    margin-right: 8px;
+    word-break: break-all;
+}
+
+::ng-deep .ngx-gallery-preview-top .ngx-gallery-icon .ngx-gallery-icon-content:before {
+    display: none !important;
+    position: absolute;
+    content: "";
+    background: url("/assets/icons/crossnew.png") #fff;
+    height: 32px;
+    width: 32px;
+    z-index: 99999999;
+    border-radius: 50px;
+    padding: 14px !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+}
+
+.new_car_detail h3 {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 36px;
+    line-height: 36px;
+    color: #181818;
+    margin-bottom: 0px;
+}
+
+.new_car_detail ul li {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 20px;
+    line-height: 27px;
+    color: #4F4F4F;
+    display: inline-block;
+    margin: 1px 7px 4px 0px;
+    position: relative;
+}
+
+.new_car_detail .car_property li {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 11px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #000000;
+    list-style-type: disc !important;
+    position: relative;
+    padding-left: 9px;
+    margin-right: 17px;
+}
+
+.new_car_detail .car_property li:after {
+    position: absolute !important;
+    content: "" !important;
+    color: #000000;
+    border: 1px solid #000 !important;
+    height: 3px;
+    width: 3px;
+    border-radius: 100px;
+    background: #000;
+    left: 0px;
+    top: 4px;
+}
+
+.new_car_detail .certify_img {
+    width: 84px;
+    height: 95px;
+}
+
+.new_car_detail .certify_img img {
+    height: 100%;
+}
+
+.right_btn_detail .btn-group {
+    border: 1px solid #BDBDBD;
+    height: 50px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.right_btn_detail .btn-group .btn {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #181818;
+    position: relative;
+    width: 50%;
+}
+
+.right_btn_detail .btn-group .btn:last-child::before {
+    position: absolute;
+    content: "";
+    border-left: 1px solid #BDBDBD;
+    height: 49px;
+    left: -1px;
+    top: -2px;
+}
+
+.new_car_detail .product_speciality li img {
+    width: 24px;
+}
+
+.new_car_detail .product_speciality li {
+    font-family: Gotham regular;
+    display: block;
+    font-weight: 325;
+    font-size: 14px;
+    line-height: 14px;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.vehicle_history .reachus_para {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.vehicle_history h3 {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 24px;
+    line-height: 29px;
+    color: #242833;
+}
+
+.vehicle_history .reachus_para a {
+    font-family: Gotham medium;
+    background: #fff;
+    border: 1.5px solid #000000;
+    border-radius: 100px;
+    font-weight: 350;
+    font-size: 12px;
+    line-height: 34px;
+    color: #181818;
+    text-align: center;
+    text-decoration: none;
+    width: 80px;
+    height: 36px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.vehicle_history ul li {
+    display: inline-block;
+    width: auto;
+    margin-right: 15px;
+}
+
+.vehicle_history img {
+    width: 30px;
+    height: 30px;
+}
+
+.vehicle_history .head_col {
+    font-family: Gotham regular;
+    display: inline-block;
+    font-weight: 325;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    vertical-align: top;
+}
+
+.vehicle_history span {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 12px;
+    line-height: 17px;
+    color: #4f4f4f;
+    display: block;
+    padding-left: 38px;
+    margin-top: -10px;
+    padding-right: 10px;
+}
+
+.bid_vehicle table thead th {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 16px;
+    line-height: 22px;
+    color: #343A40;
+    text-transform: uppercase;
+    border: none;
+    padding: 8px 0px 12px 0px;
+}
+
+.bid_vehicle table tbody td {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 14px;
+    line-height: 22px;
+    color: #333333;
+    padding: 12px 0px;
+    border: none;
+}
+
+.bid_vehicle table tbody td.price_bid {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    text-align: right;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.bid_vehicle table tbody td.price_bid1 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    text-align: right;
+}
+
+.bid_vehicle table thead tr,
+.bid_vehicle table tbody tr {
+    border-bottom: none;
+}
+
+.recent_slider_post {
+    background: #fff;
+}
+
+.recent_slider_post.dropped_slider .post_box .latest_post_img {
+    height: 279px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0px;
+    position: relative;
+    border-radius: 6px;
+}
+
+.recent_slider_post.dropped_slider h2 {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 24px;
+    line-height: 26px;
+    color: #1A1A1A;
+}
+
+.recent_slider_post.dropped_slider .slider_para_page {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    color: #333333;
+}
+
+.recent_slider_post.dropped_slider .post_box .latest_post_img .post_status {
+    position: absolute;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 46px;
+    z-index: 999;
+    top: 50%;
+}
+
+.recent_slider_post.dropped_slider .post_box .latest_post_img .post_status p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 43px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #EB5757;
+}
+
+.recent_slider_post.dropped_slider .post_box .latest_post_img img {
+    height: 100%;
+}
+
+.recent_slider_post.dropped_slider .post_box {
+    background: #fff;
+    border: none;
+    border-radius: 0px;
+}
+
+.recent_slider_post.dropped_slider .post_box a:hover {
+    text-decoration: none;
+}
+
+.recent_slider_post.dropped_slider .post_head h3 {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 20px;
+    line-height: 18px;
+    color: #181818;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+}
+
+.recent_slider_post.dropped_slider .post_head p img {
+    width: 16px;
+    height: auto;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.recent_slider_post.dropped_slider .post_head p {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 13px;
+    line-height: 13px;
+    color: #7B7B7B;
+    margin-bottom: 0px;
+}
+
+.recent_slider_post.dropped_slider .post_head ul li {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 16px;
+    color: #333333;
+    display: inline-block;
+    position: relative;
+    padding: 0px 14px 0px 0px;
+}
+
+.recent_slider_post.dropped_slider .post_head ul li:before {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 4px;
+    background: #9DA0A6;
+    border-radius: 100px;
+    top: 6px;
+    left: -9px;
+}
+
+.recent_slider_post.dropped_slider .post_head ul li:first-child:before {
+    display: none;
+}
+
+.recent_slider_post.dropped_slider .post_box_content {
+    padding: 10px 10px 15px 0px;
+}
+
+::ng-deep .recent_slider_post.dropped_slider .owl-carousel .owl-dots.disabled,
+::ng-deep .dropped_slider .owl-carousel .owl-dots {
+    display: none !important;
+}
+
+::ng-deep .recent_slider_post.dropped_slider .owl-carousel .owl-nav.disabled {
+    display: block !important;
+}
+
+::ng-deep .recent_slider_post.dropped_slider .owl-theme .owl-nav {
+    margin-top: 10px;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    position: absolute;
+    top: 26%;
+    z-index: 9999;
+    width: 100%;
+    left: 0;
+}
+
+::ng-deep .recent_slider_post.dropped_slider .owl-theme .owl-nav .owl-prev {
+    position: absolute;
+    content: "";
+    background-image: url("/assets/img/rehome/left.svg");
+    left: -64px;
+    top: 35px;
+    color: #000;
+    right: auto;
+    z-index: 99999;
+    height: 48px;
+    width: 48px;
+    background-color: #D6D6D6;
+    border-radius: 100px;
+    background-repeat: no-repeat;
+    background-size: 25px 16px;
+    background-position: center;
+    padding: 0px;
+    margin: 0px;
+    display: none;
+}
+
+::ng-deep .recent_slider_post.dropped_slider .owl-theme .owl-nav .owl-next {
+    position: absolute;
+    content: "";
+    background-image: url("/assets/img/rehome/right.svg");
+    right: -65px;
+    top: 35px;
+    color: #000;
+    left: auto;
+    z-index: 99999;
+    height: 48px;
+    width: 48px;
+    background-color: #D6D6D6;
+    border-radius: 100px;
+    background-repeat: no-repeat;
+    background-size: 25px 16px;
+    background-position: center;
+    padding: 0px;
+    margin: 0px;
+    display: none;
+}
+
+.bid_vehicle.vehicle_history {
+    position: relative;
+}
+
+.bid_popup {
+    font-family: Gotham regular;
+    border: 1px solid #4F4F4F;
+    border-radius: 12px;
+    width: 319px;
+    height: 154px;
+    margin: auto;
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #fff;
+}
+
+.bid_popup p {
+    font-weight: 325;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+    text-align: center;
+    padding: 23px 20px 5px;
+}
+
+.bid_popup .bid_popup_btn {
+    background: #000000;
+    border-radius: 100px;
+    width: 99px;
+    height: 42px;
+    font-weight: 350;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: auto;
+    display: block;
+    border: none;
+}
+
+.car-maincontent h4 {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+
+.Price {
+    writing-mode: tb-rl;
+    transform: rotate(-180deg);
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 14px;
+    line-height: 14px;
+    color: #37C1BC;
+    position: absolute;
+    left: -21px;
+    top: 100px;
+}
+
+.Date {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 14px;
+    line-height: 14px;
+    color: #37C1BC;
+    text-align: center;
+}
+
+.right_btn_detail .buy_now_box {
+    height: 62px;
+    border-radius: 0px;
+}
+
+.right_btn_detail .buy_now_box p {
+    font-size: 14px;
+    font-weight: 325;
+    font-family: Gotham regular;
+    text-align: center;
+    line-height: 31px;
+    margin: 0px;
+    border: 1px solid #BDBDBD;
+}
+
+.right_btn_detail .buy_now_box .btn {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    background-color: #2e2c2c;
+    margin: 0px;
+    border: 1px solid #2e2c2c;
+    border-radius: 0px 0px 0px 0px;
+    text-transform: uppercase;
+}
+
+.buy_now_btn1 {
+    width: 100%;
+    background-color: #ef841a !important;
+    margin: 0px;
+    border: 1px solid transparent !important;
+    border-radius: 0px 0px 0px 0px;
+    text-transform: uppercase;
+}
+
+.make_offer_btn1 {
+    background-color: #008000 !important;
+    border: 1px solid transparent !important;
+}
+
+.right_btn_detail .btn:focus {
+    border: none;
+}
+
+.right_btn_detail .buy_now_box .form-control {
+    font-size: 14px;
+    font-weight: 325;
+    font-family: Gotham regular;
+    line-height: 31px;
+    margin: 0px;
+    border: none;
+    height: 32px;
+    border: 1px solid #BDBDBD;
+    border-radius: 0px;
+}
+
+.right_btn_detail .buy_now_box .form-control::-webkit-input-placeholder {
+    text-align: center;
+}
+
+.specialist_btn {
+    background-color: #000;
+    border: none;
+    color: #fff;
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 0px;
+    width: 100%;
+    height: 40px;
+}
+
+@media screen and (max-width: 767px) {
+    .switch {
+        width: 160px;
+    }
+
+    .car-maincontent h4,
+    .recent_slider_post.dropped_slider h2 {
+        font-family: Gotham medium;
+        font-weight: 350;
+        font-size: 15px;
+        line-height: 22px;
+        color: #111111;
+    }
+
+    .new_car_detail h3 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .new_car_detail ul li {
+        font-size: 13px;
+        line-height: 13px;
+    }
+
+
+    .vehicle_history h3 {
+        font-size: 15px;
+    }
+
+    .vehicle_history .head_col {
+        font-size: 10px;
+    }
+
+    .vehicle_history span {
+        font-size: 12px;
+        line-height: 5px;
+        padding-left: 32px;
+    }
+
+    .vehicle_history img {
+        width: 28px;
+        height: auto;
+        vertical-align: middle;
+        margin-top: 6px;
+    }
+
+    .vehicle_history .reachus_para a {
+        width: 87px;
+    }
+
+    .bid_vehicle table thead th {
+        font-size: 12px;
+    }
+
+    .bid_vehicle table tbody td.price_bid1 {
+        font-size: 13px;
+    }
+
+    .bid_vehicle table thead tr,
+    .bid_vehicle table tbody tr {
+        border-bottom: 1px solid #EAEAEA;
+    }
+
+    .bid_vehicle table thead tr:last-child,
+    .bid_vehicle table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    .recent_slider_post.dropped_slider .post_box .latest_post_img {
+        height: 180px;
+    }
+
+    .recent_slider_post.dropped_slider .post_head h3 {
+        font-size: 14px;
+    }
+
+    .recent_slider_post.dropped_slider .post_head ul li {
+        font-size: 14px;
+    }
+
+    .recent_slider_post.dropped_slider .post_head p {
+        font-size: 12px;
+    }
+
+    .toggleinfo label {
+        font-size: 12px;
+    }
+
+    .car-specific li {
+        font-size: 12px;
+    }
+
+    .car-specific li span {
+        font-size: 11px;
+    }
+
+    .finance_div h3 {
+        font-size: 15px;
+    }
+
+    .finance_div .finance_price {
+        font-size: 15px;
+    }
+
+    .finance_div .break_para {
+        margin: 13px 0px;
+    }
+
+    .noBid {
+        margin-left: 90px;
+        border: 1px solid #4f4f4f;
+        border-radius: 12px;
+        min-height: 50px;
+        line-height: 50px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .toggleinfo label {
+        width: auto;
+        line-height: 19px;
+    }
+}
+
+@media screen and (max-width:300px) {
+    .new_car_detail .certify_img {
+        width: 24px;
+        height: 62px;
+    }
+
+    .right_btn_detail .buy_now_box .btn {
+        font-size: 11px;
+    }
+
+    .new_car_detail .product_speciality li {
+        font-size: 12px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .vehicle_history .head_col {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+        font-size: 12px;
+    }
+
+    .vehicle_history .head_col:nth-child(2) {
+        padding-left: 15px !important;
+        margin-top: 10px;
+    }
+
+    .bid_popup {
+        width: 250px;
+    }
+}
+
+.noBid {
+    text-align: center;
+    margin-left: 52px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dropped_slider .post_box .latest_post_img {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.dropped_slider .post_box .latest_post_img img {
+    height: 100%;
+    width: 100%;
+}
+
+.dropped_slider .book_img {
+    position: absolute;
+    content: "";
+    right: 10px;
+    top: 10px;
+}
+
+.dropped_slider .book_img img {
+    cursor: pointer;
+    height: 23px !important;
+    width: 28px !important;
+}
+
+@media screen and (min-width:350px) and (max-width:767px) {
+    .new_car_detail .product_speciality li {
+        font-size: 11px;
+        display: inline-block;
+        width: 47%
+    }
+}
+
+@media screen and (min-width:200px) and (max-width:374px) {
+    .new_car_detail .product_speciality li {
+        font-size: 9px;
+        display: inline-block;
+        width: 47%
+    }
+
+    .new_car_detail .product_speciality li img {
+        width: 20px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .noBid {
+        margin-left: 90px;
+    }
+}

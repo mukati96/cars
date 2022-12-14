@@ -1,0 +1,78 @@
+<section class="breadcrumb pb-0 mb-1 pl-md-2 pl-0">
+  <div class="container">
+    <ol class="p-0">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/appraisal">Appraisal</a></li>
+      <li class="breadcrumb-item active">Current Auction</li>
+    </ol>
+  </div>
+</section>
+<section class="login-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-8 text-left">
+        <h1>
+          {{ currentDate | date: "MMM dd" }}<br />
+          Today’s Auctions
+        </h1>
+      </div>
+      <div class="col-md-6 col-4">
+        <div class="carright">
+          <img src="/assets/img/newhome/rightcarall.png" alt="image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5 pb-3">
+  <div class="container">
+    <div class="row mb-md-3 mb-4" *ngFor="let item of auctions">
+      <div class="col-md-3 col-12">
+        <div class="auction-img">
+          <img [src]="item?.vehcile_front_image" alt="image" />
+        </div>
+      </div>
+      <div class="col-md-9 col-12">
+        <h4 class="auctionhead mt-3 mb-4">{{ item.vehicle_name }}</h4>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <div class="auctiondetail">
+              <h5>Model</h5>
+              <span>{{ item.vehicle_model }}</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-12">
+            <div class="auctiondetail">
+              <h5>TRIM</h5>
+              <span>{{ item.vehicle_trim }}</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-12 text-md-right" *ngIf="false">
+            <div class="auctiondetail">
+              <h5>VIN</h5>
+              <span>{{ item.vehicle_vin }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-md-3 mt-0">
+          <div class="col-md-6 col-12">
+            <div class="auctiondetail">
+              <h5>No. of Bid</h5>
+              <span>✱ ✱ ✱</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-12 text-md-right">
+            <div class="auctiondetail">
+              <h5>Mileage</h5>
+              <span>{{ item.vehicle_mileage | number }} Mile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" *ngIf="!auctions.length">
+      No Data Found
+    </div>
+  </div>
+</section>

@@ -1,0 +1,451 @@
+a:hover {
+  text-decoration: none;
+}
+.plusSign{
+  color: black;
+}
+.sidebar {
+  padding: 0px;
+  padding-top: 15px;
+  border: 1px solid #e6e8ed;
+  border-radius: 10px;
+  padding-bottom: 15px;
+}
+
+.side_head h3 {
+  font-family: Gotham bold;
+  font-size: 17px;
+  line-height: 22px;
+  margin-top: 19px;
+  margin-bottom: 45px;
+}
+
+.min_mx {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // margin-bottom: 0px;
+  // padding: 0 15px;
+}
+
+.min_mx p {
+  margin-bottom: 0;
+  font-size: 13px;
+  font-family: Gotham medium;
+  color: #8d8686;
+  display: inline-block;
+}
+.min_mx .form-select {
+  width: auto;
+  border: none;
+  font-size: 13px;
+  font-family: Gotham medium;
+  padding-right: 7px;
+  -webkit-appearance: none;
+  background-image: none;
+  background-color: #fff;
+  text-align: right;
+  direction: rtl;
+  cursor: pointer;
+  display: inline-block;
+}
+// .form-selected {
+//   // width: calc(100% - 57px);
+//   border: none;
+//   font-size: 13px;
+//   font-family: Gotham medium;
+//   padding-right: 7px;
+//   -webkit-appearance: none;
+//   background-image: none;
+//   background-color: #fff;
+//   text-align: right;
+//   cursor: pointer;
+//   position: absolute;
+//   right:0px;
+//   padding: 0px !important;
+//   direction:ltr;
+// }
+
+.form-control{
+  width: auto;
+  display: inline-block;
+  text-align: right;
+  float: right;
+  padding: 0px;
+  border: none;
+  height: auto;
+  border: none;
+  font-size: 13px;
+  font-family: Gotham medium;
+  padding-right: 7px;
+  -webkit-appearance: none;
+  background-image: none;
+  background-color: #fff;
+  text-align:-webkit-right;
+  color: #212529;
+  direction: rtl;
+  text-align:right;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select option{
+  direction: ltr;
+}
+
+.min_mx a,
+.min_mx h5,
+.min_mx span {
+  font-family: Gotham medium;
+  font-size: 13px;
+  color: #000;
+  cursor: pointer;
+  margin-bottom: 0;
+  padding-right: 1px;
+  width: auto;
+  text-align: right;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.min_mx span {
+  color: #000 !important;
+  text-transform: uppercase;
+}
+
+.min_mx span {
+  color: #8d8686;
+  margin: 0 10px;
+  margin-left: 5px;
+}
+
+.milage span {
+  width: 42%;
+  display: inline-block;
+  border-radius: 50px;
+  padding: 7px 0px;
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 50px;
+  background: #eff2f9;
+  color: #0580ab;
+  font-family: Gotham medium;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.milage label {
+  display: block;
+  font-family: Gotham medium;
+  font-size: 13px;
+}
+
+.city_location {
+  //text-decoration: underline;
+}
+
+.sidebar h3 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #111111;
+}
+
+.max_position {
+  position: relative;
+  top: 2px;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  outline: 0;
+  box-shadow: none;
+}
+
+/*accordion*/
+
+.active::after {
+  content: "";
+  background-image: url("../../../../../assets/dealer-img/icons/minus.svg");
+  margin-top: 5px;
+}
+
+
+.filter-clear {
+  display: inline-block;
+  float: right;
+  font-size: 14px;
+  color: #606060;
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.year_select select {
+  width: auto;
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 0 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  font-family: Gotham medium;
+  font-size: 14px;
+}
+
+#Nationwide .modal-dialog {
+  top: 20%;
+  text-align: center;
+  max-width: 350px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 1rem;
+}
+
+#Nationwide .modal-dialog h5 {
+  font-family: Gotham medium;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+#Nationwide .modal-dialog p {
+  font-family: Gotham medium;
+  font-size: 13px;
+}
+
+#Nationwide i {
+  color: #0580ab;
+  margin-right: 5px;
+}
+
+#Nationwide .input_div {
+  position: relative;
+}
+
+#Nationwide input {
+  border: 1px solid #ced4da;
+  border-radius: 100px;
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+  text-indent: 10px;
+  padding: 0;
+}
+
+#Nationwide button {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background-color: #0f75d7;
+  border: none;
+  color: #fff;
+  padding: 7px 26px;
+  border-radius: 100px;
+  font-family: Gotham medium;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+#Nationwide .modal-dialog a {
+  text-decoration: underline;
+  color: #000;
+  display: block;
+  // margin-bottom: 15px;
+  font-family: Gotham medium;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+
+#Nationwide .modal-body{
+  padding: 1.5rem 1rem !important;
+}
+@media screen and (min-width: 1001px) and (max-width: 1300px) {
+  .sidebar h3 {
+    font-size: 14px;
+  }
+}
+
+// @media screen and (max-width: 1440px) {
+//   .milage span {
+//     width: 42%;
+//   }
+// }
+
+// @media screen and (max-width: 1350px) {
+//   .milage span {
+//     width: 41.9%;
+//   }
+// }
+
+@media screen and (min-width:1270px) and (max-width: 1300px) {
+  .milage span {
+    width: 41.9%;
+  }
+}
+
+@media screen and (min-width:1160px) and (max-width: 1269px) {
+  .milage span {
+    width: 40.9%;
+  }
+}
+
+@media screen and (min-width:1000px) and (max-width: 1159px) {
+  .milage span {
+    width: 39.9%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  // .milage span {
+  //   width: 39%;
+  // }
+
+  .milage span {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .milage span {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .side_head h3 {
+    font-size: 14px;
+  }
+
+  .milage {
+    text-align: center;
+  }
+
+  .milage label {
+    text-align: left;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .side_head h3 {
+    margin-bottom: 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sidebarnone {
+    display: none;
+  }
+}
+@media screen and (max-width: 460px) {
+  .nav_tab .nav-link {
+    background: #eff2f9;
+    margin-right: 10px;
+    border-radius: 50px;
+    color: #0580ab;
+    font-family: Gotham medium;
+    font-size: 13px;
+    white-space: nowrap;
+    height: 40px;
+    min-width: 70px;
+  }
+}
+
+hr {
+  height: 0 !important;
+}
+
+::ng-deep {
+  .ngx-slider .ngx-slider-pointer:after {
+    content: "" !important;
+    width: 8px !important;
+    height: 8px !important;
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    border-radius: 4px !important;
+    background: transparent !important;
+  }
+
+  .ngx-slider .ngx-slider-pointer {
+    cursor: pointer;
+    width: 20px !important;
+    height: 20px !important;
+    top: -6px !important;
+    z-index: 3 !important;
+    border-radius: 10px !important;
+    background-color: #0d70f0fc !important;
+    outline: none !important;
+  }
+
+  .ngx-slider .ngx-slider-selection {
+    z-index: 2 !important;
+    background: #0d70f0fc !important;
+    border-radius: 2px !important;
+  }
+
+  .ngx-slider .ngx-slider-bar {
+    left: 0 !important;
+    width: 100% !important;
+    height: 7px !important;
+    z-index: 1 !important;
+    border-radius: 5px !important;
+  }
+
+  .ngx-slider .ngx-slider-bubble {
+    cursor: default !important;
+    bottom: 16px !important;
+    padding: 1px 3px !important;
+    color: transparent !important;
+    font-size: 16px !important;
+  }
+
+  .ngx-slider {
+    display: inline-block !important;
+    position: relative !important;
+    height: 4px !important;
+    width: 100% !important;
+    margin: 14px 0 15px !important;
+    vertical-align: middle !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    touch-action: pan-y !important;
+  }
+}
+.mileageInput{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  width: 72%;
+  font-size: 13px;
+}
+.padding_box{
+  padding: 0px 11px 0px 11px;
+}
+.error_msg{
+  color: red;
+  position: relative;
+  top: -12px;
+  left: -35px;
+  font-size: 14px;
+}
+
+.mileageerror_msg{
+  font-size: 14px;
+  font-weight: 500;
+  color: red;
+}
+.input_width{
+  width:62px;
+}

@@ -1,0 +1,1158 @@
+<section class="breadcrumb pb-0 mb-1 pl-md-2 pl-0">
+  <div class="container">
+    <ol class="pl-0">
+      <li class="breadcrumb-item pointer"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item pointer" routerLink="/my-account/account">
+        <a>My Account</a>
+      </li>
+      <li class="breadcrumb-item pointer" routerLink="/my-account/mycar">
+        <a>My Cars</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="review-code">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p
+          [style.color]="
+            carDetail?.vehicle_status === 2 ||
+            carDetail.conformed_status === 'Sold'
+              ? 'red'
+              : ''
+          "
+        >
+          {{ this.carStatustext }}
+        </p>
+      </div>
+      <div class="col-md-6">
+        <button
+          class="re-approve-btn"
+          [disabled]="reqSent"
+          *ngIf="
+            carDetail.vehicle_status === 2 &&
+            carDetail.conformed_status !== 'Sold'
+          "
+          (click)="reApprove()"
+        >
+          <ng-container *ngIf="!reApproving">{{
+            reqSent ? "Reviewing" : "Re-Post"
+          }}</ng-container>
+          <span class="spinner" *ngIf="reApproving"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="car-detail paddingless">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-12">
+        <ngx-gallery
+          [options]="galleryOptions"
+          [images]="galleryImages"
+        ></ngx-gallery>
+      </div>
+      <div class="col-md-5 col-12">
+        <div class="car-description mt-0 new_car_detail">
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <!-- <h3>{{ carDetail?.name }}</h3> -->
+              <h3>2019 || MERCEDES BENZ || E-CLASS E450 4MATIC</h3>
+              <ul class="p-0 mb-1">
+                <li>
+                  {{
+                    carDetail?.mileage | number
+                  }}&nbsp;&nbsp;Miles&nbsp;&nbsp;•&nbsp;&nbsp;
+                  {{ carDetail?.city }}&nbsp; {{ carDetail?.state }} &nbsp;
+                  {{ carDetail?.zip_code }} &nbsp;&nbsp;
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-12 col-12">
+              <div class="price_text mt-2 mb-3">
+                <p>Buy Now : <span> $XXXXX </span></p>
+              </div>
+
+              <div class="d-block mb-4">
+                <div class="row">
+                  <div class="col-md-3 col-4">
+                    <div class="certify_img">
+                      <img
+                        src="../../../../../assets/img/detail/1.png"
+                        alt="Image"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-4">
+                    <div class="certify_img">
+                      <img
+                        src="../../../../../assets/img/detail/2.png"
+                        alt="Image"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="right_btn_detail">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn">Make an offer</button>
+                  <button type="button" class="btn">Buy it now</button>
+                </div>
+              </div>
+
+              <ul class="p-0 product_speciality mt-4">
+                <li>
+                  <img
+                    src="/assets/img/inventory/icons/card.svg"
+                    class="mr-2"
+                    alt="Image"
+                  />
+                  Secured Payment
+                </li>
+
+                <li>
+                  <img
+                    src="/assets/img/inventory/icons/inspection.svg"
+                    class="mr-2"
+                    alt="Image"
+                  />
+                  Vehicle Inspection
+                </li>
+
+                <li>
+                  <img
+                    src="/assets/img/inventory/icons/money.svg"
+                    class="mr-2"
+                    alt="Image"
+                  />
+                  Money back Guarantee
+                </li>
+
+                <li>
+                  <img
+                    src="/assets/img/inventory/icons/shipping.svg"
+                    class="mr-2"
+                    alt="Image"
+                  />
+                  Insured Shipping
+                </li>
+              </ul>
+
+              <!-- <div class="d-md-none d-block mt-4 mb-3">
+                <div class="row">
+                  <div class="col-md-2 col-3">
+                    <div class="certify_img">
+                      <img src="../../../../../assets/img/detail/1.png" alt="Image" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 col-3">
+                    <div class="certify_img">
+                      <img src="../../../../../assets/img/detail/2.png" alt="Image" />
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <!-- <p class="price-offer" *ngIf="carDetail && carDetail?.current_top_offer">
+                Highest offer:
+                <span>${{ carDetail.current_top_offer | number: "1.0-0" }}</span> -->
+              <!-- <span *ngIf="!carDetail?.current_top_offer" class="offer-noprice-na">
+                $ xxxxxx
+              </span> -->
+              <!-- </p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-bottom-div pb-2 pb-md-3 mb-2"></div>
+  </div>
+</section>
+
+<section class="vehicle_history mt-1 mb-md-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-12">
+        <h3 class="mb-4">Price History</h3>
+
+        <div class="row">
+          <div class="col-md-8">
+            <ul class="p-0">
+              <li>
+                <img
+                  src="../../../../../assets/img/detail/bar1.png"
+                  alt="Image"
+                />
+                <p>
+                  Price history
+                  <span> $33.000 </span>
+                </p>
+              </li>
+
+              <li>
+                <img
+                  src="../../../../../assets/img/detail/bar1.png"
+                  alt="Image"
+                />
+                <p>
+                  Price dropped by $33,000
+                  <span> 15 days on POST </span>
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 text-md-right pl-md-0">
+            <p class="reachus_para">
+              Need to reach us? <a href="#" class="ml-2"> Contact </a>
+            </p>
+          </div>
+        </div>
+
+        <!-- graph -->
+        <div class="bid_vehicle vehicle_history mt-4 mb-5">
+          <div style="display: flex">
+            <p class="graphPrice">ORIGINAL: $253,000</p>
+            <p class="graphPrice" style="margin-left: 30px">
+              CURRENT: $220,000
+            </p>
+          </div>
+          <div id="chart" style="position: relative">
+            <p class="Price">Price $</p>
+            <apx-chart
+              [series]="chartOptions.series"
+              [chart]="chartOptions.chart"
+              [xaxis]="chartOptions.xaxis"
+              [dataLabels]="chartOptions.dataLabels"
+              [grid]="chartOptions.grid"
+              [stroke]="chartOptions.stroke"
+              [title]="chartOptions.title"
+              [markers]="chartOptions.markers"
+              [fill]="chartOptions.fill"
+            ></apx-chart>
+          </div>
+          <!-- [colors]="chartOptions.colors" -->
+          <p class="Date">Date</p>
+        </div>
+      </div>
+
+      <div class="col-md-5 col-12">
+        <div class="finance_div">
+          <h3 class="mb-3">Finance Calculator</h3>
+
+          <p class="finance_price">$504/mo.</p>
+          <p class="finance_para">
+            Estimated payment for 72 months at 5.99% APR*
+          </p>
+
+          <p class="break_para">
+            Show breakdown
+            <img src="/assets/img/inventory/icons/down.svg" alt="Image" />
+          </p>
+
+          <div class="finance_form">
+            <form>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group box_input">
+                    <label> Vehicle price </label>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"
+                          >$</span
+                        >
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="2,000"
+                        aria-label="Watchprice"
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-12">
+                  <div class="form-group box_input">
+                    <label> Down payment (Optional) </label>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"
+                          >$</span
+                        >
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="500"
+                        aria-label="Watchprice"
+                        aria-describedby="basic-addon2"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-12">
+                  <div class="form-group box_input">
+                    <label> Trade-in value (optional) </label>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3"
+                          >$</span
+                        >
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="2,000"
+                        aria-label="Watchprice"
+                        aria-describedby="basic-addon3"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12 col-12">
+                  <div class="form-group">
+                    <p>Length of loan (in months)</p>
+
+                    <div class="radio_buttons">
+                      <label for="number1">
+                        <input
+                          type="radio"
+                          name="Loan"
+                          id="number1"
+                          checked=""
+                        />
+                        <span class="">12</span>
+                      </label>
+
+                      <label for="number2">
+                        <input type="radio" id="number2" name="Loan" />
+                        <span class="">24</span>
+                      </label>
+
+                      <label for="number3">
+                        <input type="radio" id="number3" name="Loan" />
+                        <span class="">36</span>
+                      </label>
+
+                      <label for="number4">
+                        <input type="radio" id="number4" name="Loan" />
+                        <span class="">48</span>
+                      </label>
+
+                      <label for="number5">
+                        <input type="radio" id="number5" name="Loan" />
+                        <span class="">60</span>
+                      </label>
+
+                      <label for="number6">
+                        <input type="radio" id="number6" name="Loan" />
+                        <span class="">72</span>
+                      </label>
+
+                      <label for="number7">
+                        <input type="radio" id="number7" name="Loan" />
+                        <span class="">84</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-12">
+                  <div class="form-group box_input">
+                    <label> Annual percentage rate (APR) </label>
+
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="5.99%"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-12">
+                  <div class="form-group box_input">
+                    <label> Sales tax </label>
+
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="0.00%"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="terms_finance mb-0">
+                *Title and other fees and incentives are not included in this
+                calculation, which is an estimate only. Monthly payment
+                estimates are for informational purpose and do not represent a
+                financing offer from the seller of this Watch. Other taxes may
+                apply.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-bottom-div pb-2 pb-md-3 mt-3"></div>
+  </div>
+</section>
+
+<section class="bid_vehicle vehicle_history mt-3 mb-md-5 mb-3">
+  <div class="container">
+    <h3 class="mb-4">Bids Received on Vehicle</h3>
+
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">DATE</th>
+                <th scope="col" style="text-align: right">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>February 2, 2022</td>
+                <td class="price_bid">$ 258,000</td>
+              </tr>
+
+              <tr>
+                <td>February 4, 2022</td>
+                <td class="price_bid">$ 255,000</td>
+              </tr>
+
+              <tr>
+                <td>February 5, 2022</td>
+                <td class="price_bid">$ 254,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- <div class="bid_popup">
+          <p>
+            All Received Bids <br />
+            can be checked after logging in.
+          </p>
+
+          <button class="bid_popup_btn">
+            Login
+          </button>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="border-bottom-div pb-2 pb-md-3 mb-2"></div>
+  </div>
+</section>
+
+<!-- <section class="top-offer" *ngIf="carDetail.offer_price?.length">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-5 col-6">
+        <h4>Current Top Offers</h4>
+      </div>
+
+      <div class="col-lg-9 col-md-7 col-6">
+        <div class="text-right" *ngIf="carDetail.conformed_status !== 'Sold'">
+          <a [routerLink]="
+          '/my-account/auction/'
+          + carDetail.id" class="viewmore">View More Offer
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+
+        <div class="table-responsive">
+          <table class="table current-offer pl-0 mb-0">
+            <tbody>
+              <tr *ngFor="let item of carDetail?.offer_price; index as i">
+                <td class="col-1">
+                  <span>{{ i + 1}}<sup>{{getNumberWithOrdinal(i + 1)}}</sup></span>
+                </td>
+                <td class="col-6">
+                  <h5 class="mb-0">
+
+                    {{ convertNameToAsterisk(item?.full_name) }}
+                  </h5>
+                </td>
+                <td class="col-5 text-right pr-md-5 pr-3">
+                  <p class="mb-0">${{ (item?.offer_price - carDetail?.margin) | number }}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="car-maincontent">
+  <div class="container">
+    <div
+      class="row"
+      *ngIf="
+        carDetail.market_modification_description ||
+        carDetail?.vehicle_condition_description
+      "
+    >
+      <div class="col-md-3">
+        <h4>Description</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="border-bottom-div1">
+          <p>
+            {{
+              carDetail.market_modification_description ||
+                carDetail?.vehicle_condition_description
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Specifications</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="border-bottom-div1 pb-0">
+          <ul class="p-0 car-specific">
+            <li *ngIf="carDetail?.vin">
+              VIN No.
+              <span> {{ carDetail?.vin }}</span>
+            </li>
+            <li *ngIf="carDetail?.transmission">
+              Transmission
+              <span> {{ carDetail?.transmission }} </span>
+            </li>
+            <li *ngIf="carDetail?.body_type">
+              Body Type
+              <span> {{ carDetail?.body_type }}</span>
+            </li>
+            <li *ngIf="carDetail.engine">
+              Engine
+              <span> {{ carDetail?.engine }}</span>
+            </li>
+            <li *ngIf="carDetail?.drive_type">
+              Drive Type
+              <span> {{ carDetail?.drive_type }}</span>
+            </li>
+            <li *ngIf="carDetail?.fuel_type">
+              Fuel Type
+              <span> {{ carDetail?.fuel_type }}</span>
+            </li>
+            <li *ngIf="carDetail?.exterior_color">
+              Exterior Color
+              <span> {{ carDetail?.exterior_color }}</span>
+            </li>
+            <li *ngIf="carDetail?.trim">
+              Trim
+              <span> {{ carDetail?.trim }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="false">
+      <div class="row" *ngIf="carDetail.premium_features?.length">
+        <div class="col-md-3">
+          <h4>Premium Features</h4>
+        </div>
+        <div class="col-md-9">
+          <div class="border-bottom-div1 pb-0">
+            <div class="premiumfeature">
+              <div class="row">
+                <div
+                  class="col-md-6 col-12"
+                  *ngIf="premiumData.braking_traction?.length"
+                >
+                  <div class="form-group mt-0">
+                    <label class="d-block fontfeature mb-4"
+                      >Breaking & Traction</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span
+                        class="form-check-label text-capitalize"
+                        *ngFor="
+                          let item of premiumData.braking_traction;
+                          index as i
+                        "
+                        >{{ item }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-md-6 col-12"
+                  *ngIf="premiumData.comform_convenienc"
+                >
+                  <div class="form-group mt-0">
+                    <label class="d-block fontfeature mb-4"
+                      >Comform & Convenience</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span class="form-check-label text-capitalize">{{
+                        premiumData.comform_convenienc
+                      }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div
+                  class="col-md-6 col-12"
+                  *ngIf="premiumData.entertainment_instrumentation?.length"
+                >
+                  <div class="form-group mt-3">
+                    <label class="text-none d-block fontfeature mb-4"
+                      >Entertainment & Instrumentation</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span
+                        class="form-check-label text-capitalize"
+                        *ngFor="
+                          let item of premiumData.entertainment_instrumentation
+                        "
+                        >{{ item }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12" *ngIf="premiumData.roof_glass">
+                  <div class="form-group mt-3">
+                    <label class="text-none d-block fontfeature mb-4"
+                      >Roof & Glass</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span class="form-check-label text-capitalize">{{
+                        premiumData.roof_glass
+                      }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 col-12" *ngIf="premiumData.exterior">
+                  <div class="form-group mt-3">
+                    <label class="text-none d-block fontfeature mb-4"
+                      >Exterior</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span class="form-check-label text-capitalize">{{
+                        premiumData.exterior
+                      }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12" *ngIf="premiumData.cargo_towning">
+                  <div class="form-group mt-3">
+                    <label class="text-none d-block fontfeature mb-4"
+                      >Cargo & Towning</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span class="form-check-label text-capitalize">{{
+                        premiumData.cargo_towning
+                      }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div
+                  class="col-md-6 col-12"
+                  *ngIf="premiumData.wheels_tires?.length"
+                >
+                  <div class="form-group mt-3">
+                    <label class="text-none d-block fontfeature mb-4"
+                      >Wheels & Tires</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span
+                        class="form-check-label text-capitalize"
+                        *ngFor="let item of premiumData.wheels_tires"
+                        >{{ item }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12" *ngIf="premiumData.seats">
+                  <div class="form-group mt-3">
+                    <label class="text-none d-block fontfeature mb-4"
+                      >Seats</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span class="form-check-label text-capitalize">{{
+                        premiumData.seats
+                      }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div
+                  class="col-md-6 col-12"
+                  *ngIf="premiumData.accesssory_packages"
+                >
+                  <div class="form-group mt-3">
+                    <label class="text-none d-block fontfeature mb-4"
+                      >Accesssory Packages</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span class="form-check-label text-capitalize">{{
+                        premiumData.accesssory_packages
+                      }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group mt-3" *ngIf="premiumData.lighting">
+                    <label class="text-none d-block fontfeature mb-4"
+                      >Lighting</label
+                    >
+                    <div class="form-check form-check-inline mr-5">
+                      <span class="form-check-label text-capitalize">{{
+                        premiumData.lighting
+                      }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="row aftermarket"
+                *ngIf="premiumData.after_market_modification?.length"
+              >
+                <div class="col-md-12 col-12">
+                  <div class="form-group mt-3">
+                    <label class="d-block fontfeature mb-4"
+                      >After Market Modifications</label
+                    >
+                    <div class="row">
+                      <div class="col-md-12 col-12">
+                        <div class="form-check form-check-inline mr-0">
+                          <ul class="p-0">
+                            <li
+                              class="form-check-label text-capitalize"
+                              *ngFor="
+                                let item of premiumData.after_market_modification
+                              "
+                            >
+                              {{ item }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="row toggleinfo info_car_mob">
+      <div class="col-md-3">
+        <h4>Additional Information</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="border-bottom-div1">
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7"
+                >How did you purchased your vehicle?</label
+              >
+              <div class="col-md-4 col-5">
+                <label class="switch text-detail">
+                  {{ carDetail.purchased | titlecase }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7"
+                >Has the vehicle been in an accident?</label
+              >
+              <div class="col-md-4 col-5">
+                <label class="switch image-border1">
+                  <img
+                    *ngIf="carDetail.has_accident === 'YES'"
+                    src="../../../../../assets/icons/checked.png"
+                    alt=""
+                  />
+                  <img
+                    *ngIf="carDetail.has_accident === 'NO'"
+                    src="../../../../../assets/icons/uncheck.png"
+                    alt=""
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="carDetail.has_accident === 'YES'">
+            <div class="row">
+              <label class="col-md-8 col-7"
+                >Has any accident damage to your vehicle been fully
+                repaired?</label
+              >
+              <div class="col-md-4 col-5">
+                <label class="switch image-border1">
+                  <img
+                    *ngIf="carDetail.fully_repaired === 'YES'"
+                    src="../../../../../assets/icons/checked.png"
+                    alt=""
+                  />
+                  <img
+                    *ngIf="carDetail.fully_repaired === 'NO'"
+                    src="../../../../../assets/icons/uncheck.png"
+                    alt=""
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7"
+                >Does your vehicle have any exterior damage, including hail
+                damage?</label
+              >
+              <div class="col-md-4 col-5">
+                <label class="switch image-border1">
+                  <img
+                    *ngIf="carDetail.accident === 'YES'"
+                    src="../../../../../assets/icons/checked.png"
+                    alt=""
+                  />
+                  <img
+                    *ngIf="carDetail.accident === 'NO'"
+                    src="../../../../../assets/icons/uncheck.png"
+                    alt=""
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7"
+                >Does your vehicle have any issues that would stop us from
+                driving it?</label
+              >
+              <div class="col-md-4 col-5">
+                <label class="switch image-border1">
+                  <img
+                    *ngIf="carDetail.run_and_drive === 'YES'"
+                    src="../../../../../assets/icons/checked.png"
+                    alt=""
+                  />
+                  <img
+                    *ngIf="carDetail.run_and_drive === 'NO'"
+                    src="../../../../../assets/icons/uncheck.png"
+                    alt=""
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- warning lights -->
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7"
+                >Does your vehicle have mechanical defects or dashboard warning
+                lights?</label
+              >
+              <div class="col-md-4 col-5">
+                <label class="switch image-border1">
+                  <img
+                    *ngIf="carDetail.warning_light === 'YES'"
+                    src="../../../../../assets/icons/checked.png"
+                    alt=""
+                  />
+                  <img
+                    *ngIf="carDetail.warning_light === 'NO'"
+                    src="../../../../../assets/icons/uncheck.png"
+                    alt=""
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modifications -->
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7"
+                >Are there any modifications to your vehicle (e.g. suspension,
+                engine, etc.)?</label
+              >
+              <div class="col-md-4 col-5">
+                <label class="switch image-border1">
+                  <img
+                    *ngIf="carDetail.modifications === 'YES'"
+                    src="../../../../../assets/icons/checked.png"
+                    alt=""
+                  />
+                  <img
+                    *ngIf="carDetail.modifications === 'NO'"
+                    src="../../../../../assets/icons/uncheck.png"
+                    alt=""
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7"
+                >Has your vehicle been smoked in?</label
+              >
+              <div class="col-md-4 col-5">
+                <label class="switch image-border1">
+                  <img
+                    *ngIf="carDetail.smoked === 'YES'"
+                    src="../../../../../assets/icons/checked.png"
+                    alt=""
+                  />
+                  <img
+                    *ngIf="carDetail.smoked === 'NO'"
+                    src="../../../../../assets/icons/uncheck.png"
+                    alt=""
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Keys -->
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7">
+                How many keys do you have for this vehicle?
+              </label>
+              <div class="col-md-4 col-5 pl-md-2 pl-4">
+                <label class="switch text-detail">{{ carDetail.keys }}</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Condition -->
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7">
+                What is the condition of your vehicle
+              </label>
+              <div class="col-md-4 col-5 pl-md-2 pl-4">
+                <label class="switch text-detail">{{
+                  carDetail.condition
+                }}</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-8 col-7">
+                How many miles have you driven on your current tires?
+              </label>
+              <div class="col-md-4 col-5 pl-md-2 pl-4">
+                <label class="switch text-detail">{{
+                  carDetail.current_miles
+                }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- slider -->
+<section
+  class="popular_brand dropped_slider recent_slider_post pt-3 pt-md-5 pb-md-5 pb-4"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <span class="black_border"></span>
+
+        <h2 class="mt-3 mb-1">Recent Post</h2>
+
+        <p class="slider_para_page mt-1 mb-5">
+          Browse through pre-owned vehicles listed recently on POST and start
+          bidding!
+        </p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-12">
+        <owl-carousel-o class="mt-3" [options]="customOptions">
+          <ng-template class="col-md-4" carouselSlide>
+            <div class="post_box">
+              <a href="javascript:;">
+                <div class="latest_post_img">
+                  <img src="../../../../../assets/img/car1.png" alt="Image" />
+                </div>
+                <div class="post_box_content">
+                  <!-- <p class="post_date">
+                  02 July 2021
+                </p> -->
+
+                  <div class="post_head mt-2 mb-0">
+                    <h3 class="mb-1">Mercedes-Benz New C-C</h3>
+                    <ul class="p-0 mb-2">
+                      <li>Gasoline</li>
+                      <li>2014</li>
+                    </ul>
+
+                    <p>
+                      <img
+                        src="../../../../assets/icons/location.png"
+                        alt="Image"
+                      />
+                      California
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </ng-template>
+          <ng-template class="col-md-4" carouselSlide>
+            <div class="post_box">
+              <a href="javascript:;">
+                <div class="latest_post_img">
+                  <img src="../../../../../assets/img/car.png" alt="Image" />
+                  <div class="post_status">
+                    <p>sold</p>
+                  </div>
+                </div>
+                <div class="post_box_content">
+                  <!-- <p class="post_date">
+                  02 July 2021
+                </p> -->
+
+                  <div class="post_head mt-2 mb-0">
+                    <h3 class="mb-1">Mercedes-Benz New C-C</h3>
+                    <ul class="p-0 mb-2">
+                      <li>Gasoline</li>
+                      <li>2016</li>
+                    </ul>
+
+                    <p>
+                      <img
+                        src="../../../../assets/icons/location.png"
+                        alt="Image"
+                      />
+                      California
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </ng-template>
+          <ng-template class="col-md-4" carouselSlide>
+            <div class="post_box">
+              <a href="javascript:;">
+                <div class="latest_post_img">
+                  <img src="../../../../../assets/img/car.png" alt="Image" />
+                  <div class="post_status">
+                    <p>sold</p>
+                  </div>
+                </div>
+                <div class="post_box_content">
+                  <!-- <p class="post_date">
+                  02 July 2021
+                </p> -->
+
+                  <div class="post_head mt-2 mb-0">
+                    <h3 class="mb-1">Mercedes-Benz New C</h3>
+                    <ul class="p-0 mb-2">
+                      <li>Gasoline</li>
+                      <li>2015</li>
+                    </ul>
+
+                    <p>
+                      <img
+                        src="../../../../assets/icons/location.png"
+                        alt="Image"
+                      />
+                      California
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </ng-template>
+
+          <ng-template class="col-md-4" carouselSlide>
+            <div class="post_box">
+              <a href="javascript:;">
+                <div class="latest_post_img">
+                  <img src="../../../../../assets/img/car1.png" alt="Image" />
+                </div>
+                <div class="post_box_content">
+                  <!-- <p class="post_date">
+                  02 July 2021
+                </p> -->
+
+                  <div class="post_head mt-2 mb-0">
+                    <h3 class="mb-1">Mercedes-Benz New C-C</h3>
+                    <ul class="p-0 mb-2">
+                      <li>Gasoline</li>
+                      <li>2014</li>
+                    </ul>
+
+                    <p>
+                      <img
+                        src="../../../../assets/icons/location.png"
+                        alt="Image"
+                      />
+                      California
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</section>

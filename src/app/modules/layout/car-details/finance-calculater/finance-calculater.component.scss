@@ -1,0 +1,418 @@
+/*bid popup*/
+.breakdown_content {
+    margin: 10px 0px;
+}
+
+.breakdown_content .break_first_content p {
+    font-weight: 325;
+    font-family: Gotham regular;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+    margin-bottom: 0px;
+}
+
+.breakdown_content .break_first_content span {
+    font-weight: 325;
+    font-family: Gotham regular;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+    display: block;
+    text-align: right;
+    margin: 0px;
+}
+
+.breakdown_content .break_other_content p {
+    font-weight: 350;
+    font-family: Gotham medium;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.breakdown_content .break_other_content p span {
+    font-size: 12px;
+    font-weight: 300;
+    font-family: Gotham light;
+    text-align: left;
+    padding-left: 0px;
+}
+
+.breakdown_content .break_other_content span {
+    font-weight: 350;
+    font-family: Gotham medium;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+    display: block;
+    text-align: right;
+}
+
+.bid_vehicle.vehicle_history {
+    position: relative;
+}
+
+/*finance calculator*/
+.finance_div {
+    background: #FFFFFF;
+    border: 1px solid #BDBDBD;
+    border-radius: 6px;
+    padding: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.finance_div h3 {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 20px;
+    line-height: 29px;
+    color: #181818;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type=number] {
+-moz-appearance: textfield;
+}
+.finance_div .finance_price {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 21px;
+    line-height: 26px;
+    color: #181818;
+    position: relative;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.finance_div .finance_price:before {
+    position: absolute;
+    content: "";
+    border: 1px solid #3D75F7;
+    width: 24%;
+    left: 0px;
+    top: 12px;
+}
+
+.finance_div .finance_price:after {
+    position: absolute;
+    content: "";
+    border: 1px solid #3D75F7;
+    width: 24%;
+    right: 0px;
+    top: 12px;
+}
+
+.finance_div .finance_para {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 13px;
+    line-height: 14px;
+    color: #4F4F4F;
+    text-align: center;
+}
+
+.finance_div .break_para {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 13px;
+    line-height: 16px;
+    color: #3D75F7;
+    text-align: center;
+    cursor: pointer;
+    margin: 26px 0px;
+}
+
+.finance_div .break_para img {
+    margin: 0px;
+}
+
+.radio_buttons label {
+    position: relative;
+    cursor: pointer;
+}
+
+.radio_buttons label input {
+    display: none;
+}
+
+.radio_buttons label span {
+    font-family: Gotham regular;
+    position: relative;
+    display: inline-block;
+    margin: 8px 3px;
+    padding: 14px 28px;
+    font-weight: 325;
+    font-size: 16px;
+    line-height: 11px;
+    color: #000000;
+    border: 1px solid #BDBDBD;
+    border-radius: 100px;
+    background: #fff;
+    text-align: center;
+}
+
+.radio_buttons label input:checked~span {
+    border: 3px solid #3D75F7;
+    // background: #555555;
+}
+
+.finance_form .form-group.box_input {
+    border: 1px solid #BDBDBD;
+    border-radius: 12px;
+    height: 60px;
+    padding: 3px 12px;
+}
+
+.finance_form .form-group label {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 9px;
+    line-height: 13px;
+    color: #828282;
+}
+
+.finance_form .form-group input {
+    font-family: Gotham regular;
+    font-weight: 325;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    border: none;
+    padding: 9px 3px;
+    margin: 0px;
+    height: 15px;
+}
+
+.finance_form .form-group p {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.finance_form .form-group .input-group-prepend span {
+    background: transparent;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #000000;
+    padding: 10px 0px;
+    margin: 0px;
+    height: 15px;
+}
+
+.terms_finance {
+    font-family: Gotham light;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 17px;
+    color: #828282;
+}
+
+.car-maincontent h4 {
+    font-family: Gotham medium;
+    font-weight: 350;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+
+
+//     .container,
+//     .container-sm,
+//     .container-md,
+//     .container-lg,
+//     .container-xl {
+//         max-width: 1290px;
+//     }
+
+//     .radio_buttons label span {
+//         margin: 8px 10px;
+//     }
+
+//     .finance_form .form-group .input-group-prepend span {
+//         line-height: 0px;
+//     }
+// }
+
+// @media screen and (min-width: 1200px) and (max-width:1439px) {
+
+//     .container,
+//     .container-sm,
+//     .container-md,
+//     .container-lg,
+//     .container-xl {
+//         max-width: 940px;
+//     }
+
+//     .finance_div .finance_price:before,
+//     .finance_div .finance_price:after {
+//         width: 28%;
+//         top: 11px;
+//     }
+
+//     .finance_div .finance_para {
+//         font-size: 12px;
+//     }
+
+//     .radio_buttons label span {
+//         width: 70px;
+//         height: 40px;
+//         line-height: 7px;
+//     }
+
+//     .right_btn_detail .btn-group .btn:first-child,
+//     .right_btn_detail .btn-group .btn:last-child {
+//         font-size: 12px;
+//     }
+
+//     .breakdown_content .break_first_content p,
+//     .breakdown_content .break_first_content span,
+//     .breakdown_content .break_other_content p,
+//     .breakdown_content .break_other_content span {
+//         font-size: 12px;
+//     }
+
+//     .breakdown_content .break_other_content p span {
+//         font-size: 10px;
+//     }
+
+//     .finance_form .form-group.box_input {
+//         padding: 1px 7px;
+//         height: 54px;
+//     }
+
+//     .finance_form .form-group label {
+//         font-size: 10px;
+//     }
+
+//     .finance_form .form-group .input-group-prepend span {
+//         padding: 0px;
+//         margin: -1px 0px;
+//     }
+
+//     .finance_form .form-group input {
+//         padding: 0px 3px;
+//         margin: -1px 0px;
+//         height: auto;
+//         font-size: 14px;
+//     }
+
+// }
+
+// @media screen and (min-width: 1440px) and (max-width:1599px) {
+
+//     .container,
+//     .container-sm,
+//     .container-md,
+//     .container-lg,
+//     .container-xl {
+//         max-width: 940px;
+//     }
+
+//     .finance_div .finance_price:before,
+//     .finance_div .finance_price:after {
+//         width: 28%;
+//         top: 11px;
+//     }
+
+//     .finance_div .finance_para {
+//         font-size: 12px;
+//     }
+
+//     .finance_form .form-group.box_input {
+//         padding: 1px 7px;
+//         height: 54px;
+//     }
+
+//     .finance_form .form-group label {
+//         font-size: 10px;
+//     }
+
+//     .finance_form .form-group .input-group-prepend span {
+//         padding: 0px;
+//         margin: -1px 0px;
+//     }
+
+//     .finance_form .form-group input {
+//         padding: 0px 3px;
+//         margin: -1px 0px;
+//         height: auto;
+//     }
+
+//     .radio_buttons label span {
+//         width: 70px;
+//         height: 40px;
+//         line-height: 7px;
+//     }
+
+//     .finance_form .form-group input {
+//         font-size: 14px;
+//     }
+// }
+
+// @media screen and (min-width:768px) and (max-width: 1199px) {
+//     .finance_div .finance_price:before,
+//     .finance_div .finance_price:after {
+//         width: 14%;
+//         top: 11px;
+//     }
+
+//     .finance_div .finance_para {
+//         line-height: 23px;
+//     }
+
+//     .radio_buttons label span {
+//         padding: 16px;
+//         font-size: 13px;
+//         width: 52px;
+//         height: 35px;
+//         line-height: 5px;
+//     }
+//     .breakdown_content .break_first_content p,
+//     .breakdown_content .break_first_content span,
+//     .breakdown_content .break_other_content p,
+//     .breakdown_content .break_other_content span {
+//         font-size: 12px;
+//         line-height: 17px;
+//         margin-bottom: 9px;
+//     }
+
+//     .finance_form .form-group .input-group-prepend span {
+//         padding: 2px 0px
+//     }
+// }
+@media screen and (max-width:767px){
+    .radio_buttons label span {
+        padding: 10px 24px;
+    }
+    .finance_form .col-6:first-child{
+        padding: 0px 5px 0px 15px;
+    }
+    .finance_form .col-6:last-child{
+        padding: 0px 15px 0px 5px;
+    }
+    .finance_form .form-group .input-group-prepend span{
+        font-size: 12px;
+        padding: 8px 0px;
+    }
+    .finance_div h3{
+        font-size: 15px;
+    }
+    .finance_form .form-group label{
+        font-size: 8px;
+    }
+}
+@media screen and (max-width:575px){
+.max_pro{
+    margin-top: inherit !important;
+}
+}

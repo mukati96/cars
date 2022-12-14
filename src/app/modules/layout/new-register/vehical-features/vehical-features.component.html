@@ -1,0 +1,369 @@
+<form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+  <div
+    class="card-body ml-md-3 m-0 pl-md-2 pl-0 pt-md-2 pt-0"
+    formGroupName="vehicle_features"
+  >
+    <p class="text-light1 mt-0 mb-0 w-100 p-md-0 p-1 mt-md-3">
+      To save your time, we've pre-selected the most common options for your
+      car.
+    </p>
+    <p class="text-light1 mt-0 mb-md-3 mb-0 w-100 p-md-0 p-1">
+      Please review all the selected features to ensure the information here
+      matches your specific vehicle.
+    </p>
+    <div class="basictype pt-3">
+      <h5 class="mb-4 main-head">STANDARD FEATURES</h5>
+      <input type="checkbox" class="read-more-state" id="post-1" />
+      <div class="read-more-wrap standard">
+        <div class="row row mb-md-4 mb-0">
+          <div
+            class="col-md-6 col-sm-6 col-12 mb-3"
+            *ngFor="let item of f.sf?.value; index as i"
+          >
+            <div class="form-check form-check-inline mr-0 form-width">
+              <input
+                [id]="'sf' + i"
+                class="form-check-input"
+                type="checkbox"
+                [value]="item"
+                (click)="standardChecks($event)"
+                [checked]="
+                  vehicleFeatures?.standard_features.value.includes(item)
+                "
+              />
+              <label
+                class="form-check-label text-capitalize"
+                [for]="'sf' + i"
+                >{{ item }}</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Read more section -->
+      <!-- <label
+        for="post-1"
+        class="read-more-trigger mt-2"
+        *ngIf="f.sf?.value?.length > 7"
+      ></label> -->
+      <div class="border-bottom-div1 pt-1 mb-4"></div>
+
+      <ng-container *ngIf="false">
+        <h5 class="mb-2 main-head">Premium FEATURES</h5>
+        <div class="premiumfeature">
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="d-block fontfeature mb-4"
+                  >Breaking & Traction</label
+                >
+                <div
+                  class="form-check form-check-inline mr-5"
+                  *ngFor="let item of premiumData.braking_traction; index as i"
+                >
+                  <input
+                    [id]="'br' + i"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="item"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(item)
+                    "
+                  />
+                  <label
+                    [for]="'br' + i"
+                    class="form-check-label text-capitalize"
+                    >{{ item }}</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="d-block fontfeature mb-4"
+                  >Comform & Convenience</label
+                >
+                <div class="form-check form-check-inline mr-5">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [id]="premiumData.comform_convenienc"
+                    [value]="premiumData.comform_convenienc"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(
+                        premiumData.comform_convenienc
+                      )
+                    "
+                  />
+                  <label
+                    class="form-check-label text-capitalize"
+                    [for]="premiumData.comform_convenienc"
+                    >{{ premiumData.comform_convenienc }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="text-none d-block fontfeature mb-4"
+                  >Entertainment & Instrumentation</label
+                >
+                <div
+                  class="form-check form-check-inline mr-5"
+                  *ngFor="let item of premiumData.entertainment_instrumentation"
+                >
+                  <input
+                    [id]="item"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="item"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(item)
+                    "
+                  />
+                  <label class="form-check-label text-capitalize" [for]="item">{{
+                    item
+                  }}</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="text-none d-block fontfeature mb-4"
+                  >Roof & Glass</label
+                >
+                <div class="form-check form-check-inline mr-5">
+                  <input
+                    [id]="premiumData.roof_glass"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="premiumData.roof_glass"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(
+                        premiumData.roof_glass
+                      )
+                    "
+                  />
+                  <label
+                    class="form-check-label text-capitalize"
+                    [for]="premiumData.roof_glass"
+                    >{{ premiumData.roof_glass }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="text-none d-block fontfeature mb-4">Exterior</label>
+                <div class="form-check form-check-inline mr-5">
+                  <input
+                    [id]="premiumData.exterior"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="premiumData.exterior"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(
+                        premiumData.exterior
+                      )
+                    "
+                  />
+                  <label
+                    class="form-check-label text-capitalize"
+                    [for]="premiumData.exterior"
+                    >{{ premiumData.exterior }}</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="text-none d-block fontfeature mb-4"
+                  >Cargo & Towning</label
+                >
+                <div class="form-check form-check-inline mr-5">
+                  <input
+                    [id]="premiumData.cargo_towning"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="premiumData.cargo_towning"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(
+                        premiumData.cargo_towning
+                      )
+                    "
+                  />
+                  <label
+                    class="form-check-label text-capitalize"
+                    [for]="premiumData.cargo_towning"
+                    >{{ premiumData.cargo_towning }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="text-none d-block fontfeature mb-4"
+                  >Wheels & Tires</label
+                >
+                <div
+                  class="form-check form-check-inline mr-5"
+                  *ngFor="let item of premiumData.wheels_tires"
+                >
+                  <input
+                    [id]="item"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="item"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(item)
+                    "
+                  />
+                  <label class="form-check-label text-capitalize" [for]="item">{{
+                    item
+                  }}</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="text-none d-block fontfeature mb-4">Seats</label>
+                <div class="form-check form-check-inline mr-5">
+                  <input
+                    [id]="premiumData.seats"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="premiumData.seats"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(
+                        premiumData.seats
+                      )
+                    "
+                  />
+                  <label
+                    class="form-check-label text-capitalize"
+                    [for]="premiumData.seats"
+                    >{{ premiumData.seats }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="text-none d-block fontfeature mb-4"
+                  >Accesssory Packages</label
+                >
+                <div class="form-check form-check-inline mr-5">
+                  <input
+                    [id]="premiumData.accesssory_packages"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="premiumData.accesssory_packages"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(
+                        premiumData.accesssory_packages
+                      )
+                    "
+                  />
+                  <label
+                    class="form-check-label text-capitalize"
+                    [for]="premiumData.accesssory_packages"
+                    >{{ premiumData.accesssory_packages }}</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-group mt-3">
+                <label class="text-none d-block fontfeature mb-4">Lighting</label>
+                <div class="form-check form-check-inline mr-5">
+                  <input
+                    [id]="premiumData.lighting"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="premiumData.lighting"
+                    (click)="premiumChecks($event)"
+                    [checked]="
+                      vehicleFeatures?.premium_features.value?.includes(
+                        premiumData.lighting
+                      )
+                    "
+                  />
+                  <label
+                    class="form-check-label text-capitalize"
+                    [for]="premiumData.lighting"
+                    >{{ premiumData.lighting }}</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row aftermarket">
+            <div class="col-md-12 col-12">
+              <div class="form-group mt-3">
+                <label class="d-block fontfeature mb-4"
+                  >After Market Modifications</label
+                >
+                <div class="row">
+                  <div
+                    class="col-md-6 col-12"
+                    *ngFor="
+                      let item of premiumData.after_market_modification;
+                      index as i
+                    "
+                  >
+                    <div class="form-check form-check-inline mr-0">
+                      <input
+                        [id]="'mdf' + i"
+                        class="form-check-input"
+                        type="checkbox"
+                        [value]="item"
+                        (click)="modificationChecks($event)"
+                        [checked]="
+                          vehicleFeatures?.market_modification_upgrades.value?.includes(
+                            item
+                          )
+                        "
+                      />
+                      <label
+                        [for]="'mdf' + i"
+                        class="form-check-label text-capitalize"
+                        >{{ item }}</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-bottom-div1 pt-1 mb-4"></div>
+      </ng-container>
+
+      <div class="mb-3">
+        <button type="button" class="backBtn" (click)="prev()">Back</button>
+
+        <button class="nextBtn">Next</button>
+      </div>
+    </div>
+  </div>
+</form>

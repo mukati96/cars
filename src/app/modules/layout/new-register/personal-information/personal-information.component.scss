@@ -1,0 +1,268 @@
+@import "../new-register.component.scss";
+::ng-deep.intl-tel-input {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+::ng-deep input#phone {
+  width: 100% !important;
+  border: none !important;
+  background: transparent !important;
+}
+.winRateTitle {
+  background-color: #000;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 5px 5px 0 0;
+}
+.sub-heading {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-family: Gotham regular;
+  font-size: 16px;
+}
+
+.confirm {
+  float: right;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  background: #3ebb78;
+  border-radius: 100px;
+  width: 100%;
+  height: 35px;
+  border: none;
+  margin-bottom: 0px;
+}
+.form-group .form-control::-webkit-input-placeholder {
+  color: #8e8a8a;
+}
+.form-group .form-control {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #111;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 40px;
+  padding-left: 15px;
+}
+.agree-label {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 159.8%;
+  color: #676b73;
+}
+
+.agree-label input::before {
+  height: 25px;
+  width: 25px;
+  top: -2px;
+  left: -1px;
+}
+.label1agree input {
+  align-self: baseline;
+  margin-top: 6px !important;
+}
+input[type="checkbox"]::after {
+  height: 7px;
+  width: 11px;
+  left: 6px;
+  top: 4px;
+}
+
+/* ------------------ Flag Input -----------------------*/
+.iti-flag.us {
+  display: none !important;
+}
+.country-dropdown {
+  display: none !important;
+}
+::ng-deep .intl-tel-input .flag-container {
+  padding: 0;
+  background: #eee;
+  top: -9px;
+  bottom: -8px;
+  width: 50px;
+  border-radius: 0.25rem;
+}
+::ng-deep .intl-tel-input.separate-dial-code input,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input {
+  padding-left: 59px !important;
+}
+::ng-deep .intl-tel-input.separate-dial-code .selected-flag,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 .selected-flag,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 .selected-flag,
+.intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 .selected-flag {
+  width: 50px !important;
+}
+::ng-deep .intl-tel-input .selected-flag .iti-arrow {
+  display: none;
+}
+.backBtn {
+  padding: 12px 13%;
+  background: #fff;
+  border-radius: 30px;
+  width: auto;
+  border: 1px solid #000;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000;
+}
+.button {
+  width: auto;
+  height: 33px;
+  padding: 0px 18px;
+  margin-top: 2px;
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 5px 20px rgb(66 115 96 / 40%);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #fff;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  color: #000;
+  .spinner {
+    border-top-color: #000;
+    border-left-color: #000;
+  }
+}
+.verified-label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #000;
+  margin: 0 4px;
+}
+// input:disabled{
+//   background-color: #a7a7a7 !important;
+// }
+
+@media screen and (max-width: 767px) {
+  .form-group .form-control {
+    font-size: 12px;
+  }
+  .button {
+    height: 37px;
+    font-size: 10px;
+  }
+  .confirm {
+    float: inherit;
+    width: 135px;
+    margin: auto;
+    position: relative;
+    left: 33%;
+  }
+}
+// ///////////logpin popup/////
+.modal-login {
+  color: #636363;
+  width: 400px;
+}
+.modal-login .logo {
+  width: 158px;
+}
+.modal-login .modal-content {
+  padding: 0px;
+  border-radius: 5px;
+  border: none;
+  width: 90%;
+  margin: auto;
+}
+.modal-login .modal-body {
+  padding: 0px;
+}
+.modal-login .modal-header {
+  border-bottom: none;
+  position: relative;
+  justify-content: center;
+}
+.modal-login h4 {
+  text-align: center;
+  font-size: 20px;
+}
+.modal-login .form-group {
+  position: relative;
+}
+.modal-login i {
+  position: absolute;
+  left: 13px;
+  top: 11px;
+  font-size: 18px;
+}
+.modal-login .form-control {
+  padding-left: 10px;
+}
+.modal-login .form-control:focus {
+  border-color: #00ce81;
+}
+.modal-login .form-control,
+.modal-login .btn {
+  min-height: 40px;
+  border-radius: 3px;
+}
+.modal-login .hint-text {
+  text-align: center;
+  padding-top: 10px;
+}
+.modal-login .close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+.modal-login .btn,
+.modal-login .btn:active,
+.modal-login .btn:hover,
+.modal-login .btn:focus {
+  background: #000;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  height: 50px;
+  line-height: 17px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 100%;
+}
+.modal-login .modal-footer {
+  background: #ecf0f1;
+  border-color: #dee4e7;
+  text-align: center;
+  margin: 0 -20px -20px;
+  border-radius: 5px;
+  font-size: 13px;
+  justify-content: center;
+}
+.modal-login .modal-footer a {
+  color: #999;
+}
+.trigger-btn {
+  display: inline-block;
+  margin: 100px auto;
+}

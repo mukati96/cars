@@ -1,0 +1,758 @@
+<!--banner web-->
+<div class="banner_landing mb-md-0 mb-3">
+  <div class="container d-md-block d-none" *ngIf="webView">
+    <div class="row">
+      <div class="col-lg-7 col-sm-7 col-12">
+        <div class="banner_form">
+          <div class="banner_text">
+            <h1>The new way <br> to sell your car.</h1>
+            <p>Get your car listed in minutes, sell your car in days</p>
+            <form (ngSubmit)="vehicleDate(vehicleDetails.value)">
+              <div class="form-group ">
+                <input type="text" #vehicleDetails class="form-control" maxlength="17" placeholder="Enter Vin or Plate No">
+                <button type="submit" style="background: none;
+                border: none;"><img src="/assets/icons/banner_icon.svg" class="banner_icon" /></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-sm-5 col-12 text-right">
+        <div class="banner_img">
+          <img src="/assets/img/landing/banner_img.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container d-md-none d-block">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="banner_form">
+          <div class="banner_text">
+            <h1>The new way <br> to sell your car.</h1>
+            <p>Get your car listed in minutes, <br> sell your car in days</p>
+            <form (ngSubmit)="vehicleDate(vehicleDetails.value)">
+              <div class="form-group ">
+                <input type="text" #vehicleDetails class="form-control"maxlength="17" placeholder="Enter Vin or Plate No">
+                <button type="submit" style="background: none;
+                border: none;"><img src="/assets/icons/banner_icon.svg" class="banner_icon" /></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="banner_img">
+          <img src="/assets/img/landing/banner_img_mob.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!--FEATURED-->
+<section class="popular_brand dropped_slider mob_featured pt-0 pt-md-0 pb-md-3 pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <h2 class="mt-md-3 mt-1 mb-1">Featured</h2>
+        <p class="slider_para_page mt-1">
+          Browse through pre-owned vehicles listed recently on POST and make an
+          offer!
+        </p>
+      </div>
+    </div>
+    <!-- desktop -->
+    <div id="content-desktop" *ngIf="popularCars1">
+      <div class="row">
+        <div class="col-md-3" *ngFor="let featuredCars of featuredCars">
+          <div class="post_box">
+            <div class="latest_post_img">
+              <img [src]="featuredCars.front_image + '?tr=w-600'" alt="Image"
+                [routerLink]="'/car-details/' + featuredCars?.id" oncontextmenu="return true;" />
+              <a class="star_img_link">
+                <img src="/assets/icons/star.svg" alt="Star" />
+              </a>
+              <span class="book_img">
+                <img (click)="favoriteToggleFeactured(featuredCars.id, true)" class="bookmark"
+                  *ngIf="!featuredCars.is_favorite" src="../../../../assets/icons/bookmark.svg" alt="Bookmark" />
+
+                <img *ngIf="featuredCars.is_favorite" (click)="favoriteToggleFeactured(featuredCars.id, false)"
+                  src="../../../../assets/icons/filled_bookmark.png" alt="Bookmark" />
+              </span>
+            </div>
+            <a>
+              <div class="post_box_content" [routerLink]="'/car-details/' + featuredCars?.id">
+                <div class="post_head mt-2 mb-0">
+                  <h3>
+                    {{ featuredCars?.year }} | {{ featuredCars?.make }} |
+                    {{ featuredCars?.model }}
+                  </h3>
+                  <ul class="p-0 mb-0">
+                    <li>
+                      {{ featuredCars.trim }}
+                    </li>
+                  </ul>
+                  <p>
+                    {{ featuredCars.state }}&nbsp;|&nbsp;{{
+                    featuredCars.city
+                    }}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="content-mobile" *ngIf="popularCars1">
+    <owl-carousel-o class="mt-3" [options]="customOptionsMobile">
+      <ng-template class="col-md-4" carouselSlide *ngFor="let featured of featuredCars">
+        <div class="post_box" [class.slideWidth]="featuredCars.length == 1">
+          <div class="latest_post_img">
+            <img [src]="featured.front_image + '?tr=w-600'" alt="Image" [routerLink]="'/car-details/' + featured?.id"
+              oncontextmenu="return false;" />
+            <span class="book_img">
+              <img (click)="favoriteToggleFeactured(featured.id, true)" class="bookmark" *ngIf="!featured.is_favorite"
+                src="../../../../assets/icons/bookmark.svg" alt="Bookmark" />
+
+              <img *ngIf="featured.is_favorite" (click)="favoriteToggleFeactured(featured.id, false)"
+                src="../../../../assets/icons/filled_bookmark.png" alt="Bookmark" />
+            </span>
+            <a class="star_img_link">
+              <img src="/assets/icons/star.svg" alt="Star" />
+            </a>
+          </div>
+          <a [routerLink]="'/car-details/' + featured?.id">
+            <div class="post_box_content">
+              <div class="post_head mt-2 mb-0">
+
+                <h3>
+                  {{ featured?.year }} | {{ featured?.make }} |
+                  {{ featured?.model }}
+                </h3>
+                <ul class="p-0 mb-0">
+                  <li>
+                    {{ featured.trim }}
+                  </li>
+                </ul>
+                <p>
+                  {{ featured.state}}&nbsp;|&nbsp;{{
+                  featured.city
+                  }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="row mt-md-2 mt-0">
+    <div class="col-md-12 col-12 text-center">
+      <button class="drop_inventory_btn" (click)="inventory()">See More</button>
+    </div>
+  </div>
+</section>
+
+<div class="purpose" oncontextmenu="return false;">
+  <div class="container">
+    <div class="purposecontain d-md-block d-none">
+      <h2>Maximum exposure</h2>
+      <p>minimal effort</p>
+      <button routerLink="/new-register">
+        Get your free appraisal
+        <img src="/assets/img/arrow.png" alt="Arrow" />
+      </button>
+    </div>
+    <div class="purposecontain d-md-none d-block">
+      <h2>Maximum exposure</h2>
+      <p>minimal effort</p>
+      <button routerLink="/new-register">
+        Get your free appraisal
+        <img src="/assets/img/arrow.png" alt="Arrow" />
+      </button>
+      <div class="purpose_mob mt-2 d-md-none d-block">
+        <img src="/assets/img/landing/mobpurpose.png" alt="Purpose" />
+      </div>
+    </div>
+  </div>
+</div>
+<!--brands-->
+<section class="popular_brand brand_icons_popular d-md-block d-none mt-md-2 pb-5 pb-md-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <div class="car_top_img pt-5 d-md-none d-block text-center">
+          <img src="../../../../assets/img/rehome/cawhite logo.png" alt="Image" oncontextmenu="return false;" />
+        </div>
+
+        <h2 class="mt-md-2 mt-1 our-popular-brand">brand focus</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('bentley')">
+          <img src="../../../../assets/img/rehome/brands/1.svg" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('bmw')">
+          <img src="../../../../assets/img/rehome/brands/2.png" alt="Image" style="max-width: 40px" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('lamborghini')">
+          <img src="../../../../assets/img/rehome/brands/3.svg" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('porsche')">
+          <img src="../../../../assets/img/rehome/brands/4.svg" style="max-width: 30px" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('rolls-royce')">
+          <img src="../../../../assets/img/rehome/brands/5.svg" alt="Image" style="max-width: 25px" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img brand_land" (click)="openInventoryWithSelectedBrand('landrover')">
+          <img src="../../../../assets/img/rehome/brands/6.svg" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('mercedes-benz')">
+          <img src="../../../../assets/img/rehome/brands/7.svg" style="max-width: 120px" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img brand_maserati" (click)="openInventoryWithSelectedBrand('maserati')">
+          <img src="../../../../assets/img/rehome/brands/8.png" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('astonmartin')">
+          <img src="../../../../assets/img/rehome/brands/9.svg" style="max-width: 100px" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('ferrari')">
+          <img src="../../../../assets/img/rehome/brands/10.svg" style="max-width: 40px" alt="Image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="popular_brand brand_icons_popular brand_popular_mob d-md-none d-block mt-3 pb-3 pb-md-3">
+  <div class="container container-maxwidth">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="mt-md-2 mt-0 mb-3 our-popular-brand">Brand focus</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('bentley')">
+          <img src="../../../../assets/img/rehome/brands/mob1.svg" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('bmw')">
+          <img src="../../../../assets/img/rehome/brands/2.png" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('lamborghini')">
+          <img src="../../../../assets/img/rehome/brands/mob3.svg" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('porsche')">
+          <img src="../../../../assets/img/rehome/brands/4.svg" style="max-width: 50%" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('rolls-royce')">
+          <img src="../../../../assets/img/rehome/brands/5.svg" style="max-width: 30%" alt="Image" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-2">
+        <div class="brand_img brand_land" (click)="openInventoryWithSelectedBrand('landrover')">
+          <img src="../../../../assets/img/rehome/brands/6.svg" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('mercedes-benz')">
+          <img src="../../../../assets/img/rehome/brands/mob7.svg" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img brand_maserati" (click)="openInventoryWithSelectedBrand('maserati')">
+          <img src="../../../../assets/img/rehome/brands/8.png" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('aston martin')">
+          <img src="../../../../assets/img/rehome/brands/mob9.svg" alt="Image" />
+        </div>
+      </div>
+      <div class="col-md-2 col-2">
+        <div class="brand_img" (click)="openInventoryWithSelectedBrand('ferrari')">
+          <img src="../../../../assets/img/rehome/brands/10.svg" style="max-width: 45%" alt="Image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--how it works-->
+<section class="how_it_works mt-md-0 mt-5 mb-md-4 d-md-block d-none">
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12 text-left">
+          <h2 class="mt-3 mb-md-3 mb-1 d-md-block d-none">About Post</h2>
+           <div class="work_img mt-md-0 mt-3">
+            <div plyr plyrTitle="Video 1" [plyrPlaysInline]="true" [plyrSources]="videoSources"
+              (plyrInit)="player = $event" (plyrPlay)="played($event)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--how it works-->
+<section class="how_it_works mt-3 mb-md-3 mb-0 pb-0 d-md-none d-block">
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="container">
+          <h2 class="mt-0 mb-2">About Post</h2>
+        </div>
+        <div class="work_img mt-2 mb-4">
+          <div plyr plyrTitle="Video 1" [plyrPlaysInline]="true" [plyrSources]="videoSources"
+            (plyrInit)="player = $event" (plyrPlay)="played($event)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="watch_banner1 mt-md-4 mb-3 mt-0" oncontextmenu="return true;">
+  <div class="container d-md-block d-none">
+    <div class="row">
+      <div class="col-lg-7 col-sm-7 col-12 buying_car_div">
+        <div class="buying_car">
+          <h1>Buying a car? <br> We can help you.</h1>
+          <p>Avoid the hastle of walking into a used car dealership when you buy from PostYourCars.</p>
+          <button class="btn btn-primary" routerLink="/inventory" (click)="startWithTop()">Shop now</button>
+        </div>
+      </div>
+      <div class="col-lg-5 col-sm-5 col-12">
+        <div class="buy_car_div1">
+          <img src="/assets/img/landing/buying_img.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-md-none d-block">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="buying_car">
+          <h1>Buying a car? <br> We can help you.</h1>
+          <p>Avoid the hastle of walking into a used car <br> dealership when you buy from from PostYourCars.</p>
+          <button class="btn btn-primary" routerLink="/inventory">Shop now</button>
+        </div>
+      </div>
+      <div class="col-lg-12 text-center buying_car_img">
+        <img src="/assets/img/landing/buying_img1.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="popular_brand dropped_slider pt-0 pt-md-0 pb-md-3 pb-3 mt-md-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <h2 class="mt-1 mb-1">Just Dropped</h2>
+        <p class="slider_para_page mt-1">
+          Browse through pre-owned vehicles listed recently on POST and make an
+          offer!
+        </p>
+      </div>
+    </div>
+    <!-- desktop -->
+    <div id="content-desktop" *ngIf="popularCars1">
+      <div class="row">
+        <div class="col-md-3" carouselSlide *ngFor="let popularCars of popularCars">
+          <div class="post_box">
+            <div class="latest_post_img">
+              <img oncontextmenu="return true;" [src]="popularCars.front_image + '?tr=w-600'" alt="Image"
+                [routerLink]="'/car-details/' + popularCars?.id" />
+              <span class="book_img">
+                <img (click)="favoriteToggle(popularCars.id, true)" class="bookmark" *ngIf="!popularCars.is_favorite"
+                  src="../../../../assets/icons/bookmark.svg" alt="Bookmark" />
+
+                <img *ngIf="popularCars.is_favorite" (click)="favoriteToggle(popularCars.id, false)"
+                  src="../../../../assets/icons/filled_bookmark.png" alt="Bookmark" />
+              </span>
+            </div>
+            <a [routerLink]="'/car-details/' + popularCars?.id">
+              <div class="post_box_content">
+                <div class="post_head mt-2 mb-0">
+                  <h3>
+                    {{ popularCars?.year }} | {{ popularCars?.make }} |
+                    {{ popularCars?.model }}
+                  </h3>
+                  <ul class="p-0 mb-0">
+                    <li>
+                      {{ popularCars.trim }}
+                    </li>
+                  </ul>
+                  <p>
+                    {{ popularCars.state }}&nbsp;|&nbsp;{{
+                    popularCars.city
+                    }}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile -->
+  <div id="content-mobile" *ngIf="popularCars1">
+    <owl-carousel-o class="mt-3" [options]="customOptionsMobile">
+      <ng-template class="col-md-4" carouselSlide *ngFor="let justDropped of popularCars">
+        <div class="post_box" [class.slideWidth]="popularCars.length == 1">
+          <div class="latest_post_img">
+            <img oncontextmenu="return false;" [src]="justDropped.front_image + '?tr=w-600'" alt="Image"
+              [routerLink]="'/car-details/' + justDropped?.id" />
+            <span class="book_img">
+              <img (click)="favoriteToggle(justDropped.id, true)" class="bookmark" *ngIf="!justDropped.is_favorite"
+                src="../../../../assets/icons/bookmark.svg" alt="Bookmark" />
+
+              <img *ngIf="justDropped.is_favorite" (click)="favoriteToggle(justDropped.id, false)"
+                src="../../../../assets/icons/filled_bookmark.png" alt="Bookmark" />
+            </span>
+          </div>
+          <a [routerLink]="'/car-details/' + justDropped?.id">
+            <div class="post_box_content">
+              <div class="post_head mt-2 mb-0">
+
+                <h3>
+                  {{ justDropped?.year }} | {{ justDropped?.make }} |
+                  {{ justDropped?.model }}
+                </h3>
+                <ul class="p-0 mb-0">
+                  <li>
+                    {{ justDropped.trim }}
+                  </li>
+                </ul>
+
+                <p>
+                  {{ justDropped.state }}&nbsp;|&nbsp;{{
+                  justDropped.city
+                  }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="row mt-md-3 mt-0">
+    <div class="col-md-12 col-12 text-center">
+      <button class="drop_inventory_btn" (click)="inventory()">See More</button>
+    </div>
+  </div>
+</section>
+
+<!--background section-->
+
+<section class="car_name_section mt-md-0">
+  <div class="car_name_section_content" oncontextmenu="return true;">
+    <div class="container text-center">
+     <h1>$260,000,000+</h1>
+      <h2>value of vehicles trusted to postyourcars</h2>
+      <p>Every day,hundreds of people are <br> choosing us to sell their car.</p>
+      <button class="btn btn-primary" routerLink="/new-register" (click)="startWithTop()">Get my free offer</button>
+
+    </div>
+  </div>
+</section>
+<!--how it works-->
+<section class="how_it_works mt-md-4 mt-5 mb-md-3 d-md-block d-none price_video">
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12 text-left">
+          <h2 class="mt-md-0 mt-3 mb-3 d-md-block d-none text-best">
+            Best Price For Your Car
+          </h2>
+         <div class="work_img mt-md-0 mt-3">
+            <div class="video_player" plyr plyrTitle="Video 1" [plyrPlaysInline]="true" [plyrSources]="bestPriceVideo"
+              (plyrInit)="player = $event" (plyrPlay)="played($event)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--how it works-->
+<section class="how_it_works mt-md-3 mt-1 mb-0 mb-md-3 pb-md-4 pb-0 d-md-none d-block">
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="container">
+          <h2 class="mt-1 mb-3">Best price For your car</h2>
+        </div>
+        <div class="work_img mt-0">
+          <div plyr plyrTitle="Video 1" [plyrPlaysInline]="true" [plyrSources]="bestPriceVideo"
+            (plyrInit)="player = $event" (plyrPlay)="played($event)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--  -->
+<section class="popular_brand dropped_slider pt-0 pt-md-0 pb-md-3 pb-3 mt-md-0 mt-1 border_slider">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <h2 class="mt-md-2 mt-1 mb-2">Most Popular</h2>
+        <p class="slider_para_page mt-1">
+          Browse through pre-owned vehicles listed recently on POST and make an
+          offer!
+        </p>
+      </div>
+    </div>
+    <!-- desktop -->
+    <div id="content-desktop" *ngIf="popularCars1">
+      <div class="row">
+        <div
+          class="col-md-3"
+          carouselSlide
+          *ngFor="let popularCars of BestDealsCars"
+        >
+          <div class="post_box">
+            <div class="latest_post_img">
+              <img [src]="popularCars.front_image + '?tr=w-600'" alt="Image"
+                [routerLink]="'/car-details/' + popularCars?.id" oncontextmenu="return true;" />
+              <span class="book_img">
+                <img (click)="favoriteToggle1(popularCars.id, true)" class="bookmark" *ngIf="!popularCars.is_favorite"
+                  src="../../../../assets/icons/bookmark.svg" alt="Bookmark" />
+
+                <img *ngIf="popularCars.is_favorite" (click)="favoriteToggle1(popularCars.id, false)"
+                  src="../../../../assets/icons/filled_bookmark.png" alt="Bookmark" />
+              </span>
+            </div>
+            <a [routerLink]="'/car-details/' + popularCars?.id">
+              <div class="post_box_content">
+                <div class="post_head mt-2 mb-0">
+                  <h3>
+                    {{ popularCars?.year }} | {{ popularCars?.make }} |
+                    {{ popularCars?.model }}
+                  </h3>
+                  <ul class="p-0 mb-0">
+                    <li>
+                      {{ popularCars.trim }}
+                    </li>
+                  </ul>
+                  <p>
+                    {{ popularCars.state}}&nbsp;|&nbsp;{{
+                      popularCars.city
+                    }}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile -->
+  <div id="content-mobile" *ngIf="popularCars1">
+    <owl-carousel-o class="mt-3" [options]="customOptionsMobile">
+      <ng-template class="col-md-4" carouselSlide *ngFor="let popularCars of BestDealsCars">
+        <div class="post_box" [class.slideWidth]="BestDealsCars.length == 1">
+          <div class="latest_post_img">
+            <img [src]="popularCars.front_image + '?tr=w-600'" alt="Image"
+              [routerLink]="'/car-details/' + popularCars?.id" oncontextmenu="return false;" />
+            <span class="book_img">
+              <img (click)="favoriteToggle(popularCars.id, true)" class="bookmark" *ngIf="!popularCars.is_favorite"
+                src="../../../../assets/icons/bookmark.svg" alt="Bookmark" />
+
+              <img *ngIf="popularCars.is_favorite" (click)="favoriteToggle(popularCars.id, false)"
+                src="../../../../assets/icons/filled_bookmark.png" alt="Bookmark" />
+            </span>
+          </div>
+          <a [routerLink]="'/car-details/' + popularCars?.id">
+            <div class="post_box_content">
+              <div class="post_head mt-2 mb-0">
+                <h3>
+                  {{ popularCars?.year }} | {{ popularCars?.make }} |
+                  {{ popularCars?.model }}
+                </h3>
+                <ul class="p-0 mb-0">
+                  <li>
+                    {{ popularCars.trim }}
+                  </li>
+                </ul>
+
+                <p>
+                  {{ popularCars.state }}&nbsp;|&nbsp;{{
+                    popularCars.city
+                  }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="row mt-md-2 mt-0">
+    <div class="col-md-12 col-12 text-center">
+      <button class="drop_inventory_btn" (click)="inventory()">See More</button>
+    </div>
+  </div>
+</section>
+
+<!--car & fashion-->
+<section class="popular_brand dropped_slider car_slider_bottom pt-0 pt-md-3 pb-md-5 pb-4 mt-md-0 mt-0 mb-md-2 mb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        <h2 class="mt-3 mb-md-3 mb-4">Recent Transactions</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mobpadd0px">
+    <!-- desktop -->
+    <div id="content-desktop" *ngIf="popularCars1">
+      <div class="row">
+        <div class="col-md-3" carouselSlide *ngFor="let transactionImage of transactionImage">
+          <div class="post_box">
+            <div class="latest_post_img">
+              <img [src]="transactionImage.car_image + '?tr=w-600'" alt="Image" oncontextmenu="return true;" />
+            </div>
+            <div class="transaction_detail">
+              <p>
+                {{ transactionImage?.year }} | {{ transactionImage?.make }} |
+                {{ transactionImage?.model }}
+              </p>
+              <span>HIGHEST OFFER: ${{
+                transactionImage?.highest_offer | number: "1.0-0"
+                }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile -->
+    <div id="content-mobile" *ngIf="popularCars1">
+      <owl-carousel-o class="mt-3 customMobile" [options]="customOptionsMobile">
+        <ng-template style="width:195.5px" class="col-md-4" carouselSlide
+          *ngFor="let transactionImage of transactionImage">
+          <div class="post_box">
+            <div class="latest_post_img">
+              <img [src]="transactionImage.car_image + '?tr=w-600'" alt="Image" />
+            </div>
+            <div class="transaction_detail">
+              <p>
+                {{ transactionImage?.year }} | {{ transactionImage?.make }} |
+                {{ transactionImage?.model }}
+              </p>
+              <span>HIGHEST OFFER: ${{
+                transactionImage?.highest_offer | number: "1.0-0"
+                }}</span>
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+
+<!--footer-->
+<section class="footer_contact">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-12 pt-5 mt-md-0 mt-5 text-center">
+        <span class="white_border d-none m-auto"></span>
+        <h2 class="mt-0 mt-md-4 mb-md-3 d-md-block mb-3">contact us</h2>
+
+        <p class="footer_para">
+          <span>POST</span> will continue to offer <br />
+          Free no-contact car evaluations at your home
+        </p>
+
+        <div class="contact_info">
+          <p>Contact@PostYourCars.Com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer_bottom">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5 col-3 text-md-left footer_logo">
+        <img src="../../../../assets/img/rehome/foot_logo.svg" class="mt-3 pointer" alt="" (click)="pageReload()" />
+      </div>
+      <div class="col-md-7 col-9 pl-md-2 pl-0 text-right text-md-right d-md-inline-block d-none">
+        <ul class="pl-0 pt-md-2">
+          <li>
+            <a href="https://www.facebook.com/PYC-103730828180604/?modal=admin_todo_tour" target="blank">
+              <img src="../../../../assets/img/rehome/facebook.svg" alt="Image" />
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/postyourcars/" target="blank">
+              <img src="../../../../assets/img/rehome/instagram.svg" alt="Image" />
+            </a>
+          </li>
+
+          <li class="pl-md-5 pl-0">©Copyright <span> POST INC 2020 </span></li>
+        </ul>
+      </div>
+
+      <div class="col-md-7 col-9 pl-md-2 pl-0 text-right text-md-right d-md-none d-inline-block">
+        <ul class="pl-0 pt-md-2 mb-2">
+          <li class="pl-md-5 pl-0 mb-0">
+            ©Copyright <span> POST INC 2020 </span>
+          </li>
+        </ul>
+
+        <ul class="pl-0 pt-md-2 mb-1 d-block text-right">
+          <li class="mt-0">
+            <a href="https://www.facebook.com/PYC-103730828180604/?modal=admin_todo_tour" target="blank">
+              <img src="../../../../assets/img/rehome/facebook.svg" alt="Image" />
+            </a>
+          </li>
+
+          <li class="mt-0">
+            <a href="https://www.instagram.com/postyourcars/" target="blank">
+              <img src="../../../../assets/img/rehome/instagram.svg" alt="Image" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

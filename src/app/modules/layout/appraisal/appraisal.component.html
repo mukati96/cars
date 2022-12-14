@@ -1,0 +1,195 @@
+<div class="col-md-7">
+  <div class="bg-color1 mob_appraisal mt-md-0 mt-4">
+    <div class="tab-appraisel">
+      <div class="mt-0">
+        <div class="row">
+          <div class="col-md-12 p-0">
+            <div class="appraisal-bg mb-0">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a [ngClass]="{ active: selectedTab === 'licence_plate' }" class="nav-link active" id="home-tab"
+                    data-toggle="tab" href="#licence" role="tab" aria-controls="licence" aria-selected="true"
+                    (click)="changeTab('licence_plate')">License Plate</a>
+                </li>
+                <li class="nav-item">
+                  <a [ngClass]="{ active: selectedTab === 'vin' }" class="nav-link active" id="home-tab"
+                    data-toggle="tab" href="#enter" role="tab" aria-controls="enter" aria-selected="true"
+                    (click)="changeTab('vin')">Enter
+                    VIN</a>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="myTabContent">
+                <div [ngClass]="{ 'show active': selectedTab === 'licence_plate' }" class="tab-pane fade" id="licence"
+                  role="tabpanel" aria-labelledby="enter-tab">
+                  <div class="pt-md-0 pt-0">
+                    <p class="entervinpara mb-0 mt-2 d-none">
+                      Enter Your License Plate to get a certified offer
+                    </p>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <form [formGroup]="licenceForm" (ngSubmit)="plateSubmit()">
+                          <div class="form_bg_group">
+                            <div class="mb-md-3 mb-0 mt-md-4 mt-4">
+                              <label class="label_form_appraisal mb-0 mt-2 mb-1 d-none">Enter Your License Plate to get
+                                a
+                                certified offer</label>
+                              <input class="form-control inputvin mb-0" type="text" [ngClass]="{
+                              invalid:
+                                (plateSubmitted || l.plate.touched) &&
+                                l.plate.errors
+                            }" formControlName="plate" id="pasteIt" maxlength="7" name="licence"
+                                placeholder="License plate number" />
+                              <div class="invalid-class pl-1" *ngIf="
+                              (plateSubmitted || l.plate.touched) &&
+                              l.plate.errors?.required
+                            ">
+                                License Plate is required
+                              </div>
+                              <div class="invalid-class pl-1" *ngIf="
+                              (plateSubmitted || l.plate.touched) &&
+                              l.plate.errors?.minlength
+                            ">
+                                License Plate should be 7 character long
+                              </div>
+                            </div>
+                            <div class="mb-md-3 mb-0 mt-md-0 mt-3">
+                              <label class="label_form_appraisal mb-0 d-none mt-md-4 mt-2 mb-1">State</label>
+                              <div class="selectafter">
+                                <button class="btn form-control dropdown-toggle text-left" type="button" id="menu1"
+                                  data-toggle="dropdown" style="border: 1px solid #4f4f4fc7;
+                            width: 100%;">
+                                  {{ (l.state.value || 'Select State') }}
+                                </button>
+
+                                <ul class="dropdown-menu">
+                                  <li class="pointer" (click)="selectState(item.code)" *ngFor="let item of states">
+                                    <a tabindex="-1">{{ item.code | uppercase }}</a>
+                                  </li>
+                                </ul>
+
+                                <div class="invalid-class pl-1" *ngIf="
+                                (plateSubmitted || l.state.touched) &&
+                                l.state.errors?.required
+                              ">
+                                  State is required
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-12 col-md-12 col-12 mt-md-3 mb-md-0 mb-0 mt-md-0 mt-3 p-0">
+                            <button [disabled]="appraisalService.formSubmitting || appraisalService.isVinSubmitted"
+                              type="submit" class="next-btn">
+                              <span class="spinner" *ngIf="appraisalService.formSubmitting"></span>
+                              <ng-container *ngIf="!appraisalService.formSubmitting">
+                                Get Free Appraisal
+                              </ng-container>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div [ngClass]="{ 'show active': selectedTab === 'vin' }" class="tab-pane fade" id="enter"
+                  role="tabpanel" aria-labelledby="enter-tab">
+                  <div class="pt-3">
+                    <div class="form_bg_group">
+                      <p class="entervinpara">
+                        You can find your VIN on your car registration or
+                        windshield.
+                        <a href="javascript:;" data-toggle="modal" data-target="#exampleModal">Learn more
+                        </a>
+                      </p>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <form [formGroup]="vinForm" (ngSubmit)="submitVin()">
+                          <div class="mb-md-3 mb-0">
+                            <div class="form_bg_group">
+                              <input appBlankSpace [disabled]="appraisalService.isVinSubmitted"
+                                class="form-control inputvin mb-0" type="text" [ngClass]="{
+                              invalid:
+                                (vinSubmitted || v.vin.touched) && v.vin.errors
+                              }" id="pasteIt" formControlName="vin" maxlength="17" name="name"
+                                placeholder="Enter VIN number" />
+                              <div class="invalid-class pl-1" *ngIf="
+                              (vinSubmitted || v.vin.touched) &&
+                              v.vin.errors?.required">
+                                VIN number is required
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-12 col-md-12 col-12 mt-md-0 mt-3 mb-md-0 mb-0 p-0">
+                            <button [disabled]="appraisalService.formSubmitting || appraisalService.isVinSubmitted"
+                              type="submit" class="next-btn">
+                              <span class="spinner" *ngIf="appraisalService.formSubmitting"></span>
+                              <ng-container *ngIf="!appraisalService.formSubmitting">
+                                Get Free Appraisal
+                              </ng-container>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade pl-0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal_content_vin" role="document">
+    <div class="modal-content ">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="exampleModalLabel">What is a VIN#?</h5>
+        <p class="modal-para1">How do you find it?</p>
+        <p class="modal-para mt-4">
+          A Vehicle Identification Number (VIN) is like a thumbprint for your
+          car. It's 17 characters long (digits and letters) and looks like this:
+        </p>
+        <div class="text-center mt-5 mb-0">
+          <img src="../assets/img/vin-car.png" />
+        </div>
+        <div class="row">
+          <div class="col-md-7 col-12">
+            <h4 class="mt-md-5 mt-3">On your car</h4>
+            <ul class="p-0">
+              <li>• Driver's side interior dash</li>
+              <li>• Under the hood (up front)</li>
+              <li>• Between your front carb and windshield washer unit</li>
+              <li>• Trunk, under the spare tire</li>
+              <li>• Rear wheel wall</li>
+              <li>• Driver door jam (open the door first)</li>
+            </ul>
+          </div>
+
+          <div class="col-md-5 col-12">
+            <h4 class="mt-3 mt-md-5">In your car documentation</h4>
+            <ul class="p-0">
+              <li>• Vehicle title</li>
+              <li>• Registration card</li>
+              <li>• Insurance documents</li>
+              <li>• Owner's manual</li>
+              <li>• Body shop repair records</li>
+              <li>• Police reports</li>
+              <li>• Vehicle history report or VIN check</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,424 @@
+select:focus {
+  outline-offset: 0;
+}
+
+select {
+  -webkit-appearance: none;
+}
+
+select option{
+  direction: ltr;
+}
+
+.nav_tab {
+  border: none !important;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.nav_tab li {
+  padding: 0 !important;
+
+}
+
+#pills-tab {
+  overflow-y: scroll;
+  flex-wrap: inherit !important;
+  height: 65px;
+}
+
+.nav_tab .nav-link {
+  background: #eff2f9;
+  margin-right: 15px;
+  border-radius: 50px;
+  color: #0580ab;
+  font-family: Gotham medium;
+  font-size: 14px;
+  // padding-top: 7px !important;
+  white-space: nowrap;
+  height: 40px;
+  min-width: 100px;
+}
+
+.nav_tab .nav-link.active {
+  background: #cdcdd0;
+}
+
+.nav_tab .nav-item:last-child .nav-link {
+  margin-right: 0px;
+}
+
+#pills-tabContent {
+  border-top: 1px solid #ccc;
+  background-color: #ffff;
+  padding: 10px 0px 0px;
+  position: relative;
+  top: -6px;
+}
+
+.milage span {
+  width: 46%;
+  display: inline-block;
+  // border: 1px solid #ccc;
+  border-radius: 50px;
+  padding: 7px 5px;
+  padding-left: 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.milage input {
+  width: 100%;
+  display: inline-block;
+  border: none;
+  border-radius: 50px;
+  padding: 0px 5px;
+  padding-left: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+#pills-tabContent .form-label {
+  font-family: Gotham medium;
+}
+
+.min_mx {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.min_mx p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.min_mx .form-select {
+  width: auto;
+  border: none;
+  font-size: 14px;
+  text-align: right;
+  font-family: Gotham medium;
+  position: relative;
+  left: 15px;
+  direction: rtl;
+  color: #000;
+}
+.form-selected {
+  width: auto;
+  border: none;
+  font-size: 14px;
+  font-family: Gotham medium;
+  position: relative;
+  background: no-repeat;
+  text-align: right;
+  padding-right: 7px;
+  direction: rtl;
+  color: #000;
+}
+
+.input_search {
+  position: relative;
+  margin-top: 10px;
+  width: 98%;
+}
+
+.input_search input {
+  border-radius: 100px;
+  font-family: Gotham bold;
+  font-size: 15px;
+  height: 42px;
+}
+
+.input_search input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000;
+  opacity: 1;
+  /* Firefox */
+}
+
+.input_search img {
+  position: absolute;
+  right: 10px;
+  background-color: #157ddc;
+  border-radius: 100px;
+  padding: 6px 6px;
+  cursor: pointer;
+  top: 8px;
+}
+
+select.new_select {
+  background-color: transparent;
+  border: none;
+  margin-left: 2px;
+  font-family: Gotham medium;
+}
+
+.web_input {
+  width: 30%;
+}
+
+.clear_box {
+  text-align: right;
+}
+
+.clear_box a {
+  font-family: Gotham medium;
+  color: #000;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.sort_by {
+  font-size: 15px;
+  margin-bottom: 4px;
+  padding-right: 0;
+  padding-top: 5px;
+
+}
+
+.tab-content>.active {
+  display: block;
+  margin-bottom: 15px;
+}
+
+
+#staticBackdrop .modal-dialog {
+  top: 20%;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 1rem;
+}
+
+#staticBackdrop .modal-dialog h5 {
+  font-family: Gotham medium;
+  font-size: 15px;
+
+  margin-top: 15px;
+
+}
+
+#staticBackdrop .modal-dialog p {
+  font-family: Gotham medium;
+  font-size: 13px;
+}
+
+#staticBackdrop .modal-dialog a {
+  font-family: Gotham medium;
+  font-size: 13px;
+  text-decoration: underline;
+  color: #000;
+  display: block;
+  // margin-bottom: 15px;
+
+}
+
+#staticBackdrop i {
+  color: #0580ab;
+  margin-right: 5px;
+}
+
+#staticBackdrop input {
+  border: 1px solid #0580ab;
+  border-radius: 100px;
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+  text-indent: 10px;
+  padding: 0;
+}
+
+#staticBackdrop .modal-content {
+  border-radius: 10px;
+}
+
+#staticBackdrop .input_div {
+  position: relative;
+}
+
+#staticBackdrop button {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  background-color: #0f75d7;
+  border: none;
+  color: #fff;
+  padding: 3px 26px;
+  border-radius: 100px;
+  font-family: Gotham medium;
+  font-size: 14px;
+
+}
+.largewidth-container {
+  min-height: calc(100vh - 460px);
+}
+#staticBackdrop .modal-body{
+  padding: 1.5rem 1rem !important;
+}
+
+.milage span{
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+
+  .input_search input {
+    font-size: 14px;
+    font-family: Gotham medium;
+  }
+
+  .input_search input::placeholder {
+    color: #ccc;
+
+    .input_search img {
+      padding: 8px 5px !important;
+    }
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .largewidth-container {
+    max-width: 1900px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width:439px) {
+  .milage span {
+    width: 46%;
+    padding-left: 0px;
+  }
+
+  .input_search img {
+    padding: 8px 5px !important;
+  }
+}
+
+
+
+@media screen and (max-width:425px) {
+
+  #staticBackdrop .modal-dialog {
+    top: 22%;
+  }
+  .nav_tab .nav-link {
+    margin-right: 10px;
+    font-size: 13px;
+    min-width: 70px;
+}
+}
+
+@media screen and (max-width:414px) {
+  .nav_tab .nav-link {
+    margin-right: 6px;
+    min-width: 65px;
+  }
+
+}
+@media screen and (max-width:394px) {
+  .nav_tab .nav-link {
+    padding: 5px 13px;
+  }
+
+}
+
+::ng-deep {
+  .ngx-slider .ngx-slider-pointer:after {
+    content: "" !important;
+    width: 8px !important;
+    height: 8px !important;
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    border-radius: 4px !important;
+    background: transparent !important;
+  }
+
+  .ngx-slider .ngx-slider-pointer {
+    cursor: pointer;
+    width: 20px !important;
+    height: 20px !important;
+    top: -6px !important;
+    z-index: 3 !important;
+    border-radius: 10px !important;
+    background-color: #0d70f0fc !important;
+  }
+
+  .ngx-slider .ngx-slider-selection {
+    z-index: 2 !important;
+    background: #0d70f0fc !important;
+    border-radius: 2px !important;
+  }
+
+  .ngx-slider .ngx-slider-bar {
+    left: 0 !important;
+    width: 100% !important;
+    height: 7px !important;
+    z-index: 1 !important;
+    border-radius: 5px !important;
+  }
+
+  .ngx-slider .ngx-slider-bubble {
+    cursor: default !important;
+    bottom: 16px !important;
+    padding: 1px 3px !important;
+    color: transparent !important;
+    font-size: 16px !important;
+  }
+
+  .ngx-slider {
+    display: inline-block !important;
+    position: relative !important;
+    height: 4px !important;
+    width: 100% !important;
+    margin: 0px 0px 15px !important;
+    vertical-align: middle !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    touch-action: pan-y !important;
+  }
+}
+
+.drop-show {
+  border: 1px solid;
+  width: 100%;
+  padding: 12px;
+}
+
+.drop-toggle {
+  border: none;
+  margin-left: 90px;
+}
+
+.plusSign{
+  // position: absolute;
+  // right: 28px;
+  // top: 13px;
+  font-size: 19px;
+  display: inline-block;
+}
+.error_msg{
+  color: red;
+  position: relative;
+  top: -12px;
+  left: -80px;
+  font-size: 14px;
+}
+// .nav_margin_mobile {
+//   margin-top: -25px;
+// }
+.input_width{
+  width:70px !important;
+  padding-right: 0px !important;
+}
+.mileageerror_msg{
+  font-size: 14px;
+  font-weight: 500;
+  color: red;
+}

@@ -1,0 +1,151 @@
+a:hover {
+  text-decoration: none;
+}
+
+.section-border {
+  border-top: 1px solid #e6e8ed;
+  padding: 10px 0px 20px;
+}
+.inventory-work {
+  background: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.inventory-head {
+  background: #ffffff;
+  height: 96%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  position: relative;
+  margin: 2px 2px 0;
+}
+.inventory-head:after {
+  position: absolute;
+  content: "";
+  background-image: url("../../../../../assets/img/inventory/icons/line1.png");
+  background-repeat: no-repeat;
+  right: -36px;
+  height: 123%;
+  width: 35px;
+  z-index: 9;
+  top: -22px;
+  bottom: 0px;
+  justify-content: center;
+}
+.inventory-head h4 {
+  font-family: Gotham regular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 38px;
+  color: #111111;
+  
+}
+.inventory-col {
+  padding: 15px 0px;
+  position: relative;
+}
+.inventory-col1:after {
+  position: absolute;
+  content: "";
+  background-image: url("../../../../../assets/img/inventory/icons/divider.svg");
+  background-repeat: no-repeat;
+  right: -20px;
+  height: 100%;
+  width: 35px;
+  z-index: 9;
+  top: 14px;
+}
+.inventory-col-content {
+  display: inline-block;
+  padding: 3% 10px 0% 12px;
+  vertical-align: middle;
+  width: 68%;
+}
+.inventory-img {
+  width: 30%;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.inventory-col-content h5 {
+  font-family: Gotham medium;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #111111;
+  
+}
+.inventory-col-content p {
+  font-family: Gotham regular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
+  color: #333333;
+  
+}
+
+
+@media screen and (min-width: 991px) and (max-width: 13000px) {
+  .inventory-head h4 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 990px) {
+  .inventory-head h4 {
+    font-size: 12px;
+  }
+  .inventory-img img{
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .inventory-img {
+    width: 100%;
+  }
+
+  .inventory-col-content {
+    padding: 3% 0px 0% 22px;
+    width: 100%;
+    text-align: center;
+  }
+  .inventory-col1:after {
+    right: -20px;
+    height: 100%;
+    width: 35px;
+    top: 20%;
+    background-size: contain;
+  }
+  .inventory-head:after {
+    position: absolute;
+    content: "";
+    background-image: url(../../../../../assets/img/inventory/icons/mob-line.png);
+    background-repeat: no-repeat;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    top: 6px;
+    background-size: 100% 100%;
+  }
+  .inventory-col-content p{
+    font-size: 12px;
+    padding: 0px 10px 0px 0px;
+  }
+  .inventory-head h4{
+    line-height: 32px;
+    z-index: 99;
+    padding-top: 6px;
+  }
+}
+
+
+

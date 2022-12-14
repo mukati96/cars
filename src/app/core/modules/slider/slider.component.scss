@@ -1,0 +1,265 @@
+.post_box .latest_post_img img {
+  height: auto;
+  width: 93%;
+  text-align: center;
+  margin: auto;
+}
+.post_head ul li {
+  font-size: 14px;
+}
+.post_head h3 {
+  font-weight: 350;
+  font-size: 20px;
+  line-height: 18px;
+  color: #181818;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: Gotham medium;
+  text-transform: uppercase;
+}
+ .post_head p img {
+  width: 16px;
+  height: auto;
+  display: inline-block;
+  margin-right: 5px;
+}
+ .post_head p {
+  font-family: Gotham regular;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #7B7B7B;
+}
+ .post_head ul li {
+  font-family: Gotham medium;
+  font-weight: 350;
+  font-size: 16px;
+  line-height: 16px;
+  color: #333333;
+  display: inline-block;
+  position: relative;
+  padding: 0px 14px 0px 0px;
+  text-transform: capitalize;
+}
+
+ .post_head ul li:before {
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: #9DA0A6;
+  border-radius: 100px;
+  top: 6px;
+  left: -9px;
+}
+
+ .post_head ul li:first-child:before {
+  display: none;
+}
+.book_img {
+  position: absolute;
+  content: "";
+  right: 10px;
+  top: 10px;
+}
+ .book_img img {
+  height: 28px;
+  width: 28px;
+}
+.post_head h3 {
+  font-size: 18px !important;
+}
+.post_box_content .post_para {
+  font-size: 15px;
+  width: 100%;
+  padding: 0px;
+}
+.post_box_content {
+  padding: 0px 20px 20px 20px;
+}
+.post_box .latest_post_img {
+  height: 220px;
+}
+.post_box {
+  background: #FFFFFF;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+}
+.post_box .latest_post_img {
+  height: 210px;
+}
+
+ .post_box {
+  position: relative;
+}
+
+.post_box_content {
+  padding: 20px 10px 20px 0px;
+}
+
+ .post_box_content .post_date {
+  font-size: 14px;
+  text-transform: uppercase;
+
+}
+
+ 
+
+ .post_box_content .post_para {
+  font-size: 14px;
+  font-weight: normal;
+  color: #999999;
+  width: 97%;
+  display: block;
+  padding-right: 24px;
+}
+@media screen and (max-width:767px) {
+  .latest_post_img {
+     height: 270px;
+   }
+  }
+  .post_box_content {
+    padding: 20px 10px 20px 0px;
+  }
+  
+   .post_box_content .post_date {
+    font-size: 14px;
+    text-transform: uppercase;
+  
+  }
+
+   .post_box_content .post_head span {
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: capitalize;
+  
+  }
+
+   .post_box_content .post_para {
+    font-size: 14px;
+    font-weight: normal;
+    color: #999999;
+    width: 97%;
+    display: block;
+    padding-right: 24px;
+  }
+
+ .post_box a:hover {
+  text-decoration: none;
+}
+.post_box .latest_post_img {
+  height: 325px;
+}
+
+// .post_box .latest_post_img {
+//   height: 200px !important;
+// }
+
+.post_box .latest_post_img {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0px;
+  border-radius: 6px;
+  position: relative;
+}
+
+ .post_box .latest_post_img img {
+  height: 100%;
+  width: 100%;
+}
+.star_img_link{
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+  left: 10px;
+  height: 20px;
+}
+
+@media screen and (min-width: 1920px) {
+
+  header .container,
+  header .container-sm,
+  header .container-md,
+  header .container-lg,
+  header .container-xl {
+    max-width: 1920px !important;
+    padding: 0px 70px;
+  }
+
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    max-width: 1290px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width:1439px) {
+
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    max-width: 900px;
+  }
+
+  .latest_post_img {
+    height: 200px !important;
+  }
+
+   .brand_img {
+    height: 80px;
+    padding: 10px;
+  }
+
+}
+
+@media screen and (min-width: 1440px) and (max-width:1599px) {
+
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    max-width: 900px;
+  }
+
+   .brand_img {
+    height: 80px !important;
+    padding: 10px;
+  }
+
+  .work_img video {
+    width: 100% !important;
+  }
+}
+
+
+@media screen and (min-width:768px) and (max-width: 1024px) {
+
+  .navbar-expand-lg>.container,
+  .navbar-expand-lg>.container-fluid,
+  .navbar-expand-lg>.container-sm,
+  .navbar-expand-lg>.container-md,
+  .navbar-expand-lg>.container-lg,
+  .navbar-expand-lg>.container-xl {
+    padding-right: 70px;
+    padding-left: 70px;
+  }
+   .brand_img {
+    height: 80px !important;
+    padding: 10px;
+  }
+
+  .work_img video {
+    width: 100% !important;
+  }
+}
+
+

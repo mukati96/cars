@@ -1,0 +1,19 @@
+<fieldset class="rating">
+    <ng-container *ngFor="let item of values">
+        <input
+        [checked]="item.value <= getValue"
+        [ngClass]="{'noHover': disabled}"
+        [disabled]="disabled"
+        (click)="setValue(item.value)"
+        [type]="item.type" 
+        [id]="item.id + from" 
+        [value]="item.value"
+        />
+        <label 
+        [ngClass]="{'enable': !disabled}"
+        [class]="item.class" 
+        [for]="item.for + from" 
+        [title]="item.title"
+        ></label>
+    </ng-container>
+</fieldset>

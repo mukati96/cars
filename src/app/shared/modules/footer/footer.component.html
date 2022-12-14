@@ -1,0 +1,156 @@
+<footer *ngIf="!enableFooter" id="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+        <img
+          routerLink="/"
+          src="../assets/img/rehome/logov1.png"
+          alt="Logo"
+          class="logo pointer"
+        />
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-5 mt-md-0 mt-4">
+        <div class="subscribe footer-title">
+          <h4 class="mb-md-3 mb-1 text-capitalize">Overview</h4>
+        </div>
+        <ul class="footer-link p-0">
+          <li>
+            <a routerLink="/about-us" (click)="startWithTop()"> About us </a>
+          </li>
+          <li>
+            <a routerLink="/faqs" (click)="startWithTop()"> FAQs </a>
+          </li>
+          <li>
+            <a routerLink="/privacy-info" (click)="startWithTop()"> Privacy Policy </a>
+          </li>
+          <li>
+            <a routerLink="/terms-service" (click)="startWithTop()"> Terms & Conditions</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-7 mt-md-0 mt-4">
+        <div class="subscribe footer-title">
+          <h4 class="mb-md-2 mb-1 pointer" routerLink="/contact-us">Contact</h4>
+        </div>
+        <ul class="footer-info p-0">
+          <li>
+            <img src="/assets/icons/email.svg" class="mr-1" alt="img" />
+            <a routerLink="/contact-us" (click)="startWithTop()"> contact@postyourcars.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row copyright-border">
+      <div class="col-md-4 col-sm-5 col-12">
+        <!-- <p class="m-0">©Copyright Inpublic 2020</p> -->
+        <p class="m-0">©Copyright POST INC 2020</p>
+      </div>
+      <div class="col-md-8 col-sm-7 col-12 text-right">
+        <ul class="social-icon p-0">
+          <li>
+            <a
+              href="https://www.facebook.com/PYC-103730828180604/?modal=admin_todo_tour"
+              target="blank"
+              style="padding-left: 5px !important"
+            >
+              <i class="fab fa-facebook-f" style="padding: 0px 4px"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/postyourcars/" target="blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+
+          <!-- <li>
+            <a href="#"> <i class="fab fa-twitter"></i></a>
+          </li> -->
+
+          <!-- <li>
+            <a href="#" style="padding-left: 5px !important;">
+              <i class="fab fa-youtube"></i
+            ></a>
+          </li> -->
+
+          <!-- <li>
+            <a>
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/PYC-103730828180604/?modal=admin_todo_tour" target="blank">
+              <i class="fab fa-facebook-f" style="padding: 0px 4px;"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/postyourcars/" target="blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+          <li>
+            <a>
+              <i class="fab fa-behance"></i>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<footer id="footer2" *ngIf="enableFooter">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="footerlink p-0 mb-1">
+          <li>
+            <a routerLink="/contact-us"> Contact Us </a>
+          </li>
+          <li>
+            <a routerLink="/faqs"> FAQs </a>
+          </li>
+          <li>
+            <a routerLink="/terms/privacy-info"> Privacy policy </a>
+          </li>
+          <li class="bordernone">
+            <a routerLink="/terms/terms-service"> Terms & Conditions </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row copyright-border">
+      <div class="col-md-4 col-sm-5 col-12">
+        <p class="m-0">©Copyright POST INC 2020</p>
+      </div>
+      <div class="col-md-8 col-sm-7 col-12 text-right">
+        <ul class="social-icon social-icon2 p-0">
+          <li>
+            <a
+              href="https://www.facebook.com/PYC-103730828180604/?modal=admin_todo_tour"
+              target="blank"
+              style="padding-left: 5px !important"
+            >
+              <i class="fab fa-facebook-f" style="padding: 0px 4px"></i>
+              <!-- <img src="../../../../../assets/icons/facebook.png" alt=""> -->
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/postyourcars/" target="blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+
+          <!-- <li>
+            <a href="#"> <i class="fab fa-twitter"></i></a>
+          </li> -->
+
+          <!-- <li>
+            <a href="#" style="padding-left:5px !important;">
+              <i class="fab fa-youtube"></i
+            ></a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

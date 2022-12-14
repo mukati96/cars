@@ -1,0 +1,122 @@
+<a class="close-navbar-toggler collapsed" data-toggle="collapse"  s
+  aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+</a>
+<header id="s" class="">
+  <nav class="navbar navbar-expand-lg navbar-light pt-md-2 pb-md-2">
+    <div class="container-fluid">
+      <a class="navbar-brand pt-0 pointer d-md-inline-block d-none">
+        <img src="../assets/img/rehome/logov1.png" class="logo_head" alt="" (click)="logo()" 
+          routerLink="/" />
+      </a>
+
+      <a class="navbar-brand pt-0 pointer d-inline-block d-md-none text-center w-100">
+        <img src="../assets/img/rehome/logov1.png" alt="Logo" routerLink="/" (click)="logo()"
+           />
+      </a>
+      <!-- <div class="form-inline  search-form" *ngIf="currentUrl?.includes('/inventory')">
+        <button class="btn" type="submit">
+          <img src="../assets/icons/search.svg" alt="search" />
+        </button>
+        <input class="form-control" type="text" placeholder="Year, Make, Model." (keyup)="setText($event)">
+      </div> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"  s
+        (click)="scrollbar()" aria-controls="navbarToggler" id="navscroll" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarToggler" (click)="logo()" >
+        <!-- <span class="search-form ml-auto hideclick d-md-inline-block d-none mr-1 pt-1">
+        </span> -->
+        <ul class="navbar-nav mt-md-0 mt-1 mt-lg-0 pt-md-0">
+          <li class="nav-item">
+            <a routerLinkActive="active"  routerLink="/" (click)="redirctPage()"
+              [routerLinkActiveOptions]="{ exact: true }">
+              Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/about-us"  (click)="redirctPage()" routerLinkActive="active">
+              About Us
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/inventory"  (click)="redirctPage()" routerLinkActive="active">
+              Cars For Sale
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/contact-us"  routerLinkActive="active" (click)="redirctPage()">
+              Contact Us
+            </a>
+          </li>
+
+          <li class="nav-item" *ngIf="!userInfo">
+            <a routerLink="/login"  (click)="redirctPage()" routerLinkActive="active">
+              Log in
+            </a>
+            <img src="/assets/img/rehome/icons/login.svg" alt="Login"
+              style="width: 21px; margin-top: -5px; margin-left: 4px;" />
+          </li>
+
+          <li *ngIf="userInfo" class="nav-item dropdown">
+            <p class="dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="pr-1 pr-md-2 mobhide" style="
+                  margin-top: 3px;
+                  margin-right: 15px;
+                  display: inline-block;
+                ">
+                {{ userInfo?.full_name | titlecase }}
+              </span>
+              <img [src]="
+                  userInfo.profile_pic
+                    ? userInfo.profile_pic
+                    : '../assets/img/default-user.png'
+                " width="50" height="50" class="rounded-circle login-img" alt="image" />
+            </p>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item text-left pl-3 pointer" 
+                routerLink="/my-account/account" (click)="redirctPage()" routerLinkActive="active">
+                My Account
+              </a>
+              <a class="dropdown-item text-left pl-3 pointer" 
+                routerLink="/my-account/mycar" (click)="redirctPage()" routerLinkActive="active">
+                My Car
+              </a>
+              <a class="dropdown-item text-left pl-3 pointer" 
+                routerLink="/my-account/favourite" (click)="redirctPage()" routerLinkActive="active">
+                My Favorites
+              </a>
+              <a class="dropdown-item text-left pl-3 pointer"  (click)="logout()"
+                (click)="redirctPage()" routerLinkActive="active">
+                Log Out
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  jQuery(window).scroll(function () {
+    if (jQuery(this).scrollTop() > 200) {
+      jQuery("#dynamic").addClass("newClass");
+    } else {
+      jQuery("#dynamic").removeClass("newClass");
+    }
+  });
+</script>
+
+<style>
+  .newClass {
+    top: 0px;
+    transition: all 0.5s ease-in-out !important;
+    position: fixed !important;
+  }
+</style>

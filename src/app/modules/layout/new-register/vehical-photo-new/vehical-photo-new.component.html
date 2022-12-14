@@ -1,0 +1,588 @@
+<div class="card-body ml-md-3 m-0 pl-md-2 pl-0 pt-md-2 pt-0 p-0">
+  <div class="tab-content" id="imageofregisterContent">
+    <div
+      class="tab-pane fade show active"
+      id="normal"
+      role="tabpanel"
+      aria-labelledby="normal-tab"
+    >
+      <form [formGroup]="vehicleForm" (ngSubmit)="next()">
+        <div class="uploadimagediv mt-5" formGroupName="vehicle_photo">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="uploaddata" *ngIf="!front_image?.src">
+                <div class="file-input">
+                  <input
+                    type="file"
+                    name="file-input"
+                    id="file-input-front"
+                    class="file-input__input"
+                    (change)="handleFileSelect($event, 'front_image')"
+                  />
+                  <label class="file-input__label" for="file-input-front">
+                    <span>Front</span>
+                    <div class="labelimage">
+                      <img src="/assets/img/steps/1.png" alt="image" />
+                    </div>
+                  </label>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="
+                      submitted && vehiclePhoto?.front_image?.errors?.required
+                    "
+                  >
+                    Front Photo is required
+                  </div>
+                </div>
+              </div>
+              <div class="car-images" *ngIf="front_image?.src">
+                <!-- <div class="bgImage" [ngStyle]="{ 'background-image': 'url('+ front_image?.src +')'}"></div> -->
+                <img [src]="front_image?.src" alt="image" />
+                <p class="imagename">Front</p>
+
+                <div class="hoverupload">
+                  <img
+                    (click)="deleteAttachment('front_image')"
+                    src="/assets/img/steps/delete.png"
+                    class="delete"
+                    alt="image"
+                  />
+                  <img
+                    (click)="rotateToDegree('front_image')"
+                    src="/assets/img/steps/rotate-blue.png"
+                    class="rotate"
+                    alt="image"
+                  />
+                  <div class="checkimg">
+                    <img src="/assets/img/steps/check.png" alt="image" />
+                  </div>
+
+                  <p>Front</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="uploaddata" *ngIf="!rear_image.src">
+                <div class="file-input">
+                  <input
+                    type="file"
+                    name="file-input"
+                    id="file-input-rear"
+                    class="file-input__input"
+                    (change)="handleFileSelect($event, 'rear_image')"
+                  />
+                  <label class="file-input__label" for="file-input-rear">
+                    <span>Rear</span>
+                    <div class="labelimage">
+                      <img src="/assets/img/steps/2.png" alt="image" />
+                    </div>
+                  </label>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="
+                      submitted && vehiclePhoto?.rear_image?.errors?.required
+                    "
+                  >
+                    Rear Photo is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="car-images" *ngIf="rear_image?.src">
+                <!-- <div class="bgImage" [ngStyle]="{ 'background-image': 'url('+ rear_image?.src +')'}"></div> -->
+                <img [src]="rear_image?.src" alt="image" />
+                <p class="imagename">Rear</p>
+
+                <div class="hoverupload">
+                  <img
+                    (click)="deleteAttachment('rear_image')"
+                    src="/assets/img/steps/delete.png"
+                    class="delete"
+                    alt="image"
+                  />
+                  <img
+                    (click)="rotateToDegree('rear_image')"
+                    src="/assets/img/steps/rotate-blue.png"
+                    class="rotate"
+                    alt="image"
+                  />
+
+                  <div class="checkimg">
+                    <img src="/assets/img/steps/check.png" alt="image" />
+                  </div>
+
+                  <p>Rear</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="uploaddata" *ngIf="!driver_image?.src">
+                <div class="file-input">
+                  <input
+                    type="file"
+                    name="file-input"
+                    id="file-input-driver"
+                    class="file-input__input"
+                    (change)="handleFileSelect($event, 'driver_image')"
+                  />
+                  <label class="file-input__label" for="file-input-driver">
+                    <span>Driver’s side</span>
+                    <div class="labelimage">
+                      <img src="/assets/img/steps/3.png" alt="image" />
+                    </div>
+                  </label>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="
+                      submitted && vehiclePhoto?.driver_image?.errors?.required
+                    "
+                  >
+                    Driver Photo is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="car-images" *ngIf="driver_image?.src">
+                <!-- <div class="bgImage" [ngStyle]="{ 'background-image': 'url('+ driver_image?.src +')'}"></div> -->
+                <img [src]="driver_image?.src" alt="image" />
+                <p class="imagename">Driver’s side</p>
+
+                <div class="hoverupload">
+                  <img
+                    (click)="deleteAttachment('driver_image')"
+                    src="/assets/img/steps/delete.png"
+                    class="delete"
+                    alt="image"
+                  />
+                  <img
+                    (click)="rotateToDegree('driver_image')"
+                    src="/assets/img/steps/rotate-blue.png"
+                    class="rotate"
+                    alt="image"
+                  />
+
+                  <div class="checkimg">
+                    <img src="/assets/img/steps/check.png" alt="image" />
+                  </div>
+
+                  <p>Driver’s side</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="uploaddata" *ngIf="!passenger_image?.src">
+                <div class="file-input">
+                  <input
+                    type="file"
+                    name="file-input"
+                    id="file-input-passenger"
+                    class="file-input__input"
+                    (change)="handleFileSelect($event, 'passenger_image')"
+                  />
+                  <label class="file-input__label" for="file-input-passenger">
+                    <span>Passenger's side</span>
+                    <div class="labelimage">
+                      <img src="/assets/img/steps/4.png" alt="image" />
+                    </div>
+                  </label>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="
+                      submitted &&
+                      vehiclePhoto?.passenger_image?.errors?.required
+                    "
+                  >
+                    Passenger Photo is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="car-images" *ngIf="passenger_image?.src">
+                <!-- <div class="bgImage" [ngStyle]="{ 'background-image': 'url('+ passenger_image?.src +')'}"></div> -->
+                <img [src]="passenger_image?.src" alt="image" />
+                <p class="imagename">Passenger's side</p>
+
+                <div class="hoverupload">
+                  <img
+                    (click)="deleteAttachment('passenger_image')"
+                    src="/assets/img/steps/delete.png"
+                    class="delete"
+                    alt="image"
+                  />
+                  <img
+                    (click)="rotateToDegree('passenger_image')"
+                    src="/assets/img/steps/rotate-blue.png"
+                    class="rotate"
+                    alt="image"
+                  />
+
+                  <div class="checkimg">
+                    <img src="/assets/img/steps/check.png" alt="image" />
+                  </div>
+
+                  <p>Passenger's side</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="uploaddata" *ngIf="!dashboard_image?.src">
+                <div class="file-input">
+                  <input
+                    type="file"
+                    name="file-input"
+                    id="file-input-dashboard"
+                    class="file-input__input"
+                    (change)="handleFileSelect($event, 'dashboard_image')"
+                  />
+                  <label class="file-input__label" for="file-input-dashboard">
+                    <span>Dashboard</span>
+                    <div class="labelimage">
+                      <img src="/assets/img/steps/5.png" alt="image" />
+                    </div>
+                  </label>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="
+                      submitted &&
+                      vehiclePhoto?.dashboard_image?.errors?.required
+                    "
+                  >
+                    Dashboard Photo is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="car-images" *ngIf="dashboard_image?.src">
+                <!-- <div class="bgImage" [ngStyle]="{ 'background-image': 'url('+ dashboard_image?.src +')'}"></div> -->
+                <img [src]="dashboard_image?.src" alt="image" />
+                <p class="imagename">Dashboard</p>
+
+                <div class="hoverupload">
+                  <img
+                    (click)="deleteAttachment('dashboard_image')"
+                    src="/assets/img/steps/delete.png"
+                    class="delete"
+                    alt="image"
+                  />
+                  <img
+                    (click)="rotateToDegree('dashboard_image')"
+                    src="/assets/img/steps/rotate-blue.png"
+                    class="rotate"
+                    alt="image"
+                  />
+
+                  <div class="checkimg">
+                    <img src="/assets/img/steps/check.png" alt="image" />
+                  </div>
+
+                  <p>Dashboard</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+              <div class="uploaddata" *ngIf="!sitting_image?.src">
+                <div class="file-input">
+                  <input
+                    type="file"
+                    name="file-input"
+                    id="file-input-sitting"
+                    class="file-input__input"
+                    (change)="handleFileSelect($event, 'sitting_image')"
+                  />
+                  <label class="file-input__label" for="file-input-sitting">
+                    <span>Sitting</span>
+                    <div class="labelimage">
+                      <img src="/assets/img/steps/6.png" alt="image" />
+                    </div>
+                  </label>
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="
+                      submitted && vehiclePhoto?.sitting_image?.errors?.required
+                    "
+                  >
+                    Sitting Photo is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="car-images" *ngIf="sitting_image?.src">
+                <!-- <div class="bgImage" [ngStyle]="{ 'background-image': 'url('+ sitting_image?.src +')'}"></div> -->
+                <img [src]="sitting_image?.src" alt="image" />
+                <p class="imagename">Sitting</p>
+
+                <div class="hoverupload">
+                  <img
+                    (click)="deleteAttachment('sitting_image')"
+                    src="/assets/img/steps/delete.png"
+                    class="delete"
+                    alt="image"
+                  />
+                  <img
+                    (click)="rotateToDegree('sitting_image')"
+                    src="/assets/img/steps/rotate-blue.png"
+                    class="rotate"
+                    alt="image"
+                  />
+
+                  <div class="checkimg">
+                    <img src="/assets/img/steps/check.png" alt="image" />
+                  </div>
+
+                  <p>Sitting</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="uploaddata1 text-md-right text-center mb-3">
+                <label class="custom-file-upload">
+                  <input
+                    #fileInput
+                    id="file-upload"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    (click)="fileInput.value = 'null'"
+                    (change)="changeData($event.target)"
+                  />
+                  Add More Images
+                </label>
+              </div>
+            </div>
+
+            <!-- Add more images preview section start here -->
+
+            <!-- Add more images in mobile section start here -->
+            <div class="col-md-12 col-sm-12 col-12 desk-hide pl-1">
+              <div *ngIf="otherImages?.length" class="car-upload">
+                <h3 class="imagecategory mt-3 mb-3">Other Images</h3>
+                <h2>Completed</h2>
+                <div
+                  cdkDropList
+                  (cdkDropListDropped)="dropInOtherImagesMobileView($event)"
+                >
+                  <ng-container *ngFor="let img of otherImages; index as i">
+                    <div class="car-upload-main mb-3">
+                      <div class="row example-box" cdkDrag>
+                        <div class="col-md-8 col-10">
+                          <div class="carimage1">
+                            <img [src]="img?.src" alt="img" />
+                          </div>
+                          <div class="car-head1 car-head2">
+                            <h4>{{ img?.name }} tt</h4>
+                            <p>
+                              {{ img?.size / (1024 * 1024) | number: "1.0-2" }}
+                              MB
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-2">
+                          <!-- <span></span> -->
+                          <a href="javascript:;">
+                            <img
+                              src="/assets/icons/carcross.png"
+                              (click)="delete(i)"
+                              alt="img"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+            <!-- Add more images in mobile section end here -->
+
+            <!-- Add more images in web section start here -->
+            <div
+              class="imageshown-border mob-div-hide mt-4 col-12"
+              *ngIf="otherImages?.length"
+            >
+              <h3 class="imagecategory">Other Images</h3>
+              <div class="row" cdkDropListGroup>
+                <div
+                  class="col-md-4 col-lg-3 pr-0"
+                  cdkDropList
+                  [cdkDropListData]="i"
+                  *ngFor="let img of otherImages; index as i"
+                >
+                  <div
+                    class="drag-box"
+                    cdkDrag
+                    [cdkDragData]="i"
+                    (cdkDragEntered)="drop($event, otherImages)"
+                  >
+                    <div class="imgshow">
+                      <img class="image-fit" [src]="img?.src" alt="" />
+                      <div class="overlay">
+                        <img
+                          src="/assets/icons/cross-del.png"
+                          (click)="delete(i)"
+                          class="cross-img"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <h5>{{ img?.name }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Add more images in web section end here -->
+            <div
+              class="invalid-images"
+              *ngIf="submitted && vehiclePhoto?.images?.errors?.maxlength"
+            >
+              Maximum 6 photos are allowed only
+            </div>
+            <!-- Add more images preview section end here -->
+          </div>
+
+          <div class="border-bottom-div1 mt-2 mb-4 pt-1 mb-4"></div>
+
+          <div class="col-md-12">
+            <div class="damage mt-5">
+              <p>If damage? Please tell us more.</p>
+              <div class="form-group mt-2">
+                <label class="d-block mb-3"
+                  >To Avoid Unfair Depreciation, provide us more
+                  information.</label
+                >
+                <textarea
+                  class="form-control bg-textarea"
+                  formControlName="message"
+                  rows="6"
+                  placeholder="Enter Detail"
+                ></textarea>
+              </div>
+
+              <div class="custom-file-upload">
+                <label for="file-upload-2" class="custom-file-upload1">
+                  Upload Damage Pictures
+                </label>
+                <input
+                  #fileInput2
+                  id="file-upload-2"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  value=""
+                  (click)="fileInput2.value = 'null'"
+                  (change)="addDamageImages($event.target)"
+                />
+              </div>
+
+              <!-- Damage images in mobile section start here -->
+              <div class="col-md-12 col-sm-12 col-12 desk-hide pl-1">
+                <div *ngIf="damageImages?.length" class="car-upload">
+                  <h3 class="imagecategory mt-3 mb-3">Damaged Images</h3>
+                  <h2>Completed</h2>
+                  <div
+                    cdkDropList
+                    (cdkDropListDropped)="dropInDamageImagesMobileView($event)"
+                  >
+                    <ng-container *ngFor="let img of damageImages; index as i">
+                      <div class="car-upload-main mb-3">
+                        <div class="row example-box" cdkDrag>
+                          <div class="col-md-8 col-10">
+                            <div class="carimage1">
+                              <img [src]="img?.src" alt="img" />
+                            </div>
+                            <div class="car-head1 car-head2">
+                              <h4>{{ img?.name }} tt</h4>
+                              <p>
+                                {{
+                                  img?.size / (1024 * 1024) | number: "1.0-2"
+                                }}
+                                MB
+                              </p>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-2">
+                            <!-- <span></span> -->
+                            <a href="javascript:;">
+                              <img
+                                src="/assets/icons/carcross.png"
+                                (click)="deleteDamageImage(i)"
+                                alt="img"
+                              />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+              <!-- Damage images in mobile section end here -->
+
+              <!-- Damage images in web section start here -->
+              <div
+                class="imageshown-border mob-div-hide mt-4"
+                *ngIf="damageImages?.length"
+              >
+                <h3 class="imagecategory">Damaged Images</h3>
+                <div class="row" cdkDropListGroup>
+                  <div
+                    class="col-md-4 col-lg-3 pr-0"
+                    cdkDropList
+                    [cdkDropListData]="i"
+                    *ngFor="let img of damageImages; index as i"
+                  >
+                    <div
+                      class="drag-box"
+                      cdkDrag
+                      [cdkDragData]="i"
+                      (cdkDragEntered)="drop($event, damageImages)"
+                    >
+                      <div class="imgshow">
+                        <img class="image-fit" [src]="img?.src" alt="" />
+                        <div class="overlay">
+                          <img
+                            src="/assets/icons/cross-del.png"
+                            (click)="deleteDamageImage(i)"
+                            class="cross-img"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <h5>{{ img?.name }}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Damage images in web section end here -->
+              <div
+                class="invalid-images"
+                *ngIf="
+                  submitted && vehiclePhoto?.damage_photos?.errors?.maxlength
+                "
+              >
+                Maximum 5 photos are allowed only
+              </div>
+            </div>
+          </div>
+
+          <div class="border-bottom-div1 mt-2 mb-4 pt-1 mb-4"></div>
+
+          <div class="mb-3 mt-5 d-block">
+            <button type="button" class="backBtn" (click)="prev()">Back</button>
+
+            <button type="submit" class="nextBtn">
+              Next
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

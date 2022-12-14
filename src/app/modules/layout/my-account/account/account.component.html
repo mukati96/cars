@@ -1,0 +1,369 @@
+<div class="page-content pl-md-5 pl-0">
+  <h1>My Account</h1>
+  <p>View and edit your personal detail</p>
+
+  <div class="row mt-md-4 mt-2">
+    <div class="col-xl-8 col-md-12 col-12">
+      <form [formGroup]="userForm" (ngSubmit)="update()">
+        <h3 class="mt-3">Personal Details</h3>
+
+        <div class="avatar-upload">
+          <div class="avatar-edit">
+            <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput
+              (click)="fileInput.value === 'null'" (change)="fileChangeEvent($event)" />
+            <label for="imageUpload"></label>
+          </div>
+          <div class="avatar-preview">
+            <div id="imagePreview" [style]="
+                'background-image: url(' +
+                (userInfo?.profile_pic || '../assets/img/default-user.png') +
+                ');'
+              " oncontextmenu="return false;"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 col-12">
+            <div class="form-group">
+              <label>first name</label>
+              <input [ngClass]="{
+                  invalid:
+                    (accountSubmitted || f.first_name.touched) &&
+                    f.first_name?.errors
+                }" class="form-control" type="text" formControlName="first_name" name="name" />
+              <div class="invalid-feedback" *ngIf="
+                  (accountSubmitted || f.first_name.touched) &&
+                  f.first_name?.errors?.required
+                ">
+                First Name is required
+              </div>
+              <div class="invalid-feedback" *ngIf="
+                  (accountSubmitted || f.first_name.touched) &&
+                  f.first_name?.errors?.maxlength
+                ">
+                Maximum 15 character is allowed
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5 col-12">
+            <div class="form-group">
+              <label>last name</label>
+              <input class="form-control" type="text" [ngClass]="{
+                  invalid:
+                    (accountSubmitted || f.last_name.touched) &&
+                    f.last_name?.errors
+                }" formControlName="last_name" name="name" />
+              <div class="invalid-feedback" *ngIf="
+                  (accountSubmitted || f.last_name.touched) &&
+                  f.last_name?.errors?.required
+                ">
+                Last Name is required
+              </div>
+              <div class="invalid-feedback" *ngIf="
+                  (accountSubmitted || f.last_name.touched) &&
+                  f.last_name?.errors?.maxlength
+                ">
+                Maximum 15 character is allowed
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5 col-12">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <ngx-intl-tel-input [ngClass]="{
+                  invalid:
+                    (accountSubmitted || f.phone_number.touched) &&
+                    f.phone_number?.errors
+                }" class="account form-control pl-0 pt-0 pb-0"
+                [onlyCountries]="[CountryISO.UnitedStates, CountryISO.India]" [selectedCountryISO]="selectedCountryISO"
+                [enableAutoCountrySelect]="true" [enablePlaceholder]="false" [searchCountryFlag]="false"
+                [maxLength]="15"  [phoneValidation]="true" [separateDialCode]="true"
+                formControlName="phone_number" (click)="onClickInput($event)"></ngx-intl-tel-input>
+                
+              <div class="invalid-feedback" *ngIf="
+                  (accountSubmitted || f.phone_number.touched) &&
+                  f.phone_number?.errors
+                ">
+                Phone Number is required and must be valid
+              </div>
+            </div>
+            <label class="verified-label">Verified
+              <img src="./assets/icons/checkmark.svg" alt="" />
+            </label>
+          </div>
+
+          <div class="col-md-5 col-12">
+            <div class="form-group">
+              <label>Email</label>
+              <input class="form-control" type="email" [ngClass]="{
+                  invalid:
+                    (accountSubmitted || f.email.touched) && f.email?.errors
+                }" formControlName="email" name="name" [attr.disabled]="true" />
+            </div>
+            <div class="invalid-feedback" *ngIf="
+                (accountSubmitted || f.email.touched) &&
+                f.email?.errors?.required
+              ">
+              Email is required
+            </div>
+            <div class="invalid-feedback" *ngIf="
+                (accountSubmitted || f.email.touched) && f.email?.errors?.email
+              ">
+              Email must be valid
+            </div>
+          </div>
+
+          <div class="col-md-2 col-12">
+            <div class="form-group mt-md-5 mt-2 verifytext">
+              <span *ngIf="isEmailSubmit && !emailVerified" class="spinner" style="border-top-color: #000;
+                border-left-color: #03eadd;"></span>
+              <a *ngIf="!isEmailSubmit && !emailVerified" class="verify" (click)="verifyEmail()">
+                Verify
+              </a>
+            </div>
+            <img *ngIf="emailVerified" class="email-verified-img" src="../../../../../assets/icons/verify.png" alt="" />
+          </div>
+        </div>
+        <ul class="list-inline mt-3 pt-0 mb-2">
+          <li class="">
+            <button type="submit" class="next-btn next-step mb-0">
+              <span class="spinner" *ngIf="isAccount"></span>
+              <ng-container *ngIf="!isAccount">Save</ng-container>
+            </button>
+          </li>
+        </ul>
+      </form>
+
+      <div class="border-bottom-div responsive-border"></div>
+      <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+        <h3 class="mt-3">Change Password</h3>
+        <div class="row">
+          <div class="col-lg-5 col-sm-6 col-12">
+            <div class="form-group position-relative">
+              <label>Password</label>
+              <input type="text" class="form-control" placeholder="Enter your Number" formControlName="cell_phone"
+                [ngClass]="{
+                  invalid: (passwordSubmitted || p?.cell_phone?.touched) && p?.cell_phone?.errors    
+                }" maxlength="12" appNumberOnly />
+
+              <button type="button" class="sendOtp checkinputimage" (click)="send_Otp()" *ngIf="!otpVerified">
+                <ng-container>{{ otpSent ? "RE-SEND " : "SEND CODE" }}</ng-container>
+              </button>
+
+
+              <div class="invalid-class" *ngIf="passwordSubmitted || p.cell_phone?.touched">
+                <ng-container *ngIf="p.cell_phone?.errors?.required">Cell Phone is required</ng-container>
+                <ng-container *ngIf="p.cell_phone?.errors?.pattern">Cell Phone number is not valid</ng-container>
+                <ng-container *ngIf="p.cell_phone?.errors?.invalid">{{p.cell_phone?.errors?.invalid}}</ng-container>
+
+              </div>
+            </div>
+
+            <div class="form-group position-relative" *ngIf="!isShow">
+              <label>Verify Code </label>
+              <input type="text" formControlName="otp" placeholder="Verify Code" inputmode="numeric"
+                class="form-control" mask="000000" [ngClass]="{
+                      invalid: (passwordSubmitted || p.otp.touched) && p.otp.errors}" maxlength="6" />
+
+              <button type="button" class="sendOtp checkinputimage" (click)="verifyOtps($event)" *ngIf="!otpVerified"
+                [disabled]="!otpSent">
+                VERIFY CODE</button>
+              <button type="button" class="verifyOTP checkinputimage" (click)="verifyOtps($event)" *ngIf="otpVerified"
+                [disabled]="otpVerified">
+                <i class="far fa-check-circle verified-check"></i>
+              </button>
+
+              <div class="invalid-class" *ngIf="passwordSubmitted || p.otp?.touched">
+                <ng-container *ngIf="p.otp?.errors?.required">Code is required</ng-container>
+                <ng-container *ngIf="p.otp?.errors?.otp ">Please enter valid Code </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-md-5 col-12">
+            <div class="form-group">
+              <label>Current Password</label>
+              <input
+                class="form-control"
+                type="password"
+                [ngClass]="{
+                  invalid:
+                    (passwordSubmitted || p.current_password.touched) &&
+                    p.current_password?.errors
+                }"
+                formControlName="current_password"
+                autocomplete="new-password"
+                name="name"
+              />
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.current_password.touched) &&
+                  p.current_password?.errors?.required
+                "
+              >
+                Current Password is required
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.current_password.touched) &&
+                  p.current_password?.errors?.minlength
+                "
+              >
+                Current Password must be 6 character long
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.current_password.touched) &&
+                  p.current_password?.errors?.maxlength
+                "
+              >
+                Maximum 15 character is allowed
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 col-12">
+            <div class="form-group">
+              <label>New Password</label>
+              <input
+                class="form-control"
+                type="password"
+                [ngClass]="{
+                  invalid:
+                    (passwordSubmitted || p.new_password.touched) &&
+                    p.new_password?.errors
+                }"
+                formControlName="new_password"
+                autocomplete="new-password"
+                name="name"
+              />
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.new_password.touched) &&
+                  p.new_password?.errors?.required
+                "
+              >
+                New Password is required
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.new_password.touched) &&
+                  p.new_password?.errors?.minlength
+                "
+              >
+                New Password must be 6 character long
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.new_password.touched) &&
+                  p.new_password?.errors?.maxlength
+                "
+              >
+                Maximum 15 character is allowed
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5 col-12">
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input
+                class="form-control"
+                type="password"
+                [ngClass]="{
+                  invalid:
+                    (passwordSubmitted || p.confirm_password.touched) &&
+                    p.confirm_password?.errors
+                }"
+                formControlName="confirm_password"
+                autocomplete="new-password"
+                name="name"
+              />
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.confirm_password.touched) &&
+                  p.confirm_password?.errors?.required
+                "
+              >
+                Confirm Password is required
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.confirm_password.touched) &&
+                  p.confirm_password?.errors?.mustMatch
+                "
+              >
+                Confirm Password not matching
+              </div>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  (passwordSubmitted || p.confirm_password.touched) &&
+                  p.confirm_password?.errors?.maxlength
+                "
+              >
+                Maximum 15 character is allowed
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <ul class="list-inline mt-3 pt-0 mb-2">
+          <li class="">
+            <button type="submit" class="next-btn next-step mb-0">
+              <span class="spinner" *ngIf="isPassword"></span>
+              <ng-container *ngIf="!isPassword">Save</ng-container>
+            </button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Profile picture upload modal -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal fade" id="profileModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Profile Picture</h4>
+          <button type="button" (click)="close()" class="close">
+            <img src="/assets/icons/cross-del.png" alt="image" />
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 3"
+            format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+          <h5 class="modal-title12 mt-3">Cropped Image</h5>
+          <div class="text-center" *ngIf="croppedImage">
+            <img class="cropped-img" [src]="croppedImage" />
+          </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button [disabled]="submittingProfile" type="submit" (click)="update()" class="next-btn">
+            <span class="spinner" *ngIf="submittingProfile"></span>
+            <ng-container *ngIf="!submittingProfile">Save</ng-container>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

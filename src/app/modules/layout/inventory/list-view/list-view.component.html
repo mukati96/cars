@@ -1,0 +1,114 @@
+<ng-container *ngIf="!fetchingData">
+  <ng-container *ngFor="let item of collection.data | paginate: config | filter: searchFilter"  >
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div
+          [class.inventory-car-colsold]="item?.conformed_status === 'Sold'" class="inventory-car-col"  >
+          <div class="row" >
+            <div class="col-lg-3 col-md-4 col-12">
+              <div class="inventory-car-col-img pointer" >
+                 <img
+                  [lazyLoad]="item?.front_image"
+                  alt=""
+                  [style.pointer-events]="
+                    item?.conformed_status === 'Sold'? 'none': 'auto' " />
+              
+              </div>
+            </div>
+            <div
+              class="col-lg-9 col-md-8 col-12"
+              [style.pointer-events]="
+                item?.conformed_status === 'Sold'? 'none': 'auto'">
+              <div class="inventory-car-col-content">
+                <h4 class="mb-1">{{ item?.name | titlecase }}</h4>
+                <span class="car-trim"> {{ item?.trim }}</span>
+                <div class="price-buy" *ngIf="item?.minimum_reserve_price && item?.conformed_status === 'Live'">
+                    <p class="top-offer d-inline-block">
+                      <span>
+                        <sup class="dollar"> $</sup>
+                        {{ item?.minimum_reserve_price||item?.current_top_offer}}</span>
+                    </p>
+                </div>
+
+                <ng-container>
+                  <p class="location">
+                   
+                    {{ item?.state| titlecase }} | {{ item?.city | titlecase }}
+                    </p>
+                 
+                </ng-container>
+                <div
+                  class="text-left producttext"
+                  *ngIf="
+                    item?.conformed_status === 'Sold' ||
+                    item?.conformed_status === 'Processing'
+                  "
+                  [style.pointer-events]="
+                  item?.conformed_status === 'Processing'
+                    ? 'none'
+                    : 'auto'
+                  "
+                  [routerLink]="getRedirectLink(item)">
+                  {{ item?.conformed_status }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-car-bottom"></div>
+  </ng-container>
+  <div class="nodata" *ngIf="!fetchingData && !collection?.data.length">
+    No Data Found
+  </div>
+</ng-container>
+<ng-container *ngIf="fetchingData">
+  <div class="container">
+    <ul class="list">
+      <li class="item">
+        <div class="card-demo">
+          <div class="infos">
+            <div class="thumbnail"></div>
+            <div class="date">
+              <span class="skeleton-bone"></span>
+            </div>
+          </div>
+          <div class="title">
+            <span class="skeleton-bone"></span>
+            <span class="skeleton-bone"></span>
+          </div>
+        </div>
+      </li>
+      <li class="item">
+        <div class="card-demo">
+          <div class="infos">
+            <div class="thumbnail"></div>
+            <div class="date">
+              <span class="skeleton-bone"></span>
+            </div>
+          </div>
+          <div class="title">
+            <span class="skeleton-bone"></span>
+          </div>
+        </div>
+      </li>
+      <li class="item">
+        <div class="card-demo">
+          <div class="infos">
+            <div class="thumbnail"></div>
+            <div class="date">
+              <span class="skeleton-bone"></span>
+            </div>
+          </div>
+          <div class="title">
+            <span class="skeleton-bone"></span>
+            <span class="skeleton-bone"></span>
+            <span class="skeleton-bone"></span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ng-container>

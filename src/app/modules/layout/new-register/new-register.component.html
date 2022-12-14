@@ -1,0 +1,170 @@
+<section class="breadcrumb pb-0 mb-1 pl-md-2 pl-0">
+  <div class="container">
+    <ol class="p-0 pl-md-4">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <!-- <li class="breadcrumb-item"><a>All</a></li> -->
+      <li class="breadcrumb-item active">Appraisal</li>
+    </ol>
+  </div>
+</section>
+<section class="form-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-9">
+        <ng-container>
+          <h1>Get your offer</h1>
+          <p>
+            Share a few details about your vehicle and we'll give you a real
+            offer right now.
+          </p>
+        </ng-container>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="mb-0 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-12">
+        <form [formGroup]="vehicleForm">
+          <div class="add-info mt-md-5 mt-2 mb-md-5 mb-3">
+            <h5>We need some additional info</h5>
+            <p>
+              To provide an accurate offer, please select the correct trim for
+              your vehicle.
+            </p>
+          </div>
+          <post-appraisal *ngIf="currentStep === 1" [appraisalData]="routeState"></post-appraisal>
+          <div
+            class="carname mt-4"
+            formGroupName="vehicle_info_a"
+            *ngIf="!trimSubmitted"
+          >
+            <h5 class="mb-0">
+              {{ f.vehicleFormData?.value?.year }}
+              {{ f.vehicleFormData?.value?.make | uppercase }}
+            </h5>
+            <p>
+              {{ f.vehicleFormData?.value?.model | uppercase }}
+            </p>
+            <div class="row">
+              <div class="col-md-7 col-12">
+                <div
+                  class="form-group mt-4 trimform"
+                  style="position: relative"
+                >
+                  <label>Trim </label>
+                  <select
+                    class="form-control trimselect"
+                    formControlName="trim"
+                  >
+                    <option value="" selected disabled>Select Trim</option>
+                    <option
+                      [value]="item"
+                      *ngFor="let item of f.vehicleFormData?.value?.trim"
+                      >{{ item | uppercase }}</option
+                    >
+                  </select>
+                  <div
+                    class="invalid-class"
+                    *ngIf="
+                      (submitted || vehicleInfo_a?.trim?.touched) &&
+                      vehicleInfo_a?.trim?.errors?.required
+                    "
+                  >
+                    Trim is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 col-12">
+                <button
+                  type="button"
+                  class="next-btn mt-md-4 mt-2"
+                  (click)="submitTrim()"
+                >
+                  Next
+                </button>
+              </div>
+
+              <!-- <div class="col-md-12">
+                <a class="trimlink mt-4 mb-4"
+                  >How do I find my vehicle's trim?</a
+                >
+              </div> -->
+            </div>
+          </div>
+
+          <div class="carDetail mt-3" *ngIf="trimSubmitted">
+            <div class="row">
+              <!-- <div class="col-md-2">
+                <div class="carImage">
+                  <img src="/assets/img/car2.png" alt="image" />
+                </div>
+              </div> -->
+
+              <div class="col-md-12 pl-3">
+                <div class="carContent">
+                  <h5>{{ f.name.value | uppercase }}</h5>
+                  <p>
+                    {{ vehicleInfo_a.trim?.value | uppercase }}
+                    <a class="pointer" (click)="editTrim()">Edit</a>
+                  </p>
+                  <p *ngIf="f.vehicleFormData?.value?.vin">VIN: {{ f.vehicleFormData?.value?.vin | uppercase }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <post-header-steps
+            class="p-2"
+            [currentStep]="currentStep"
+            [userInfo]="userInfo"
+          >
+          </post-header-steps>
+
+          <post-the-basics
+            [submittedZip]="submittedZip"
+            [fetchingZipCode]="fetchingZipCode"
+            [vehicleForm]="vehicleForm"
+            [vehicleFormData]="vehicleFormData"
+            *ngIf="currentStep === 1"
+          ></post-the-basics>
+
+          <post-vehical-features
+            [vehicleForm]="vehicleForm"
+            *ngIf="currentStep === 2"
+          ></post-vehical-features>
+
+          <post-condition-and-history
+            [vehicleForm]="vehicleForm"
+            [vehicleFormData]="vehicleFormData"
+            *ngIf="currentStep === 3"
+          ></post-condition-and-history>
+
+          <!-- <post-vehicle-photo
+            [vehicleForm]="vehicleForm"
+            [fourthStepSubmitted]="fourthStepSubmitted"
+            [currentStep]="currentStep"
+            [imagesArray]="imagesArray"
+            [uploadedImages]="uploadedImages"
+            [submitted]="editForm"
+            *ngIf="currentStep === 4"
+          ></post-vehicle-photo> -->
+
+          <!-- <post-vehicle-photo-new
+            [vehicleForm]="vehicleForm"
+            *ngIf="currentStep === 4"
+          ></post-vehicle-photo-new> -->
+
+          <post-personal-information
+            [vehicleForm]="vehicleForm"
+            *ngIf="currentStep === 4"
+            [editForm]="editForm"
+          ></post-personal-information>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

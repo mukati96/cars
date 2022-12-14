@@ -1,0 +1,103 @@
+<!-- Modal content-->
+<div class="modal-content make-anoffercontent buyNowModal" style="cursor: pointer;">
+  <div class="modal-header border-0">
+    <h5>Your offer </h5>
+    <button type="button" class="close" (click)="close()">
+      <img src="/assets/icons/modal_close.png" alt="Image" />
+    </button>
+  </div>
+  <h5 class="stepValue">${{stepValue}}</h5>
+  <div class="modal-body">
+    <form [formGroup]="buynow">
+      <div class="form-group" *ngIf="!Login">
+        <label> Name</label>
+        <input type="text" class="form-control" formControlName="name" onkeydown="return /[a-z\s]/i.test(event.key)" [ngClass]="{
+                invalid: (submitted || f.name.touched) && f.name.errors  }" />
+        <div class="invalid-class" *ngIf="submitted || f.name?.touched">
+          <ng-container *ngIf="f.name?.errors?.required">Name is required</ng-container>
+        </div>
+      </div>
+      <div class="form-group">
+        <label> Email</label>
+        <input type="email" class="form-control" formControlName="email" [ngClass]="{
+                invalid: (submitted || f.email.touched) && f.email.errors
+              }" (keyup)="verifyEmail($event)" />
+        <div class="invalid-class" *ngIf="submitted || f.email?.touched">
+          <ng-container *ngIf="f.email?.errors?.required">Email is required</ng-container>
+          <ng-container *ngIf="f.email?.errors?.email">Please Enter valid email address</ng-container>
+          <ng-container *ngIf="f.email?.errors?.invalid">Please try with different email</ng-container>
+
+        </div>
+      </div>
+      <div class="form-group" >
+        <label>Cell Phone</label>
+        <input type="text" class="form-control" formControlName="cell_phone" [ngClass]="{
+            invalid: (submitted || f?.cell_phone?.touched) && f?.cell_phone?.errors    
+          }" maxlength="12"  (ngModelChange)="verifyPhoneNumber($event)" appNumberOnly/>
+        <span class="checkinputimage" *ngIf="!otpVerified">
+          <button type="button" class="sendOtp" (click)="send_Otp()">
+            <ng-container>{{ otpSent ? "RE-SEND " : "SEND CODE" }}</ng-container>
+          </button>
+        </span>
+
+        <div class="invalid-class" *ngIf="submitted || f.cell_phone?.touched">
+          <ng-container *ngIf="f.cell_phone?.errors?.required">Cell Phone is required</ng-container>
+          <ng-container *ngIf="f.cell_phone?.errors?.invalid">{{f.cell_phone?.errors?.invalid}}</ng-container>
+          <ng-container *ngIf="f.cell_phone?.errors?.pattern">{{checknumber}}</ng-container>
+
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="!isShow">
+        <label>Verify Code </label>
+        <input type="number" formControlName="otp" inputmode="numeric" class="form-control" mask="00000" [ngClass]="{
+                invalid: (submitted || f.otp.touched) && f.otp.errors}" maxlength="6" />
+        <span class="checkinputimage">
+          <button type="button" class="sendOtp" (click)="verifyOtps($event)" *ngIf="!otpVerified" [disabled]="!otpSent">
+            VERIFY CODE</button>
+          <button type="button" class="verifyOTP" (click)="verifyOtps($event)" *ngIf="otpVerified"
+            [disabled]="otpVerified">
+            <i class="far fa-check-circle"></i></button>
+        </span>
+
+        <div class="invalid-class" *ngIf="submitted || f.otp?.touched">
+          <ng-container *ngIf="f.otp?.errors?.required">Code is required</ng-container>
+          <ng-container *ngIf="f.otp?.errors?.otp ">Please enter valid Code </ng-container>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="!Login">
+        <label> Zipcode</label>
+        <input  formControlName="zip_code" 
+        class="form-control"
+        (keyup)="zipcode($event)" 
+        [ngClass]="{
+          invalid: (submitted || f?.zip_code?.touched) && f?.zip_code?.errors || f?.zip_code?.pattern 
+        }" maxlength="5"  appNumberOnly />
+        <div class="invalid-class" *ngIf="submitted || f.zip_code?.touched">
+
+          <ng-container *ngIf="f.zip_code?.errors?.required">zipcode is required</ng-container>
+          <ng-container *ngIf="f.zip_code?.errors?.pattern">Enter valid zipcode</ng-container>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="!Login" >
+        <label>State</label>
+        <input type="text" class="form-control" formControlName="state"  [attr.disabled]="true"/>
+      </div>
+      <div class="form-group" *ngIf="!Login" >
+        <label>City</label>
+        <input type="text" class="form-control" formControlName="city" [attr.disabled]="true"/>
+      </div>
+      <button type="submit" class="btn make-offersavebtn" 
+      *ngIf="!Login"
+      [disabled]="!otpVerified || buynow.invalid" (click)="onSubmit()">SUBMIT OFFER</button>
+      <button type="submit" class="btn make-offersavebtn" 
+      *ngIf="Login"
+      [disabled]="!otpVerified || !buynow.get('otp')?.value || buynow.get('email')?.invalid || !buynow.get('cell_phone')?.value"  (click)="onSubmit()">SUBMIT OFFER</button>
+    </form>
+    <div class="mistake_box">
+      <img src="../../../../../assets/img/alert-1.png" alt="">
+      <p>Do not make mistake bid, POST monitors abuse bidders</p>
+    </div>
+  </div>
+</div>
+
